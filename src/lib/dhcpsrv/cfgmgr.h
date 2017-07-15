@@ -7,12 +7,8 @@
 #ifndef CFGMGR_H
 #define CFGMGR_H
 
-#include <asiolink/io_address.h>
-#include <dhcp/option.h>
-#include <dhcp/option_space.h>
-#include <dhcp/classify.h>
+//#include <asiolink/io_address.h>
 #include <dhcpsrv/d2_client_mgr.h>
-#include <dhcpsrv/pool.h>
 #include <dhcpsrv/srv_config.h>
 #include <util/buffer.h>
 
@@ -26,16 +22,6 @@
 
 namespace isc {
 namespace dhcp {
-
-/// @brief Exception thrown when the same interface has been specified twice.
-///
-/// In particular, this exception is thrown when adding interface to the set
-/// of interfaces on which server is supposed to listen.
-class DuplicateListeningIface : public Exception {
-public:
-    DuplicateListeningIface(const char* file, size_t line, const char* what) :
-        isc::Exception(file, line, what) { };
-};
 
 /// @brief Configuration Manager
 ///

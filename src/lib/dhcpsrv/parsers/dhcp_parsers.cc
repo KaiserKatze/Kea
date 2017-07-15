@@ -8,6 +8,7 @@
 
 #include <dhcp/iface_mgr.h>
 #include <dhcp/libdhcp++.h>
+#include <dhcp/option_space.h>
 #include <dhcpsrv/cfgmgr.h>
 #include <dhcpsrv/cfg_option.h>
 #include <dhcpsrv/parsers/dhcp_parsers.h>

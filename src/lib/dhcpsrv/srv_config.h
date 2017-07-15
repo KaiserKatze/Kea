@@ -7,7 +7,6 @@
 #ifndef DHCPSRV_CONFIG_H
 #define DHCPSRV_CONFIG_H
 
-#include <cc/cfg_to_element.h>
 #include <dhcpsrv/cfg_db_access.h>
 #include <dhcpsrv/cfg_duid.h>
 #include <dhcpsrv/cfg_expiration.h>
@@ -24,10 +23,8 @@
 #include <dhcpsrv/d2_client_cfg.h>
 #include <dhcpsrv/logging_info.h>
 #include <hooks/hooks_config.h>
-#include <cc/data.h>
 #include <boost/shared_ptr.hpp>
-#include <vector>
-#include <stdint.h>
+#include <dhcpsrv/base_config.h>
 
 namespace isc {
 namespace dhcp {
@@ -38,7 +35,7 @@ class CfgMgr;
 /// @brief Specifies current DHCP configuration
 ///
 /// @todo Migrate all other configuration parameters from cfgmgr.h here
-class SrvConfig : public isc::data::CfgToElement {
+class SrvConfig : public isc::process::BaseConfig {
 public:
     /// @name Constants for selection of parameters returned by @c getConfigSummary
     ///
@@ -93,12 +90,7 @@ public:
     /// configuration to be returned.
     ///
     /// @return Summary of the configuration in the textual format.
-    std::string getConfigSummary(const uint32_t selection) const;
-
-    /// @brief Returns configuration sequence number.
-    uint32_t getSequence() const {
-        return (sequence_);
-    }
+    virtual std::string getConfigSummary(const uint32_t selection) const;
 
     /// @brief Compares configuration sequence with other sequence.
     ///
@@ -111,25 +103,6 @@ public:
     ///
     /// @return true if sequence numbers are equal.
     bool sequenceEquals(const SrvConfig& other);
-
-    /// @name Modifiers and accesors for the configuration objects.
-    ///
-    /// @warning References to the objects returned by accessors are only
-    /// valid during the lifetime of the @c SrvConfig object which
-    /// returned them.
-    ///
-    //@{
-    /// @brief Returns logging specific configuration.
-    const LoggingInfoStorage& getLoggingInfo() const {
-        return (logging_info_);
-    }
-
-    /// @brief Sets logging specific configuration.
-    ///
-    /// @param logging_info New logging configuration.
-    void addLoggingInfo(const LoggingInfo& logging_info) {
-        logging_info_.push_back(logging_info);
-    }
 
     /// @brief Returns non-const pointer to interface configuration.
     ///
@@ -542,12 +515,6 @@ public:
     virtual isc::data::ElementPtr toElement() const;
 
 private:
-
-    /// @brief Sequence number identifying the configuration.
-    uint32_t sequence_;
-
-    /// @brief Logging specific information.
-    LoggingInfoStorage logging_info_;
 
     /// @brief Interface configuration.
     ///

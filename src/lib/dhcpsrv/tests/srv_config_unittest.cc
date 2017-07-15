@@ -7,6 +7,7 @@
 #include <config.h>
 
 #include <dhcp/tests/iface_mgr_test_config.h>
+#include <dhcp/option_space.h>
 #include <dhcpsrv/cfgmgr.h>
 #include <dhcpsrv/srv_config.h>
 #include <dhcpsrv/subnet.h>
