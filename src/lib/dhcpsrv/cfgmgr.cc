@@ -19,21 +19,10 @@ using namespace isc::util;
 namespace isc {
 namespace dhcp {
 
-const size_t CfgMgr::CONFIG_LIST_SIZE = 10;
-
 CfgMgr&
 CfgMgr::instance() {
     static CfgMgr cfg_mgr;
     return (cfg_mgr);
-}
-
-std::string CfgMgr::getDataDir() const {
-    return (datadir_);
-}
-
-void
-CfgMgr::setDataDir(const std::string& datadir) {
-    datadir_ = datadir;
 }
 
 void
@@ -85,7 +74,6 @@ CfgMgr::clear() {
 
 void
 CfgMgr::commit() {
-
 
     ensureCurrentAllocated();
 
@@ -167,8 +155,7 @@ CfgMgr::getStagingCfg() {
 }
 
 CfgMgr::CfgMgr()
-    : datadir_(DHCP_DATA_DIR), d2_client_mgr_(),
-      verbose_mode_(false), family_(AF_INET) {
+    : BaseCfgMgr(DHCP_DATA_DIR, AF_INET, false), d2_client_mgr_() {
     // DHCP_DATA_DIR must be set set with -DDHCP_DATA_DIR="..." in Makefile.am
     // Note: the definition of DHCP_DATA_DIR needs to include quotation marks
     // See AM_CPPFLAGS definition in Makefile.am

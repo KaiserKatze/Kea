@@ -10,13 +10,11 @@
 //#include <asiolink/io_address.h>
 #include <dhcpsrv/d2_client_mgr.h>
 #include <dhcpsrv/srv_config.h>
-#include <util/buffer.h>
+#include <dhcpsrv/base_cfg_mgr.h>
 
 #include <boost/shared_ptr.hpp>
-#include <boost/noncopyable.hpp>
 
 #include <map>
-#include <string>
 #include <vector>
 #include <list>
 
@@ -52,31 +50,14 @@ namespace dhcp {
 /// Parameter inheritance is implemented in dedicated classes. See
 /// @ref isc::dhcp::SimpleParser4::deriveParameters and
 /// @ref isc::dhcp::SimpleParser6::deriveParameters.
-class CfgMgr : public boost::noncopyable {
+    class CfgMgr : public process::BaseCfgMgr {
 public:
-
-    /// @brief A number of configurations held by @c CfgMgr.
-    ///
-    /// @todo Make it configurable.
-    static const size_t CONFIG_LIST_SIZE;
 
     /// @brief returns a single instance of Configuration Manager
     ///
     /// CfgMgr is a singleton and this method is the only way of
     /// accessing it.
     static CfgMgr& instance();
-
-    /// @brief returns path do the data directory
-    ///
-    /// This method returns a path to writable directory that DHCP servers
-    /// can store data in.
-    /// @return data directory
-    std::string getDataDir() const;
-
-    /// @brief Sets new data directory.
-    ///
-    /// @param datadir New data directory.
-    void setDataDir(const std::string& datadir);
 
     /// @brief Updates the DHCP-DDNS client configuration to the given value.
     ///
@@ -121,7 +102,6 @@ public:
     /// @todo Make the size of the configurations history configurable.
     ///
     //@{
-
     /// @brief Removes current, staging and all previous configurations.
     ///
     /// This function removes all configurations, including current and
@@ -129,7 +109,7 @@ public:
     /// default settings.
     ///
     /// This function is exception safe.
-    void clear();
+    virtual void clear();
 
     /// @brief Commits the staging configuration.
     ///
@@ -139,7 +119,7 @@ public:
     /// the @c CONFIG_LIST_SIZE.
     ///
     /// This function is exception safe.
-    void commit();
+    virtual void commit();
 
     /// @brief Removes staging configuration.
     ///
@@ -150,7 +130,7 @@ public:
     /// fresh (default) configuration.
     ///
     /// This function is exception safe.
-    void rollback();
+    virtual void rollback();
 
     /// @brief Reverts to one of the previous configurations.
     ///
@@ -176,7 +156,8 @@ public:
     /// to the nearest configuration.
     ///
     /// @throw isc::OutOfRange if the specified index is out of range.
-    void revert(const size_t index);
+    virtual void revert(const size_t index);
+
 
     /// @brief Returns a pointer to the current configuration.
     ///
@@ -203,49 +184,6 @@ public:
 
     //@}
 
-    /// @name Methods setting/accessing global configuration for the process.
-    ///
-    //@{
-    /// @brief Sets verbose mode.
-    ///
-    /// @param verbose A boolean value indicating if the process should run
-    /// in verbose (true) or non-verbose mode.
-    void setVerbose(const bool verbose) {
-        verbose_mode_ = verbose;
-    }
-
-    /// @brief Checks if the process has been run in verbose mode.
-    ///
-    /// @return true if verbose mode enabled, false otherwise.
-    bool isVerbose() const {
-        return (verbose_mode_);
-    }
-
-    /// @brief Sets the default logger name.
-    ///
-    /// This name is used in cases when a user doesn't provide a configuration
-    /// for logger in the Kea configuration file.
-    void setDefaultLoggerName(const std::string& name) {
-        default_logger_name_ = name;
-    }
-
-    /// @brief Returns default logger name.
-    std::string getDefaultLoggerName() const {
-        return (default_logger_name_);
-    }
-
-    /// @brief Sets address family (AF_INET or AF_INET6)
-    void setFamily(uint16_t family) {
-        family_ = family == AF_INET ? AF_INET : AF_INET6;
-    }
-
-    /// @brief Returns address family.
-    uint16_t getFamily() const {
-        return (family_);
-    }
-
-    //@}
-
 protected:
 
     /// @brief Protected constructor.
@@ -268,9 +206,6 @@ private:
     /// default current configuration.
     void ensureCurrentAllocated();
 
-    /// @brief directory where data files (e.g. server-id) are stored
-    std::string datadir_;
-
     /// @brief Manages the DHCP-DDNS client and its configuration.
     D2ClientMgr d2_client_mgr_;
 
@@ -289,15 +224,6 @@ private:
     /// @brief Container holding all previous and current configurations.
     SrvConfigList configs_;
     //@}
-
-    /// @brief Indicates if a process has been ran in the verbose mode.
-    bool verbose_mode_;
-
-    /// @brief Default logger name.
-    std::string default_logger_name_;
-
-    /// @brief Address family.
-    uint16_t family_;
 };
 
 } // namespace isc::dhcp

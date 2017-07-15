@@ -6,6 +6,9 @@
 #include <dhcpsrv/logging_info.h>
 #include <cc/cfg_to_element.h>
 #include <cc/data.h>
+
+#include <boost/shared_ptr.hpp>
+
 #include <vector>
 #include <stdint.h>
 
@@ -75,6 +78,8 @@ class BaseConfig : public isc::data::CfgToElement {
     dhcp::LoggingInfoStorage logging_info_;
 
 };
+
+typedef boost::shared_ptr<BaseConfig> BaseConfigPtr;
 
 };
 };

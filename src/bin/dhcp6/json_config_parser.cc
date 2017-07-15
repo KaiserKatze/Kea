@@ -15,6 +15,7 @@
 #include <dhcp6/dhcp6_log.h>
 #include <dhcp6/simple_parser6.h>
 #include <dhcp/iface_mgr.h>
+#include <dhcp/option_space.h>
 #include <dhcpsrv/cfg_option.h>
 #include <dhcpsrv/cfgmgr.h>
 #include <dhcpsrv/pool.h>
