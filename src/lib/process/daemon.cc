@@ -6,12 +6,12 @@
 
 #include <config.h>
 #include <cc/data.h>
-#include <dhcpsrv/cfgmgr.h>
-#include <dhcpsrv/daemon.h>
+#include <process/base_cfg_mgr.h>
+#include <process/daemon.h>
 #include <exceptions/exceptions.h>
 #include <log/logger_name.h>
 #include <log/logger_support.h>
-#include <logging.h>
+#include <process/logging.h>
 #include <util/filename.h>
 
 #include <boost/bind.hpp>
@@ -19,6 +19,8 @@
 #include <sstream>
 #include <fstream>
 #include <errno.h>
+
+using namespace isc::process;
 
 /// @brief provides default implementation for basic daemon operations
 ///
@@ -66,19 +68,19 @@ void Daemon::configureLogger(const isc::data::ConstElementPtr& log_config,
         isc::data::ConstElementPtr loggers = log_config->get("loggers");
         if (loggers) {
             LogConfigParser parser(storage);
-            parser.parseConfiguration(loggers, CfgMgr::instance().isVerbose());
+            parser.parseConfiguration(loggers, process::BaseCfgMgr::instance().isVerbose());
         }
     }
 }
 
 void
 Daemon::setVerbose(bool verbose) {
-    CfgMgr::instance().setVerbose(verbose);
+    BaseCfgMgr::instance().setVerbose(verbose);
 }
 
 bool
 Daemon::getVerbose() const {
-    return (CfgMgr::instance().isVerbose());
+    return (BaseCfgMgr::instance().isVerbose());
 }
 
 void Daemon::loggerInit(const char* name, bool verbose) {
@@ -210,7 +212,7 @@ size_t
 Daemon::writeConfigFile(const std::string& config_file,
                         isc::data::ConstElementPtr cfg) const {
     if (!cfg) {
-        cfg = CfgMgr::instance().getCurrentCfg()->toElement();
+        cfg = BaseCfgMgr::instance().getCurrentCfgBase()->toElement();
     }
 
     if (!cfg) {

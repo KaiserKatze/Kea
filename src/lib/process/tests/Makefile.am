@@ -23,6 +23,7 @@ TESTS += libprocess_unittests
 libprocess_unittests_SOURCES  = d_cfg_mgr_unittests.cc
 libprocess_unittests_SOURCES += d_controller_unittests.cc
 libprocess_unittests_SOURCES += io_service_signal_unittests.cc
+libprocess_unittests_SOURCES += logging_info_unittest.cc
 libprocess_unittests_SOURCES += run_unittests.cc
 
 libprocess_unittests_CPPFLAGS = $(AM_CPPFLAGS) $(GTEST_INCLUDES)
@@ -32,9 +33,9 @@ libprocess_unittests_CXXFLAGS = $(AM_CXXFLAGS)
 libprocess_unittests_LDFLAGS  = $(AM_LDFLAGS) $(GTEST_LDFLAGS)
 
 libprocess_unittests_LDADD  = $(top_builddir)/src/lib/process/testutils/libprocesstest.la
+libprocess_unittests_LDADD += $(top_builddir)/src/lib/testutils/libkea-testutils.la
 libprocess_unittests_LDADD += $(top_builddir)/src/lib/process/libkea-process.la
 libprocess_unittests_LDADD += $(top_builddir)/src/lib/cfgrpt/libcfgrpt.la
-libprocess_unittests_LDADD += $(top_builddir)/src/lib/dhcpsrv/libkea-dhcpsrv.la
 libprocess_unittests_LDADD += $(top_builddir)/src/lib/config/libkea-cfgclient.la
 libprocess_unittests_LDADD += $(top_builddir)/src/lib/dhcp/libkea-dhcp++.la
 libprocess_unittests_LDADD += $(top_builddir)/src/lib/asiolink/libkea-asiolink.la

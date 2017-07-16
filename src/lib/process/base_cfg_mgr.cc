@@ -1,4 +1,4 @@
-#include <dhcpsrv/base_cfg_mgr.h>
+#include <process/base_cfg_mgr.h>
 #include <asiolink/io_address.h>
 
 namespace isc {

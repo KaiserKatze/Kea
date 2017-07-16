@@ -6,7 +6,7 @@
 
 #include <config.h>
 #include <cc/data.h>
-#include <dhcpsrv/logging.h>
+#include <process/logging.h>
 #include <boost/foreach.hpp>
 #include <boost/lexical_cast.hpp>
 #include <log/logger_specification.h>

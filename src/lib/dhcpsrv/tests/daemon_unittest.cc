@@ -9,8 +9,8 @@
 #include <exceptions/exceptions.h>
 #include <cc/data.h>
 #include <dhcpsrv/cfgmgr.h>
-#include <dhcpsrv/daemon.h>
-#include <dhcpsrv/logging.h>
+#include <process/daemon.h>
+#include <process/logging.h>
 #include <log/logger_support.h>
 
 #include <gtest/gtest.h>

@@ -3,7 +3,7 @@
 #ifndef BASE_CONFIG_H
 #define BASE_CONFIG_H
 
-#include <dhcpsrv/logging_info.h>
+#include <process/logging_info.h>
 #include <cc/cfg_to_element.h>
 #include <cc/data.h>
 

@@ -21,7 +21,7 @@
 #include <dhcpsrv/d2_client_mgr.h>
 #include <dhcpsrv/subnet.h>
 #include <hooks/callout_handle.h>
-#include <dhcpsrv/daemon.h>
+#include <process/daemon.h>
 
 #include <iostream>
 #include <queue>

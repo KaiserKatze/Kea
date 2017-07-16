@@ -8,7 +8,7 @@
 #include <exceptions/exceptions.h>
 #include <cc/data.h>
 #include <config/module_spec.h>
-#include <dhcpsrv/logging.h>
+#include <process/logging.h>
 #include <dhcpsrv/srv_config.h>
 #include <gtest/gtest.h>
 #include <log/logger_support.h>

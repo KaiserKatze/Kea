@@ -5,13 +5,14 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 #include <config.h>
-#include <dhcpsrv/cfgmgr.h>
-#include <dhcpsrv/logging_info.h>
+#include <process/base_cfg_mgr.h>
+#include <process/logging_info.h>
 #include <testutils/test_to_element.h>
 #include <gtest/gtest.h>
 
 using namespace isc::dhcp;
 using namespace isc::test;
+using namespace isc::process;
 
 namespace {
 
@@ -52,12 +53,12 @@ public:
 
     /// @brief Setup the test.
     virtual void SetUp() {
-        CfgMgr::instance().setVerbose(false);
+        BaseCfgMgr::instance().setVerbose(false);
     }
 
     /// @brief Clear after the test.
     virtual void TearDown() {
-        CfgMgr::instance().setVerbose(false);
+        BaseCfgMgr::instance().setVerbose(false);
     }
 };
 
@@ -82,7 +83,7 @@ TEST_F(LoggingInfoTest, defaults) {
     std::string expected = header + "INFO" + dbglvl + "0" + trailer;
     runToElementTest<LoggingInfo>(expected, info_non_verbose);
 
-    CfgMgr::instance().setVerbose(true);
+    BaseCfgMgr::instance().setVerbose(true);
     LoggingInfo info_verbose;
     EXPECT_EQ("kea", info_verbose.name_);
     EXPECT_EQ(isc::log::DEBUG, info_verbose.severity_);

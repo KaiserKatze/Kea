@@ -20,7 +20,7 @@
 #include <dhcpsrv/alloc_engine.h>
 #include <dhcpsrv/cfg_option.h>
 #include <hooks/callout_handle.h>
-#include <dhcpsrv/daemon.h>
+#include <process/daemon.h>
 
 #include <boost/noncopyable.hpp>
 

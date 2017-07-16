@@ -9,7 +9,7 @@
 
 #include <asiolink/io_service.h>
 #include <cc/data.h>
-#include <dhcpsrv/daemon.h>
+#include <process/daemon.h>
 #include <exceptions/exceptions.h>
 #include <log/logger_support.h>
 #include <process/d_log.h>

@@ -21,10 +21,10 @@
 #include <dhcpsrv/cfg_mac_source.h>
 #include <dhcpsrv/client_class_def.h>
 #include <dhcpsrv/d2_client_cfg.h>
-#include <dhcpsrv/logging_info.h>
+#include <process/logging_info.h>
 #include <hooks/hooks_config.h>
 #include <boost/shared_ptr.hpp>
-#include <dhcpsrv/base_config.h>
+#include <process/base_config.h>
 
 namespace isc {
 namespace dhcp {

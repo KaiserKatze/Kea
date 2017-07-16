@@ -5,12 +5,13 @@
 // file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 #include <config.h>
-#include <dhcpsrv/cfgmgr.h>
-#include <dhcpsrv/logging_info.h>
+#include <process/base_cfg_mgr.h>
+#include <process/logging_info.h>
 #include <log/logger_name.h>
 
 using namespace isc::log;
 using namespace isc::data;
+using namespace isc::process;
 
 namespace isc {
 namespace dhcp {
@@ -43,14 +44,14 @@ LoggingInfo::LoggingInfo()
     : name_("kea"), severity_(isc::log::INFO), debuglevel_(0) {
     // If configuration Manager is in the verbose mode, we need to modify the
     // default settings.
-    if (CfgMgr::instance().isVerbose()) {
+    if (BaseCfgMgr::instance().isVerbose()) {
         severity_ = isc::log::DEBUG;
         debuglevel_ = 99;
     }
 
     // If the process has set the non-empty name for the default logger,
     // let's use this name.
-    std::string logger_name = CfgMgr::instance().getDefaultLoggerName();
+    std::string logger_name = BaseCfgMgr::instance().getDefaultLoggerName();
     if (!logger_name.empty()) {
         name_ = logger_name;
     }

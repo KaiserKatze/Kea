@@ -7,10 +7,9 @@
 #ifndef CFGMGR_H
 #define CFGMGR_H
 
-//#include <asiolink/io_address.h>
 #include <dhcpsrv/d2_client_mgr.h>
 #include <dhcpsrv/srv_config.h>
-#include <dhcpsrv/base_cfg_mgr.h>
+#include <process/base_cfg_mgr.h>
 
 #include <boost/shared_ptr.hpp>
 

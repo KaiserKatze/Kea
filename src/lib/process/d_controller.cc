@@ -7,7 +7,7 @@
 #include <config.h>
 #include <cc/command_interpreter.h>
 #include <cfgrpt/config_report.h>
-#include <dhcpsrv/base_cfg_mgr.h>
+#include <process/base_cfg_mgr.h>
 #include <exceptions/exceptions.h>
 #include <log/logger.h>
 #include <log/logger_support.h>

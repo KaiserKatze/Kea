@@ -2,7 +2,7 @@
 #define BASE_CFG_MGR_H
 
 #include <util/buffer.h>
-#include <dhcpsrv/base_config.h>
+#include <process/base_config.h>
 
 #include <boost/noncopyable.hpp>
 

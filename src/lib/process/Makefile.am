@@ -2,6 +2,7 @@ SUBDIRS = . testutils tests
 
 AM_CPPFLAGS  = -I$(top_builddir)/src/lib -I$(top_srcdir)/src/lib
 AM_CPPFLAGS += $(BOOST_INCLUDES)
+AM_CPPFLAGS += -DDHCP_DATA_DIR="\"$(dhcp_data_dir)\""
 
 if HAVE_MYSQL
 AM_CPPFLAGS += $(MYSQL_CPPFLAGS)
@@ -36,10 +37,15 @@ EXTRA_DIST = process_messages.mes libprocess.dox
 CLEANFILES = *.gcno *.gcda spec_config.h process_messages.h process_messages.cc s-messages
 
 lib_LTLIBRARIES = libkea-process.la
-libkea_process_la_SOURCES  = d_cfg_mgr.cc d_cfg_mgr.h
+libkea_process_la_SOURCES  = base_config.cc base_config.h
+libkea_process_la_SOURCES += base_cfg_mgr.cc base_cfg_mgr.h
+libkea_process_la_SOURCES += d_cfg_mgr.cc d_cfg_mgr.h
 libkea_process_la_SOURCES += d_controller.cc d_controller.h
 libkea_process_la_SOURCES += d_log.cc d_log.h
 libkea_process_la_SOURCES += d_process.h
+libkea_process_la_SOURCES += daemon.cc daemon.h
+libkea_process_la_SOURCES += logging.cc logging.h
+libkea_process_la_SOURCES += logging_info.cc logging_info.h
 libkea_process_la_SOURCES += io_service_signal.cc io_service_signal.h
 
 nodist_libkea_process_la_SOURCES = process_messages.cc process_messages.h
@@ -51,7 +57,6 @@ libkea_process_la_LDFLAGS += -no-undefined -version-info 0:0:0
 
 libkea_process_la_LIBADD  =
 libkea_process_la_LIBADD += $(top_builddir)/src/lib/cfgrpt/libcfgrpt.la
-libkea_process_la_LIBADD += $(top_builddir)/src/lib/dhcpsrv/libkea-dhcpsrv.la
 libkea_process_la_LIBADD += $(top_builddir)/src/lib/config/libkea-cfgclient.la
 libkea_process_la_LIBADD += $(top_builddir)/src/lib/dhcp/libkea-dhcp++.la
 libkea_process_la_LIBADD += $(top_builddir)/src/lib/asiolink/libkea-asiolink.la

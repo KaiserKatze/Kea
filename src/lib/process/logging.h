@@ -8,7 +8,7 @@
 #define DHCPSRV_LOGGING_H
 
 #include <cc/data.h>
-#include <dhcpsrv/base_config.h>
+#include <process/base_config.h>
 #include <vector>
 
 namespace isc {
