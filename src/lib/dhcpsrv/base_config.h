@@ -45,6 +45,20 @@ class BaseConfig : public isc::data::CfgToElement {
     uint32_t getSequence() const {
         return (sequence_);
     }
+
+        /// @brief Compares configuration sequence with other sequence.
+    ///
+    /// This method compares sequence numbers of two configurations for
+    /// equality. The sequence numbers are meant to be unique, so if
+    /// they are equal it means that they point to the same configuration.
+    ///
+    /// @param other Configuration which sequence number should be
+    /// compared with the sequence number of this configuration.
+    ///
+    /// @return true if sequence numbers are equal.
+    bool sequenceEquals(const BaseConfig& other) {
+        return (getSequence() == other.getSequence());
+    }
  
     /// @brief Unparse a configuration object
     ///
@@ -69,6 +83,8 @@ class BaseConfig : public isc::data::CfgToElement {
     void addLoggingInfo(const dhcp::LoggingInfo& logging_info) {
         logging_info_.push_back(logging_info);
     }
+
+    void applyLoggingCfg() const;
 
  protected:
     /// @brief Sequence number identifying the configuration.

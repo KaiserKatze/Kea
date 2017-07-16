@@ -60,7 +60,7 @@ void Daemon::handleSignal() {
 }
 
 void Daemon::configureLogger(const isc::data::ConstElementPtr& log_config,
-                             const SrvConfigPtr& storage) {
+                             const process::BaseConfigPtr& storage) {
 
     if (log_config) {
         isc::data::ConstElementPtr loggers = log_config->get("loggers");

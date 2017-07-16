@@ -22,6 +22,7 @@ namespace dhcp {
 CfgMgr&
 CfgMgr::instance() {
     static CfgMgr cfg_mgr;
+    BaseCfgMgr::setInstance(&cfg_mgr);
     return (cfg_mgr);
 }
 
@@ -37,7 +38,7 @@ CfgMgr::setD2ClientConfig(D2ClientConfigPtr& new_config) {
     // we'll update our SrvConfig, configuration_, with the D2ClientConfig
     // used. This is largely bookkeeping in case we ever want to compare
     // configuration_ to another SrvConfig.
-    configuration_->setD2ClientConfig(new_config);
+    getCurrentCfg()->setD2ClientConfig(new_config);
 }
 
 bool
@@ -66,7 +67,7 @@ CfgMgr::ensureCurrentAllocated() {
 void
 CfgMgr::clear() {
     if (configuration_) {
-        configuration_->removeStatistics();
+        getCurrentCfg()->removeStatistics();
     }
     configs_.clear();
     ensureCurrentAllocated();
@@ -75,12 +76,10 @@ CfgMgr::clear() {
 void
 CfgMgr::commit() {
 
-    ensureCurrentAllocated();
-
     // First we need to remove statistics. The new configuration can have fewer
     // subnets. Also, it may change subnet-ids. So we need to remove them all
     // and add it back.
-    configuration_->removeStatistics();
+    getCurrentCfg()->removeStatistics();
 
     if (!configs_.back()->sequenceEquals(*configuration_)) {
         configuration_ = configs_.back();
@@ -94,7 +93,7 @@ CfgMgr::commit() {
     }
 
     // Now we need to set the statistics back.
-    configuration_->updateStatistics();
+    getCurrentCfg()->updateStatistics();
 }
 
 void
@@ -132,16 +131,17 @@ CfgMgr::revert(const size_t index) {
     // Copy the desired configuration to the new staging configuration. The
     // staging configuration is re-created here because we rolled back earlier
     // in this function.
-    (*it)->copy(*getStagingCfg());
+    SrvConfigPtr srv = boost::dynamic_pointer_cast<SrvConfig>(*it);
+    srv->copy(*getStagingCfg());
 
     // Make the staging configuration a current one.
     commit();
 }
 
-ConstSrvConfigPtr
+SrvConfigPtr
 CfgMgr::getCurrentCfg() {
     ensureCurrentAllocated();
-    return (configuration_);
+    return (boost::dynamic_pointer_cast<SrvConfig>(configuration_));
 }
 
 SrvConfigPtr
@@ -151,7 +151,7 @@ CfgMgr::getStagingCfg() {
         uint32_t sequence = configuration_->getSequence();
         configs_.push_back(SrvConfigPtr(new SrvConfig(++sequence)));
     }
-    return (configs_.back());
+    return (boost::dynamic_pointer_cast<SrvConfig>(configs_.back()));
 }
 
 CfgMgr::CfgMgr()

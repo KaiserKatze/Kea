@@ -9,12 +9,14 @@
 #include <cc/data.h>
 #include <config/module_spec.h>
 #include <dhcpsrv/logging.h>
+#include <dhcpsrv/srv_config.h>
 #include <gtest/gtest.h>
 #include <log/logger_support.h>
 
 using namespace isc;
 using namespace isc::dhcp;
 using namespace isc::data;
+using namespace isc::process;
 
 namespace {
 
@@ -47,10 +49,10 @@ TEST_F(LoggingTest, basicSpec) {
 // Checks that the constructor is able to process specified storage properly.
 TEST_F(LoggingTest, constructor) {
 
-    SrvConfigPtr null_ptr;
+    BaseConfigPtr null_ptr;
     EXPECT_THROW(LogConfigParser parser(null_ptr), BadValue);
 
-    SrvConfigPtr nonnull(new SrvConfig());
+    BaseConfigPtr nonnull(new SrvConfig());
 
     EXPECT_NO_THROW(LogConfigParser parser(nonnull));
 }

@@ -9,8 +9,6 @@
 #include <dhcpsrv/srv_config.h>
 #include <dhcpsrv/lease_mgr_factory.h>
 #include <dhcpsrv/cfg_hosts_util.h>
-#include <log/logger_manager.h>
-#include <log/logger_specification.h>
 #include <dhcp/pkt.h> // Needed for HWADDR_SOURCE_*
 #include <list>
 #include <sstream>
@@ -90,11 +88,6 @@ SrvConfig::getConfigSummary(const uint32_t selection) const {
     return (summary);
 }
 
-bool
-SrvConfig::sequenceEquals(const SrvConfig& other) {
-    return (getSequence() == other.getSequence());
-}
-
 void
 SrvConfig::copy(SrvConfig& new_config) const {
     // We will entirely replace loggers in the new configuration.
@@ -120,18 +113,6 @@ SrvConfig::copy(SrvConfig& new_config) const {
          it != hooks_config_.get().end(); ++it) {
         new_config.hooks_config_.add(it->first, it->second);
     }
-}
-
-void
-SrvConfig::applyLoggingCfg() const {
-
-    std::list<LoggerSpecification> specs;
-    for (LoggingInfoStorage::const_iterator it = logging_info_.begin();
-         it != logging_info_.end(); ++it) {
-        specs.push_back(it->toSpec());
-    }
-    LoggerManager manager;
-    manager.process(specs.begin(), specs.end());
 }
 
 bool

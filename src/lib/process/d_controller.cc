@@ -7,7 +7,7 @@
 #include <config.h>
 #include <cc/command_interpreter.h>
 #include <cfgrpt/config_report.h>
-#include <dhcpsrv/cfgmgr.h>
+#include <dhcpsrv/base_cfg_mgr.h>
 #include <exceptions/exceptions.h>
 #include <log/logger.h>
 #include <log/logger_support.h>
@@ -84,12 +84,12 @@ DControllerBase::launch(int argc, char* argv[], const bool test_mode) {
     // It is important that we set a default logger name because this name
     // will be used when the user doesn't provide the logging configuration
     // in the Kea configuration file.
-    isc::dhcp::CfgMgr::instance().setDefaultLoggerName(bin_name_);
+    BaseCfgMgr::instance().setDefaultLoggerName(bin_name_);
 
     // Logger's default configuration depends on whether we are in the
     // verbose mode or not. CfgMgr manages the logger configuration so
     // the verbose mode is set for CfgMgr.
-    isc::dhcp::CfgMgr::instance().setVerbose(verbose_);
+    BaseCfgMgr::instance().setVerbose(verbose_);
 
     // Do not initialize logger here if we are running unit tests. It would
     // replace an instance of unit test specific logger.
@@ -161,8 +161,8 @@ DControllerBase::checkConfigOnly() {
         // messages are to be printed.
         // This is just a test, so we don't care about lockfile.
         setenv("KEA_LOCKFILE_DIR", "none", 0);
-        isc::dhcp::CfgMgr::instance().setDefaultLoggerName(bin_name_);
-        isc::dhcp::CfgMgr::instance().setVerbose(verbose_);
+        BaseCfgMgr::instance().setDefaultLoggerName(bin_name_);
+        BaseCfgMgr::instance().setVerbose(verbose_);
         Daemon::loggerInit(bin_name_.c_str(), verbose_);
 
         // Check the syntax first.
@@ -318,7 +318,7 @@ ConstElementPtr
 DControllerBase::configFromFile() {
     // Rollback any previous staging configuration. For D2, only a
     // logger configuration is used here.
-    isc::dhcp::CfgMgr::instance().rollback();
+    BaseCfgMgr::instance().rollback();
     // Will hold configuration.
     ConstElementPtr module_config;
     // Will receive configuration result.
@@ -343,8 +343,7 @@ DControllerBase::configFromFile() {
         // so we can log things during configuration process.
 
         // Temporary storage for logging configuration
-        isc::dhcp::SrvConfigPtr storage =
-            isc::dhcp::CfgMgr::instance().getStagingCfg();
+        BaseConfigPtr storage = BaseCfgMgr::instance().getStagingCfgBase();
 
         // Get 'Logging' element from the config and use it to set up
         // logging. If there's no such element, we'll just pass NULL.
@@ -364,13 +363,13 @@ DControllerBase::configFromFile() {
         if (!rcode) {
             // Configuration successful, so apply the logging configuration
             // to log4cplus.
-            isc::dhcp::CfgMgr::instance().getStagingCfg()->applyLoggingCfg();
-            isc::dhcp::CfgMgr::instance().commit();
+            isc::process::BaseCfgMgr::instance().getStagingCfgBase()->applyLoggingCfg();
+            isc::process::BaseCfgMgr::instance().commit();
         }
 
     } catch (const std::exception& ex) {
         // Rollback logging configuration.
-        isc::dhcp::CfgMgr::instance().rollback();
+        isc::process::BaseCfgMgr::instance().rollback();
         // build an error result
         ConstElementPtr error = createAnswer(COMMAND_ERROR,
                  std::string("Configuration parsing failed: ") + ex.what());
@@ -461,7 +460,7 @@ DControllerBase::configWriteHandler(const std::string&,
     //
     // As a result, we need to extract the CA configuration from one
     // place and logging from another.
-    ConstElementPtr loginfo = isc::dhcp::CfgMgr::instance().getCurrentCfg()->toElement();
+    ConstElementPtr loginfo = BaseCfgMgr::instance().getCurrentCfgBase()->toElement();
     if (loginfo) {
         // If there was a config stored in dhcp::CfgMgr, try to get Logging info from it.
         loginfo = loginfo->get("Logging");
@@ -524,7 +523,7 @@ DControllerBase::configTestHandler(const std::string&, ConstElementPtr args) {
     // We are starting the configuration process so we should remove any
     // staging configuration that has been created during previous
     // configuration attempts.
-    isc::dhcp::CfgMgr::instance().rollback();
+    isc::process::BaseCfgMgr::instance().rollback();
 
     // Now we check the server proper.
     return (checkConfig(module_config));

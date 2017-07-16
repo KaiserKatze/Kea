@@ -92,18 +92,6 @@ public:
     /// @return Summary of the configuration in the textual format.
     virtual std::string getConfigSummary(const uint32_t selection) const;
 
-    /// @brief Compares configuration sequence with other sequence.
-    ///
-    /// This method compares sequence numbers of two configurations for
-    /// equality. The sequence numbers are meant to be unique, so if
-    /// they are equal it means that they point to the same configuration.
-    ///
-    /// @param other Configuration which sequence number should be
-    /// compared with the sequence number of this configuration.
-    ///
-    /// @return true if sequence numbers are equal.
-    bool sequenceEquals(const SrvConfig& other);
-
     /// @brief Returns non-const pointer to interface configuration.
     ///
     /// This function returns a non-const pointer to the interface
@@ -371,9 +359,6 @@ public:
     /// @param [out] new_config An object to which the configuration will
     /// be copied.
     void copy(SrvConfig& new_config) const;
-
-    /// @brief Apply logging configuration to log4cplus.
-    void applyLoggingCfg() const;
 
     /// @name Methods and operators used to compare configurations.
     ///

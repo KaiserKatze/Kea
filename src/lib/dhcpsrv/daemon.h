@@ -96,7 +96,7 @@ public:
     /// @param log_config JSON structures that describe logging
     /// @param storage configuration will be stored here
     static void configureLogger(const isc::data::ConstElementPtr& log_config,
-                                const isc::dhcp::SrvConfigPtr& storage);
+                                const isc::process::BaseConfigPtr& storage);
 
     /// @brief Sets or clears verbose mode
     ///

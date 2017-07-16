@@ -158,7 +158,6 @@ public:
     /// @throw isc::OutOfRange if the specified index is out of range.
     virtual void revert(const size_t index);
 
-
     /// @brief Returns a pointer to the current configuration.
     ///
     /// This function returns pointer to the current configuration. If the
@@ -166,7 +165,7 @@ public:
     /// and return it. Current configuration returned is read-only.
     ///
     /// @return Non-null const pointer to the current configuration.
-    ConstSrvConfigPtr getCurrentCfg();
+    SrvConfigPtr getCurrentCfg();
 
     /// @brief Returns a pointer to the staging configuration.
     ///
@@ -198,32 +197,17 @@ protected:
     virtual ~CfgMgr();
 
 private:
-
     /// @brief Checks if current configuration is created and creates it if needed.
     ///
     /// This private method is called to ensure that the current configuration
     /// is created. If current configuration is not set, it creates the
     /// default current configuration.
-    void ensureCurrentAllocated();
+    virtual void ensureCurrentAllocated();
+
 
     /// @brief Manages the DHCP-DDNS client and its configuration.
     D2ClientMgr d2_client_mgr_;
 
-    /// @brief Server configuration
-    ///
-    /// This is a structure that will hold all configuration.
-    /// @todo: migrate all other parameters to that structure.
-    SrvConfigPtr configuration_;
-
-    /// @name Configuration List.
-    ///
-    //@{
-    /// @brief Server configuration list type.
-    typedef std::list<SrvConfigPtr> SrvConfigList;
-
-    /// @brief Container holding all previous and current configurations.
-    SrvConfigList configs_;
-    //@}
 };
 
 } // namespace isc::dhcp

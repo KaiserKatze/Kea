@@ -2,15 +2,24 @@
 #define BASE_CFG_MGR_H
 
 #include <util/buffer.h>
+#include <dhcpsrv/base_config.h>
 
 #include <boost/noncopyable.hpp>
 
 #include <string>
+#include <list>
 
 namespace isc {
 namespace process {
 
+class BaseCfgMgr;
+
+typedef boost::shared_ptr<BaseCfgMgr> BaseCfgMgrPtr;
+
 class BaseCfgMgr :  public boost::noncopyable {
+ public:
+    static BaseCfgMgr& instance();
+
  protected:
     BaseCfgMgr(const std::string& datadir, const uint16_t family, bool verbose)
         :datadir_(datadir), verbose_mode_(verbose), family_(family) {
@@ -19,7 +28,52 @@ class BaseCfgMgr :  public boost::noncopyable {
     virtual ~BaseCfgMgr() {
     }
 
+    static void setInstance(BaseCfgMgr* instance);
+
+    /// @brief Server configuration
+    ///
+    /// This is a structure that will hold all configuration.
+    /// @todo: migrate all other parameters to that structure.
+    BaseConfigPtr configuration_;
+
+    /// @name Configuration List.
+    ///
+    //@{
+    /// @brief Server configuration list type.
+    typedef std::list<BaseConfigPtr> SrvConfigList;
+
+    /// @brief Container holding all previous and current configurations.
+    SrvConfigList configs_;
+    //@}
+
+
  public:
+
+    /// @brief Returns a pointer to the current configuration.
+    ///
+    /// This function returns pointer to the current configuration. If the
+    /// current configuration is not set it will create a default configuration
+    /// and return it. Current configuration returned is read-only.
+    ///
+    /// @return Non-null const pointer to the current configuration.
+    BaseConfigPtr getCurrentCfgBase();
+
+    /// @brief Returns a pointer to the staging configuration.
+    ///
+    /// The staging configuration is used by the configuration parsers to
+    /// create new configuration. The staging configuration doesn't affect the
+    /// server's operation until it is committed. The staging configuration
+    /// is a non-const object which can be modified by the caller.
+    ///
+    /// Multiple consecutive calls to this function return the same object
+    /// which can be modified from various places of the code (e.g. various
+    /// configuration parsers).
+    ///
+    /// @return non-null pointer to the staging configuration.
+    BaseConfigPtr getStagingCfgBase();
+
+    //@}
+
     /// @brief A number of configurations held by @c CfgMgr.
     ///
     /// @todo Make it configurable.
@@ -134,6 +188,13 @@ class BaseCfgMgr :  public boost::noncopyable {
 
     //@}
  private:
+    /// @brief Checks if current configuration is created and creates it if needed.
+    ///
+    /// This private method is called to ensure that the current configuration
+    /// is created. If current configuration is not set, it creates the
+    /// default current configuration.
+    virtual void ensureCurrentAllocated() = 0;
+
     /// @brief directory where data files (e.g. server-id) are stored
     std::string datadir_;
 
@@ -145,6 +206,8 @@ class BaseCfgMgr :  public boost::noncopyable {
 
     /// @brief Address family.
     uint16_t family_;
+
+    static BaseCfgMgr* instance_;
 };
 
 };

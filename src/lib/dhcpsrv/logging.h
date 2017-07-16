@@ -8,7 +8,7 @@
 #define DHCPSRV_LOGGING_H
 
 #include <cc/data.h>
-#include <dhcpsrv/srv_config.h>
+#include <dhcpsrv/base_config.h>
 #include <vector>
 
 namespace isc {
@@ -45,7 +45,7 @@ public:
     /// @brief Constructor
     ///
     /// @param storage parsed logging configuration will be stored here
-    LogConfigParser(const SrvConfigPtr& storage);
+    LogConfigParser(const process::BaseConfigPtr& storage);
 
     /// @brief Parses specified configuration
     ///
@@ -77,7 +77,7 @@ private:
     /// @brief Configuration is stored here
     ///
     /// LogConfigParser class uses only config_->logging_info_ field.
-    SrvConfigPtr config_;
+    process::BaseConfigPtr config_;
 
     /// @brief Verbose mode
     ///
