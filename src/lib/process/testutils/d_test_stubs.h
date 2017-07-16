@@ -590,6 +590,12 @@ public:
     /// @return returns a pointer to the new clone.
     virtual DCfgContextBasePtr clone();
 
+    /// @brief Returns configuration summary
+    /// @param selection meh, your only selection today is an empty string
+    virtual std::string getConfigSummary(const uint32_t selection) const {
+        return ("");
+    }
+
     /// @brief Fetches the value for a given "extra" configuration parameter
     /// from the context.
     ///
