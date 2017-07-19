@@ -41,8 +41,8 @@ public:
     /// @brief Creates a clone of this context object.
     ///
     /// @return returns a pointer to the new clone.
-    virtual process::DCfgContextBasePtr clone() {
-        return (process::DCfgContextBasePtr(new D2CfgContext(*this)));
+    virtual process::BaseConfigPtr clone() const {
+        return (process::BaseConfigPtr(new D2CfgContext(*this)));
     }
 
     /// @brief Fetches a reference to the D2Params
@@ -94,6 +94,10 @@ public:
     ///
     /// @return a pointer to a configuration
     virtual isc::data::ElementPtr toElement() const;
+
+    virtual std::string getConfigSummary(const uint32_t selection) const {
+        return ("");
+    }
 
 protected:
     /// @brief Copy constructor for use by derivations in clone().
@@ -263,6 +267,8 @@ public:
     virtual std::string getConfigSummary(const uint32_t selection);
 
 protected:
+
+    virtual void ensureCurrentAllocated();
 
     /// @brief Parses an element using alternate parsers
     ///

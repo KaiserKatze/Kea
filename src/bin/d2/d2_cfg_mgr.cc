@@ -114,6 +114,14 @@ D2CfgMgr::D2CfgMgr() : DCfgMgrBase(DCfgContextBasePtr(new D2CfgContext())) {
 D2CfgMgr::~D2CfgMgr() {
 }
 
+void
+D2CfgMgr::ensureCurrentAllocated() {
+    if (!configuration_ || configs_.empty()) {
+        configuration_.reset(new D2CfgContext());
+        configs_.push_back(configuration_);
+    }
+}
+
 DCfgContextBasePtr
 D2CfgMgr::createNewContext() {
     return (DCfgContextBasePtr(new D2CfgContext()));
