@@ -15,6 +15,10 @@
 namespace isc {
 namespace process {
 
+class BaseConfig;
+
+typedef boost::shared_ptr<BaseConfig> BaseConfigPtr;
+
 class BaseConfig : public isc::data::CfgToElement {
  protected:
 
@@ -85,6 +89,24 @@ class BaseConfig : public isc::data::CfgToElement {
     }
 
     void applyLoggingCfg() const;
+
+    /// @brief Copies the current configuration to a new configuration.
+    ///
+    /// This method copies the parameters stored in the configuration to
+    /// an object passed as parameter. The configuration sequence is not
+    /// copied.
+    ///
+    /// @warning Some of the configuration objects are not copied at
+    /// this point, e.g. subnets. This is because they contain quite complex
+    /// data structures and they make use of pointers, so in many cases
+    /// the default copy constructors can't be used. Implementing this
+    /// requires quite a lot of time so this is left as is for now.
+    /// The lack of ability to copy the entire configuration makes
+    /// revert function of the @c CfgMgr unsuable.
+    ///
+    /// @param [out] new_config An object to which the configuration will
+    /// be copied.
+    virtual BaseConfigPtr clone() const = 0;
 
  protected:
     /// @brief Sequence number identifying the configuration.

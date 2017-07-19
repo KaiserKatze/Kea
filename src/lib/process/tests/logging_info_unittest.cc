@@ -8,6 +8,7 @@
 #include <process/base_cfg_mgr.h>
 #include <process/logging_info.h>
 #include <testutils/test_to_element.h>
+#include <process/testutils/d_test_stubs.h>
 #include <gtest/gtest.h>
 
 using namespace isc::dhcp;
@@ -60,6 +61,8 @@ public:
     virtual void TearDown() {
         BaseCfgMgr::instance().setVerbose(false);
     }
+
+    DStubCfgMgr mgr_;
 };
 
 // Checks if default logging configuration is correct.

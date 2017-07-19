@@ -286,9 +286,9 @@ DStubContext::getObjectStorage() {
     return (object_values_);
 }
 
-DCfgContextBasePtr
-DStubContext::clone() {
-    return (DCfgContextBasePtr(new DStubContext(*this)));
+BaseConfigPtr
+DStubContext::clone() const {
+    return (BaseConfigPtr(new DStubContext(*this)));
 }
 
 DStubContext::DStubContext(const DStubContext& rhs): DCfgContextBase(rhs),
@@ -314,6 +314,14 @@ DStubCfgMgr::createNewContext() {
     return (DCfgContextBasePtr (new DStubContext()));
 }
 
+void DStubCfgMgr::ensureCurrentAllocated() {
+     if (!configuration_ || configs_.empty()) {
+         configuration_.reset(new DStubContext());
+        configs_.push_back(configuration_);
+    }
+}
+
+
 void
 DStubCfgMgr::parseElement(const std::string& element_id,
                           isc::data::ConstElementPtr element) {
@@ -323,16 +331,16 @@ DStubCfgMgr::parseElement(const std::string& element_id,
     if (element_id == "bool_test") {
         bool value = element->boolValue();
         context->getBooleanStorage()->setParam(element_id, value,
-                                               element->getPosition()); 
+                                               element->getPosition());
     } else if (element_id == "uint32_test") {
         uint32_t value = element->intValue();
         context->getUint32Storage()->setParam(element_id, value,
-                                              element->getPosition()); 
+                                              element->getPosition());
 
     } else if (element_id == "string_test") {
         std::string value = element->stringValue();
         context->getStringStorage()->setParam(element_id, value,
-                                              element->getPosition()); 
+                                              element->getPosition());
     } else {
         // Fail only if SimFailure dictates we should.  This makes it easier
         // to test parse ordering, by permitting a wide range of element ids
@@ -345,7 +353,7 @@ DStubCfgMgr::parseElement(const std::string& element_id,
 
         // Going to assume anything else is an object element.
         context->getObjectStorage()->setParam(element_id, element,
-                                              element->getPosition()); 
+                                              element->getPosition());
     }
 
     parsed_order_.push_back(element_id);

@@ -12,6 +12,7 @@
 #include <exceptions/exceptions.h>
 #include <dhcpsrv/parsers/dhcp_parsers.h>
 #include <process/base_config.h>
+#include <process/base_cfg_mgr.h>
 #include <functional>
 
 #include <stdint.h>
@@ -153,37 +154,6 @@ public:
         return (string_values_);
     }
 
-    /// @brief Creates a clone of this context object.
-    ///
-    /// As mentioned in the the class brief, derivation must supply an
-    /// implementation that initializes the base class storage as well as its
-    /// own.  Typically the derivation's clone method would return the result
-    /// of passing  "*this" into its own copy constructor:
-    ///
-    /// @code
-    /// class DStubContext : public DCfgContextBase {
-    /// public:
-    ///  :
-    ///     // Clone calls its own copy constructor
-    ///     virtual DCfgContextBasePtr clone() {
-    ///         return (DCfgContextBasePtr(new DStubContext(*this)));
-    ///     }
-    ///
-    ///     // Note that the copy constructor calls the base class copy ctor
-    ///     // then initializes its additional storage.
-    ///     DStubContext(const DStubContext& rhs) : DCfgContextBase(rhs),
-    ///         extra_values_(new Uint32Storage(*(rhs.extra_values_))) {
-    ///     }
-    ///  :
-    ///    // Here's the derivation's additional storage.
-    ///    isc::dhcp::Uint32StoragePtr extra_values_;
-    ///  :
-    /// @endcode
-    ///
-    /// @todo: Move this to BaseConfig
-    /// @return returns a pointer to the new clone.
-    virtual DCfgContextBasePtr clone() = 0;
-
 protected:
     /// @brief Copy constructor for use by derivations in clone().
     DCfgContextBase(const DCfgContextBase& rhs);
@@ -278,7 +248,7 @@ typedef std::vector<std::string> ElementIdList;
 ///
 /// See @ref isc::agent::CtrlAgentCfgMgr and @ref isc::agent::CtrlAgentProcess
 /// for example use of this approach.
-class DCfgMgrBase {
+class DCfgMgrBase : public process::BaseCfgMgr {
 public:
     /// @brief Constructor
     ///

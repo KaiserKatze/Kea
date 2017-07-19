@@ -69,8 +69,7 @@ CfgMgr::clear() {
     if (configuration_) {
         getCurrentCfg()->removeStatistics();
     }
-    configs_.clear();
-    ensureCurrentAllocated();
+    BaseCfgMgr::clear();
 }
 
 void
@@ -81,27 +80,10 @@ CfgMgr::commit() {
     // and add it back.
     getCurrentCfg()->removeStatistics();
 
-    if (!configs_.back()->sequenceEquals(*configuration_)) {
-        configuration_ = configs_.back();
-        // Keep track of the maximum size of the configs history. Before adding
-        // new element, we have to remove the oldest one.
-        if (configs_.size() > CONFIG_LIST_SIZE) {
-            SrvConfigList::iterator it = configs_.begin();
-            std::advance(it, configs_.size() - CONFIG_LIST_SIZE);
-            configs_.erase(configs_.begin(), it);
-        }
-    }
+    BaseCfgMgr::commit();
 
     // Now we need to set the statistics back.
     getCurrentCfg()->updateStatistics();
-}
-
-void
-CfgMgr::rollback() {
-    ensureCurrentAllocated();
-    if (!configuration_->sequenceEquals(*configs_.back())) {
-        configs_.pop_back();
-    }
 }
 
 void
@@ -131,8 +113,7 @@ CfgMgr::revert(const size_t index) {
     // Copy the desired configuration to the new staging configuration. The
     // staging configuration is re-created here because we rolled back earlier
     // in this function.
-    SrvConfigPtr srv = boost::dynamic_pointer_cast<SrvConfig>(*it);
-    srv->copy(*getStagingCfg());
+    configs_.back() = (*it)->clone();
 
     // Make the staging configuration a current one.
     commit();
@@ -154,8 +135,18 @@ CfgMgr::getStagingCfg() {
     return (boost::dynamic_pointer_cast<SrvConfig>(configs_.back()));
 }
 
+std::string CfgMgr::getDataDir() const {
+    return (datadir_);
+}
+
+void
+CfgMgr::setDataDir(const std::string& datadir) {
+    datadir_ = datadir;
+}
+
 CfgMgr::CfgMgr()
-    : BaseCfgMgr(DHCP_DATA_DIR, AF_INET, false), d2_client_mgr_() {
+    : BaseCfgMgr(false), datadir_(DHCP_DATA_DIR),
+      family_(AF_INET), d2_client_mgr_() {
     // DHCP_DATA_DIR must be set set with -DDHCP_DATA_DIR="..." in Makefile.am
     // Note: the definition of DHCP_DATA_DIR needs to include quotation marks
     // See AM_CPPFLAGS definition in Makefile.am

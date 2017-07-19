@@ -317,7 +317,7 @@ TEST_F(SrvConfigTest, copy) {
     ASSERT_TRUE(conf1 != conf2);
 
     // Copy conf1 to conf2.
-    ASSERT_NO_THROW(conf1.copy(conf2));
+    ASSERT_NO_THROW(conf2 = *(boost::dynamic_pointer_cast<SrvConfig>(conf1.clone())));
 
     // Now they should be equal.
     EXPECT_TRUE(conf1 == conf2);
@@ -422,7 +422,8 @@ TEST_F(SrvConfigTest, hooksLibraries) {
     // Try to copy
     SrvConfig copied(64);
     ASSERT_TRUE(conf != copied);
-    ASSERT_NO_THROW(conf.copy(copied));
+    ASSERT_NO_THROW(copied = *(boost::dynamic_pointer_cast<SrvConfig>(conf.clone())));
+
     ASSERT_TRUE(conf == copied);
     EXPECT_EQ(2, copied.getHooksConfig().get().size());
 
@@ -485,6 +486,6 @@ TEST_F(SrvConfigTest, unparse) {
     params += "\"dhcp4o6-port\": 6767\n";
     isc::test::runToElementTest<SrvConfig>
         (header4 + defaults + defaults4 + params + trailer, conf);
-}    
+}
 
 } // end of anonymous namespace
