@@ -88,31 +88,35 @@ SrvConfig::getConfigSummary(const uint32_t selection) const {
     return (summary);
 }
 
-void
-SrvConfig::copy(SrvConfig& new_config) const {
+process::BaseConfigPtr
+SrvConfig::clone() const {
+
+  SrvConfigPtr new_config(new SrvConfig());
     // We will entirely replace loggers in the new configuration.
-    new_config.logging_info_.clear();
+    new_config->logging_info_.clear();
     for (LoggingInfoStorage::const_iterator it = logging_info_.begin();
          it != logging_info_.end(); ++it) {
-        new_config.addLoggingInfo(*it);
+        new_config->addLoggingInfo(*it);
     }
     // Replace interface configuration.
-    new_config.cfg_iface_.reset(new CfgIface(*cfg_iface_));
+    new_config->cfg_iface_.reset(new CfgIface(*cfg_iface_));
     // Replace option definitions.
-    cfg_option_def_->copyTo(*new_config.cfg_option_def_);
-    cfg_option_->copyTo(*new_config.cfg_option_);
+    cfg_option_def_->copyTo(*new_config->cfg_option_def_);
+    cfg_option_->copyTo(*new_config->cfg_option_);
     // Replace the client class dictionary
-    new_config.class_dictionary_.reset(new ClientClassDictionary(*class_dictionary_));
+    new_config->class_dictionary_.reset(new ClientClassDictionary(*class_dictionary_));
     // Replace the D2 client configuration
-    new_config.setD2ClientConfig(getD2ClientConfig());
+    new_config->setD2ClientConfig(getD2ClientConfig());
     // Replace configured hooks libraries.
-    new_config.hooks_config_.clear();
+    new_config->hooks_config_.clear();
     using namespace isc::hooks;
     for (HookLibsCollection::const_iterator it =
            hooks_config_.get().begin();
          it != hooks_config_.get().end(); ++it) {
-        new_config.hooks_config_.add(it->first, it->second);
+        new_config->hooks_config_.add(it->first, it->second);
     }
+
+    return (new_config);
 }
 
 bool

@@ -130,7 +130,7 @@ TEST(CtrlAgentCfgMgr, contextSocketInfoCopy) {
     libs.add(exp_name, exp_param);
 
     // Make a copy.
-    DCfgContextBasePtr copy_base(ctx.clone());
+    BaseConfigPtr copy_base(ctx.clone());
     CtrlAgentCfgContextPtr copy = boost::dynamic_pointer_cast<CtrlAgentCfgContext>(copy_base);
     ASSERT_TRUE(copy);
 

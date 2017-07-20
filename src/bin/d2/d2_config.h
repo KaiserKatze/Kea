@@ -714,8 +714,8 @@ public:
     /// @brief Creates a clone of a DStubContext.
     ///
     /// @return returns a pointer to the new clone.
-    virtual process::DCfgContextBasePtr clone() {
-        return (process::DCfgContextBasePtr(new DScalarContext(*this)));
+    virtual process::BaseConfigPtr clone() const {
+        return (process::BaseConfigPtr(new DScalarContext(*this)));
     }
 
     /// @brief Unparse a configuration object
@@ -723,6 +723,10 @@ public:
     /// @return a pointer to a configuration
     virtual isc::data::ElementPtr toElement() const {
         isc_throw(isc::NotImplemented, "DScalarContext::ElementPtr");
+    }
+
+    virtual std::string getConfigSummary(const uint32_t selection) const {
+        return ("");
     }
 
 protected:

@@ -28,13 +28,16 @@ public:
     /// @brief Constructor.
     /// Note the constructor passes in the static DStubController instance
     /// method.
-    DStubControllerTest() : DControllerTest (DStubController::instance) {
+  DStubControllerTest() : DControllerTest (DStubController::instance) {
         controller_ = boost::dynamic_pointer_cast<DStubController>
                                                  (DControllerTest::
                                                   getController());
     }
+    /// @brief Configuration manager instance.
+    DStubCfgMgr cfg_mgr_;
 
     DStubControllerPtr controller_;
+
 };
 
 /// @brief Basic Controller instantiation testing.

@@ -306,6 +306,89 @@ public:
 /// @brief Defines a pointer to a DStubController.
 typedef boost::shared_ptr<DStubController> DStubControllerPtr;
 
+/// @brief Test Derivation of the DCfgMgrBase class.
+///
+/// This class is used to test basic functionality of configuration management.
+/// It supports the following configuration elements:
+///
+/// "bool_test" - Boolean element, tests parsing and committing a boolean
+///               configuration parameter.
+/// "uint32_test" - Uint32 element, tests parsing and committing a uint32_t
+///               configuration parameter.
+/// "string_test" - String element, tests parsing and committing a string
+///               configuration parameter.
+/// "extra_test" - "Extra" element, tests parsing and committing an extra
+///               configuration parameter. (This is used to demonstrate
+///               derivation's addition of storage to configuration context.
+///
+/// It also keeps track of the element ids that are parsed in the order they
+/// are parsed.  This is used to test ordered and non-ordered parsing.
+class DStubCfgMgr : public
+    DCfgMgrBase {
+public:
+    /// @brief Constructor
+    DStubCfgMgr();
+
+    /// @brief Destructor
+    virtual ~DStubCfgMgr();
+
+    /// @brief Parses the given element into the appropriate object
+    ///
+    /// The method supports three named elements:
+    ///
+    /// -# "bool_test"
+    /// -# "uint32_test"
+    /// -# "string_test"
+    ///
+    /// which are parsed and whose value is then stored in the
+    /// the appropriate context value store.
+    ///
+    /// Any other element_id is treated generically and stored
+    /// in the context's object store, unless the simulated
+    /// error has been set to SimFailure::ftElementUnknown.
+    ///
+    /// @param element_id name of the element to parse
+    /// @param element Element to parse
+    ///
+    /// @throw DCfgMgrBaseError if simulated error is set
+    /// to ftElementUnknown and element_id is not one of
+    /// the named elements.
+    virtual void parseElement(const std::string& element_id,
+                              isc::data::ConstElementPtr element);
+
+    /// @brief Pretends to parse the config
+    ///
+    /// This method pretends to parse the configuration specified on input
+    /// and returns a positive answer. The check_only flag is currently ignored.
+    ///
+    /// @param config configuration specified
+    /// @param check_only whether it's real configuration (false) or just
+    ///                configuration check (true)
+    /// @return always positive answer
+    ///
+    isc::data::ConstElementPtr
+    parse(isc::data::ConstElementPtr config, bool check_only);
+
+    /// @brief Returns a summary of the configuration in the textual format.
+    ///
+    /// @return Always an empty string.
+    virtual std::string getConfigSummary(const uint32_t) {
+        return ("");
+    }
+
+    /// @brief A list for remembering the element ids in the order they were
+    /// parsed.
+    ElementIdList parsed_order_;
+
+    /// @todo
+    virtual DCfgContextBasePtr createNewContext();
+
+    virtual void ensureCurrentAllocated();
+};
+
+/// @brief Defines a pointer to DStubCfgMgr.
+typedef boost::shared_ptr<DStubCfgMgr> DStubCfgMgrPtr;
+
 /// @brief Abstract Test fixture class that wraps a DControllerBase. This class
 /// is a friend class of DControllerBase which allows it access to class
 /// content to facilitate testing.  It provides numerous wrapper methods for
@@ -325,12 +408,14 @@ public:
     /// @param instance_getter is a function pointer to the static instance
     /// method of the DControllerBase derivation under test.
     DControllerTest(InstanceGetter instance_getter)
-         : write_timer_(), new_cfg_content_() {
+        : cfg_mgr_(new DStubCfgMgr), write_timer_(), new_cfg_content_() {
         // Set the static fetcher member, then invoke it via getController.
         // This ensures the singleton is instantiated.
         instanceGetter_ = instance_getter;
         getController();
     }
+
+    DStubCfgMgrPtr cfg_mgr_;
 
     /// @brief Destructor
     /// Note the controller singleton is destroyed. This is essential to ensure
@@ -438,6 +523,11 @@ public:
     void parseArgs(int argc, char* argv[]) {
         getController()->parseArgs(argc, argv);
     }
+
+    virtual void ensureCurrentAlocated() {
+
+    }
+
 
     /// @Wrapper to invoke the Controller's init method.  Please refer to
     /// DControllerBase::init for details.
@@ -588,7 +678,7 @@ public:
     /// @brief Creates a clone of a DStubContext.
     ///
     /// @return returns a pointer to the new clone.
-    virtual DCfgContextBasePtr clone();
+    virtual BaseConfigPtr clone() const;
 
     /// @brief Returns configuration summary
     /// @param selection meh, your only selection today is an empty string
@@ -628,86 +718,6 @@ private:
 
 /// @brief Defines a pointer to DStubContext.
 typedef boost::shared_ptr<DStubContext> DStubContextPtr;
-
-/// @brief Test Derivation of the DCfgMgrBase class.
-///
-/// This class is used to test basic functionality of configuration management.
-/// It supports the following configuration elements:
-///
-/// "bool_test" - Boolean element, tests parsing and committing a boolean
-///               configuration parameter.
-/// "uint32_test" - Uint32 element, tests parsing and committing a uint32_t
-///               configuration parameter.
-/// "string_test" - String element, tests parsing and committing a string
-///               configuration parameter.
-/// "extra_test" - "Extra" element, tests parsing and committing an extra
-///               configuration parameter. (This is used to demonstrate
-///               derivation's addition of storage to configuration context.
-///
-/// It also keeps track of the element ids that are parsed in the order they
-/// are parsed.  This is used to test ordered and non-ordered parsing.
-class DStubCfgMgr : public DCfgMgrBase {
-public:
-    /// @brief Constructor
-    DStubCfgMgr();
-
-    /// @brief Destructor
-    virtual ~DStubCfgMgr();
-
-    /// @brief Parses the given element into the appropriate object
-    ///
-    /// The method supports three named elements:
-    ///
-    /// -# "bool_test"
-    /// -# "uint32_test"
-    /// -# "string_test"
-    ///
-    /// which are parsed and whose value is then stored in the
-    /// the appropriate context value store.
-    ///
-    /// Any other element_id is treated generically and stored
-    /// in the context's object store, unless the simulated
-    /// error has been set to SimFailure::ftElementUnknown.
-    ///
-    /// @param element_id name of the element to parse
-    /// @param element Element to parse
-    ///
-    /// @throw DCfgMgrBaseError if simulated error is set
-    /// to ftElementUnknown and element_id is not one of
-    /// the named elements.
-    virtual void parseElement(const std::string& element_id,
-                              isc::data::ConstElementPtr element);
-
-    /// @brief Pretends to parse the config
-    ///
-    /// This method pretends to parse the configuration specified on input
-    /// and returns a positive answer. The check_only flag is currently ignored.
-    ///
-    /// @param config configuration specified
-    /// @param check_only whether it's real configuration (false) or just
-    ///                configuration check (true)
-    /// @return always positive answer
-    ///
-    isc::data::ConstElementPtr
-    parse(isc::data::ConstElementPtr config, bool check_only);
-
-    /// @brief Returns a summary of the configuration in the textual format.
-    ///
-    /// @return Always an empty string.
-    virtual std::string getConfigSummary(const uint32_t) {
-        return ("");
-    }
-
-    /// @brief A list for remembering the element ids in the order they were
-    /// parsed.
-    ElementIdList parsed_order_;
-
-    /// @todo
-    virtual DCfgContextBasePtr createNewContext();
-};
-
-/// @brief Defines a pointer to DStubCfgMgr.
-typedef boost::shared_ptr<DStubCfgMgr> DStubCfgMgrPtr;
 
 /// @brief Test fixture base class for any fixtures which test parsing.
 /// It provides methods for converting JSON strings to configuration element

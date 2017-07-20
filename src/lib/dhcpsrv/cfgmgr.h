@@ -120,17 +120,6 @@ public:
     /// This function is exception safe.
     virtual void commit();
 
-    /// @brief Removes staging configuration.
-    ///
-    /// This function should be called when there is a staging configuration
-    /// (likely created in the previous configuration attempt) but the entirely
-    /// new configuration should be created. It removes the existing staging
-    /// configuration and the next call to @c CfgMgr::getStagingCfg will return a
-    /// fresh (default) configuration.
-    ///
-    /// This function is exception safe.
-    virtual void rollback();
-
     /// @brief Reverts to one of the previous configurations.
     ///
     /// This function reverts to selected previous configuration. The previous
@@ -182,6 +171,28 @@ public:
 
     //@}
 
+    /// @brief returns path do the data directory
+    ///
+    /// This method returns a path to writable directory that DHCP servers
+    /// can store data in.
+    /// @return data directory
+    std::string getDataDir() const;
+
+    /// @brief Sets new data directory.
+    ///
+    /// @param datadir New data directory.
+    void setDataDir(const std::string& datadir);
+
+    /// @brief Sets address family (AF_INET or AF_INET6)
+    void setFamily(uint16_t family) {
+        family_ = family;
+    }
+
+    /// @brief Returns address family.
+    uint16_t getFamily() const {
+        return (family_);
+    }
+
 protected:
 
     /// @brief Protected constructor.
@@ -202,6 +213,12 @@ private:
     /// is created. If current configuration is not set, it creates the
     /// default current configuration.
     virtual void ensureCurrentAllocated();
+
+    /// @brief directory where data files (e.g. server-id) are stored
+    std::string datadir_;
+
+    /// @brief Address family.
+    uint16_t family_;
 
 
     /// @brief Manages the DHCP-DDNS client and its configuration.

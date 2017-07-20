@@ -21,12 +21,9 @@ class BaseCfgMgr :  public boost::noncopyable {
     static BaseCfgMgr& instance();
 
  protected:
-    BaseCfgMgr(const std::string& datadir, const uint16_t family, bool verbose)
-        :datadir_(datadir), verbose_mode_(verbose), family_(family) {
-    }
+    BaseCfgMgr(bool verbose);
 
-    virtual ~BaseCfgMgr() {
-    }
+    virtual ~BaseCfgMgr();
 
     static void setInstance(BaseCfgMgr* instance);
 
@@ -79,17 +76,6 @@ class BaseCfgMgr :  public boost::noncopyable {
     /// @todo Make it configurable.
     static const size_t CONFIG_LIST_SIZE;
 
-    /// @brief returns path do the data directory
-    ///
-    /// This method returns a path to writable directory that DHCP servers
-    /// can store data in.
-    /// @return data directory
-    std::string getDataDir() const;
-
-    /// @brief Sets new data directory.
-    ///
-    /// @param datadir New data directory.
-    void setDataDir(const std::string& datadir);
 
     /// @brief Removes current, staging and all previous configurations.
     ///
@@ -98,7 +84,7 @@ class BaseCfgMgr :  public boost::noncopyable {
     /// default settings.
     ///
     /// This function is exception safe.
-    virtual void clear() = 0;
+    virtual void clear();
 
     /// @brief Commits the staging configuration.
     ///
@@ -108,7 +94,7 @@ class BaseCfgMgr :  public boost::noncopyable {
     /// the @c CONFIG_LIST_SIZE.
     ///
     /// This function is exception safe.
-    virtual void commit() = 0;
+    virtual void commit();
 
     /// @brief Removes staging configuration.
     ///
@@ -119,7 +105,7 @@ class BaseCfgMgr :  public boost::noncopyable {
     /// fresh (default) configuration.
     ///
     /// This function is exception safe.
-    virtual void rollback() = 0;
+    virtual void rollback();
 
     /// @brief Reverts to one of the previous configurations.
     ///
@@ -145,7 +131,7 @@ class BaseCfgMgr :  public boost::noncopyable {
     /// to the nearest configuration.
     ///
     /// @throw isc::OutOfRange if the specified index is out of range.
-    virtual void revert(const size_t index) = 0;
+    virtual void revert(const size_t index);
 
         /// @name Methods setting/accessing global configuration for the process.
     ///
@@ -178,14 +164,6 @@ class BaseCfgMgr :  public boost::noncopyable {
         return (default_logger_name_);
     }
 
-    /// @brief Sets address family (AF_INET or AF_INET6)
-    void setFamily(uint16_t family);
-
-    /// @brief Returns address family.
-    uint16_t getFamily() const {
-        return (family_);
-    }
-
     //@}
  private:
     /// @brief Checks if current configuration is created and creates it if needed.
@@ -195,17 +173,12 @@ class BaseCfgMgr :  public boost::noncopyable {
     /// default current configuration.
     virtual void ensureCurrentAllocated() = 0;
 
-    /// @brief directory where data files (e.g. server-id) are stored
-    std::string datadir_;
-
     /// @brief Indicates if a process has been ran in the verbose mode.
     bool verbose_mode_;
 
     /// @brief Default logger name.
     std::string default_logger_name_;
 
-    /// @brief Address family.
-    uint16_t family_;
 
     static BaseCfgMgr* instance_;
 };

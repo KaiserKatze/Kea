@@ -81,8 +81,11 @@ private:
 // Very simple test. Checks whether Daemon can be instantiated and its
 // default parameters are sane
 TEST_F(DaemonTest, constructor) {
+
     // Disable KEA_PIDFILE_DIR
     EXPECT_EQ(0, unsetenv("KEA_PIDFILE_DIR"));
+
+    CfgMgr::instance();
 
     EXPECT_NO_THROW(Daemon instance1);
 

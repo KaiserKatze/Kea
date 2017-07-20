@@ -36,6 +36,14 @@ CtrlAgentCfgMgr::CtrlAgentCfgMgr()
 CtrlAgentCfgMgr::~CtrlAgentCfgMgr() {
 }
 
+void
+CtrlAgentCfgMgr::ensureCurrentAllocated() {
+    if (!configuration_ || configs_.empty()) {
+        configuration_.reset(new CtrlAgentCfgContext());
+        configs_.push_back(configuration_);
+    }
+}
+
 std::string
 CtrlAgentCfgMgr::getConfigSummary(const uint32_t /*selection*/) {
 

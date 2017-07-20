@@ -40,8 +40,8 @@ public:
     /// That data is stored as ConstElementPtr (a shared pointer) to the actual data.
     ///
     /// @return A pointer to the new clone.
-    virtual process::DCfgContextBasePtr clone() {
-        return (process::DCfgContextBasePtr(new CtrlAgentCfgContext(*this)));
+    virtual process::BaseConfigPtr clone() const {
+        return (process::BaseConfigPtr(new CtrlAgentCfgContext(*this)));
     }
 
     /// @brief Returns information about control socket
@@ -123,6 +123,18 @@ public:
     /// the initial configuration object
     virtual isc::data::ElementPtr toElement() const;
 
+    /// @brief Returns summary of the configuration in the textual format.
+    ///
+    /// This method is expected to be provided by derived implementations.
+    ///
+    /// @param selection Is a bitfield which describes the parts of the
+    /// configuration to be returned.
+    ///
+    /// @return Summary of the configuration in the textual format.
+    virtual std::string getConfigSummary(const uint32_t selection) const {
+        return ("");
+    }
+
 private:
 
     /// @brief Private copy constructor
@@ -171,6 +183,13 @@ public:
     CtrlAgentCfgContextPtr getCtrlAgentCfgContext() {
         return (boost::dynamic_pointer_cast<CtrlAgentCfgContext>(getContext()));
     }
+
+    /// @brief Checks if current configuration is created and creates it if needed.
+    ///
+    /// This private method is called to ensure that the current configuration
+    /// is created. If current configuration is not set, it creates the
+    /// default current configuration.
+    virtual void ensureCurrentAllocated();
 
     /// @brief Returns configuration summary in the textual format.
     ///

@@ -99,7 +99,7 @@ DCfgContextBase::~DCfgContextBase() {
 // *********************** DCfgMgrBase  *************************
 
 DCfgMgrBase::DCfgMgrBase(DCfgContextBasePtr context)
-    : parse_order_() {
+    : BaseCfgMgr(false), parse_order_() {
     setContext(context);
 }
 

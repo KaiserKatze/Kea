@@ -356,9 +356,8 @@ public:
     /// The lack of ability to copy the entire configuration makes
     /// revert function of the @c CfgMgr unsuable.
     ///
-    /// @param [out] new_config An object to which the configuration will
-    /// be copied.
-    void copy(SrvConfig& new_config) const;
+    /// @return pointer to the new config
+    virtual process::BaseConfigPtr clone() const;
 
     /// @name Methods and operators used to compare configurations.
     ///
