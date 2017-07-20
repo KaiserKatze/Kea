@@ -34,9 +34,9 @@ endif
 
 noinst_LTLIBRARIES = libclient.la
 
-libclnt_la_SOURCES  =
-libclnt_la_SOURCES += main.cc
-libclnt_la_SOURCES += client_interface.h client_interface.cc
+libclient_la_SOURCES  =
+libclient_la_SOURCES += main.cc
+libclient_la_SOURCES += client6_interface.h client6_interface.cc
 
 sbin_PROGRAMS = kea-client
 
