@@ -1578,6 +1578,8 @@ AC_CONFIG_FILES([Makefile
                  src/bin/shell/tests/Makefile
                  src/bin/shell/tests/shell_process_tests.sh
                  src/bin/shell/tests/shell_unittest.py
+                 src/bin/slaac/Makefile
+                 src/bin/slaac/tests/Makefile
                  src/hooks/Makefile
                  src/hooks/dhcp/Makefile
                  src/hooks/dhcp/high_availability/Makefile
