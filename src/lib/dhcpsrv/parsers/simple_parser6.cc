@@ -104,7 +104,8 @@ const SimpleDefaults SimpleParser6::GLOBAL6_DEFAULTS = {
     { "decline-probation-period", Element::integer, "86400" }, // 24h
     { "dhcp4o6-port",             Element::integer, "0" },
     { "server-tag",               Element::string,  "" },
-    { "reservation-mode",         Element::string,  "all" }
+    { "reservation-mode",         Element::string,  "all" },
+    { "enable-reconfiguration",   Element::boolean, "false" }
 };
 
 /// @brief This table defines default values for each IPv6 subnet.
