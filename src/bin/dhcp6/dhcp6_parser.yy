@@ -470,6 +470,7 @@ global_param: data_directory
             | config_control
             | server_tag
             | reservation_mode
+            | loggers
             | unknown_map_entry
             ;
 
