@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2018 Internet Systems Consortium, Inc. ("ISC")
+// Copyright (C) 2012-2019 Internet Systems Consortium, Inc. ("ISC")
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -205,7 +205,8 @@ private:
     /// @param command (parameter ignored)
     /// @param args configuration to be processed. Expected format:
     /// map containing Dhcp4 map that contains DHCPv4 server configuration.
-    /// May also contain Logging map that specifies logging configuration.
+    /// May also contain Logging map that specifies logging configuration
+    /// for backward compatibility.
     ///
     /// @return status of the command
     isc::data::ConstElementPtr
@@ -219,7 +220,8 @@ private:
     /// @param command (parameter ignored)
     /// @param args configuration to be checked. Expected format:
     /// map containing Dhcp4 map that contains DHCPv4 server configuration.
-    /// May also contain Logging map that specifies logging configuration.
+    /// May also contain Logging map that specifies logging configuration
+    /// for backward compatibility.
     ///
     /// @return status of the command
     isc::data::ConstElementPtr

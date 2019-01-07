@@ -1,4 +1,4 @@
-// Copyright (C) 2018 Internet Systems Consortium, Inc. ("ISC")
+// Copyright (C) 2018-2019 Internet Systems Consortium, Inc. ("ISC")
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -103,9 +103,8 @@ ElementPtr
 ConfigBase::toElement() const {
     ElementPtr result = Element::createMap();
 
-    // Logging global map (skip if empty)
+    // Was in the Logging global map.
     if (!logging_info_.empty()) {
-        ElementPtr logging = Element::createMap();
         // Set loggers list
         ElementPtr loggers = Element::createList();
         for (LoggingInfoStorage::const_iterator logger =
@@ -113,10 +112,10 @@ ConfigBase::toElement() const {
              logger != logging_info_.cend(); ++logger) {
             loggers->add(logger->toElement());
         }
-        logging->set("loggers", loggers);
-        result->set("Logging", logging);
+        result->set("loggers", loggers);
     }
 
+    // Note this comment below is obsolete...
     // We do NOT output ConfigControlInfo here, as it is not a
     // top level element, but rather belongs within the process
     // element.

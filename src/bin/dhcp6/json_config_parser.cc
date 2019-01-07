@@ -666,7 +666,8 @@ configureDhcp6Server(Dhcpv6Srv& server, isc::data::ConstElementPtr config_set,
                  (config_pair.first == "dhcp4o6-port") ||
                  (config_pair.first == "user-context") ||
                  (config_pair.first == "server-tag") ||
-                 (config_pair.first == "reservation-mode")) {
+                 (config_pair.first == "reservation-mode") ||
+                 (config_pair.first == "loggers")) {
                 continue;
             }
 
