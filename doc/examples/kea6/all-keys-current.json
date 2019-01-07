@@ -722,11 +722,7 @@
         "reservation-mode": "all",
 
         // Data directory.
-        "data-directory": "/tmp"
-    },
-
-    // Logging configuration begins here.
-    "Logging": {
+        "data-directory": "/tmp",
 
         // List of loggers used by the servers using this configuration file.
         "loggers": [

@@ -877,8 +877,6 @@ Result is an integer representation of the status. Currently supported statuses 
     "command": "config-set",
     "arguments":  {
         "&lt;server&gt;": {
-        },
-        "Logging": {
         }
      }
 }</screen>
@@ -918,8 +916,6 @@ Result is an integer representation of the status. Currently supported statuses 
     "command": "config-test",
     "arguments":  {
         "&lt;server&gt;": {
-        },
-        "Logging": {
         }
      }
 }</screen>
