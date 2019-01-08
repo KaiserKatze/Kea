@@ -33,7 +33,7 @@ public:
     /// @name Modifiers and accesors for the configuration objects.
     ///
     /// @warning References to the objects returned by accessors are only
-    /// valid during the lifetime of the @c SrvConfig object which
+    /// valid during the lifetime of the @c ConfigBase object which
     /// returned them.
     ///
     //@{
@@ -137,7 +137,7 @@ private:
     process::ConfigControlInfoPtr config_ctl_info_;
 };
 
-/// @brief Non-const pointer to the @c SrvConfig.
+/// @brief Non-const pointer to the @c ConfigBase.
 typedef boost::shared_ptr<ConfigBase> ConfigPtr;
 
 };
