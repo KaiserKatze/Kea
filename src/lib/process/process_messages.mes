@@ -1,4 +1,4 @@
-# Copyright (C) 2016-2017 Internet Systems Consortium, Inc. ("ISC")
+# Copyright (C) 2016-2019 Internet Systems Consortium, Inc. ("ISC")
 #
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -49,7 +49,7 @@ new configuration. It is output during server startup, and when an updated
 configuration is committed by the administrator.  Additional information
 may be provided.
 
-% DCTL_CONFIG_DEPRECATED server configuration includes a deprecated object: %1
+% DCTL_CONFIG_DEPRECATED_OBJECT server configuration includes a deprecated object: %1
 This warning message is issued when the configuration includes a deprecated
 object (i.e. a top level element) which will be ignored.
 
@@ -62,7 +62,7 @@ This critical error message indicates that the initial application
 configuration has failed. The service will start, but will not
 process requests until the configuration has been corrected.
 
-% DCTL_CONFIG_OBSOLETE server configuration includes an obsolete object: %1
+% DCTL_CONFIG_OBSOLETE_OBJECT server configuration includes an obsolete object: %1
 This error message is issued when the configuration includes an obsolete
 object (i.e. a top level element).
 
@@ -74,6 +74,10 @@ for parsing.
 % DCTL_CONFIG_STUB %1 configuration stub handler called
 This debug message is issued when the dummy handler for configuration
 events is called.  This only happens during initial startup.
+
+% DCTL_CONFIG_UNKNOWN_OBJECT server configuration includes an unknown object: %1
+This error message is issued when the configuration includes an unknown
+object (i.e. a top level element).
 
 % DCTL_CONFIG_UPDATE %1 updated configuration received: %2
 A debug message indicating that the controller has received an
