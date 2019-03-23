@@ -455,23 +455,29 @@ namespace isc { namespace slaac {
         TOKEN_SLAAC = 265,
         TOKEN_USER_CONTEXT = 266,
         TOKEN_COMMENT = 267,
-        TOKEN_LOGGING = 268,
-        TOKEN_LOGGERS = 269,
-        TOKEN_NAME = 270,
-        TOKEN_OUTPUT_OPTIONS = 271,
-        TOKEN_OUTPUT = 272,
-        TOKEN_DEBUGLEVEL = 273,
-        TOKEN_SEVERITY = 274,
-        TOKEN_FLUSH = 275,
-        TOKEN_MAXSIZE = 276,
-        TOKEN_MAXVER = 277,
-        TOKEN_START_JSON = 278,
-        TOKEN_START_SLAAC = 279,
-        TOKEN_START_SUB_SLAAC = 280,
-        TOKEN_STRING = 281,
-        TOKEN_INTEGER = 282,
-        TOKEN_FLOAT = 283,
-        TOKEN_BOOLEAN = 284
+        TOKEN_HOP_LIMIT = 268,
+        TOKEN_MANAGED_FLAG = 269,
+        TOKEN_OTHER_FLAG = 270,
+        TOKEN_ROUTER_LIFETIME = 271,
+        TOKEN_REACHABLE_TIME = 272,
+        TOKEN_RETRANS_TIMER = 273,
+        TOKEN_LOGGING = 274,
+        TOKEN_LOGGERS = 275,
+        TOKEN_NAME = 276,
+        TOKEN_OUTPUT_OPTIONS = 277,
+        TOKEN_OUTPUT = 278,
+        TOKEN_DEBUGLEVEL = 279,
+        TOKEN_SEVERITY = 280,
+        TOKEN_FLUSH = 281,
+        TOKEN_MAXSIZE = 282,
+        TOKEN_MAXVER = 283,
+        TOKEN_START_JSON = 284,
+        TOKEN_START_SLAAC = 285,
+        TOKEN_START_SUB_SLAAC = 286,
+        TOKEN_STRING = 287,
+        TOKEN_INTEGER = 288,
+        TOKEN_FLOAT = 289,
+        TOKEN_BOOLEAN = 290
       };
     };
 
@@ -613,24 +619,24 @@ namespace isc { namespace slaac {
         // Type destructor.
 switch (yytype)
     {
-      case 38: // value
-      case 41: // map_value
+      case 44: // value
+      case 47: // map_value
         value.template destroy< ElementPtr > ();
         break;
 
-      case 29: // "boolean"
+      case 35: // "boolean"
         value.template destroy< bool > ();
         break;
 
-      case 28: // "floating point"
+      case 34: // "floating point"
         value.template destroy< double > ();
         break;
 
-      case 27: // "integer"
+      case 33: // "integer"
         value.template destroy< int64_t > ();
         break;
 
-      case 26: // "constant string"
+      case 32: // "constant string"
         value.template destroy< std::string > ();
         break;
 
@@ -713,13 +719,13 @@ switch (yytype)
       symbol_type (int tok, location_type l)
         : super_type(token_type (tok), std::move (l))
       {
-        YYASSERT (tok == token::TOKEN_END || tok == token::TOKEN_COMMA || tok == token::TOKEN_COLON || tok == token::TOKEN_LSQUARE_BRACKET || tok == token::TOKEN_RSQUARE_BRACKET || tok == token::TOKEN_LCURLY_BRACKET || tok == token::TOKEN_RCURLY_BRACKET || tok == token::TOKEN_NULL_TYPE || tok == token::TOKEN_SLAAC || tok == token::TOKEN_USER_CONTEXT || tok == token::TOKEN_COMMENT || tok == token::TOKEN_LOGGING || tok == token::TOKEN_LOGGERS || tok == token::TOKEN_NAME || tok == token::TOKEN_OUTPUT_OPTIONS || tok == token::TOKEN_OUTPUT || tok == token::TOKEN_DEBUGLEVEL || tok == token::TOKEN_SEVERITY || tok == token::TOKEN_FLUSH || tok == token::TOKEN_MAXSIZE || tok == token::TOKEN_MAXVER || tok == token::TOKEN_START_JSON || tok == token::TOKEN_START_SLAAC || tok == token::TOKEN_START_SUB_SLAAC);
+        YYASSERT (tok == token::TOKEN_END || tok == token::TOKEN_COMMA || tok == token::TOKEN_COLON || tok == token::TOKEN_LSQUARE_BRACKET || tok == token::TOKEN_RSQUARE_BRACKET || tok == token::TOKEN_LCURLY_BRACKET || tok == token::TOKEN_RCURLY_BRACKET || tok == token::TOKEN_NULL_TYPE || tok == token::TOKEN_SLAAC || tok == token::TOKEN_USER_CONTEXT || tok == token::TOKEN_COMMENT || tok == token::TOKEN_HOP_LIMIT || tok == token::TOKEN_MANAGED_FLAG || tok == token::TOKEN_OTHER_FLAG || tok == token::TOKEN_ROUTER_LIFETIME || tok == token::TOKEN_REACHABLE_TIME || tok == token::TOKEN_RETRANS_TIMER || tok == token::TOKEN_LOGGING || tok == token::TOKEN_LOGGERS || tok == token::TOKEN_NAME || tok == token::TOKEN_OUTPUT_OPTIONS || tok == token::TOKEN_OUTPUT || tok == token::TOKEN_DEBUGLEVEL || tok == token::TOKEN_SEVERITY || tok == token::TOKEN_FLUSH || tok == token::TOKEN_MAXSIZE || tok == token::TOKEN_MAXVER || tok == token::TOKEN_START_JSON || tok == token::TOKEN_START_SLAAC || tok == token::TOKEN_START_SUB_SLAAC);
       }
 #else
       symbol_type (int tok, const location_type& l)
         : super_type(token_type (tok), l)
       {
-        YYASSERT (tok == token::TOKEN_END || tok == token::TOKEN_COMMA || tok == token::TOKEN_COLON || tok == token::TOKEN_LSQUARE_BRACKET || tok == token::TOKEN_RSQUARE_BRACKET || tok == token::TOKEN_LCURLY_BRACKET || tok == token::TOKEN_RCURLY_BRACKET || tok == token::TOKEN_NULL_TYPE || tok == token::TOKEN_SLAAC || tok == token::TOKEN_USER_CONTEXT || tok == token::TOKEN_COMMENT || tok == token::TOKEN_LOGGING || tok == token::TOKEN_LOGGERS || tok == token::TOKEN_NAME || tok == token::TOKEN_OUTPUT_OPTIONS || tok == token::TOKEN_OUTPUT || tok == token::TOKEN_DEBUGLEVEL || tok == token::TOKEN_SEVERITY || tok == token::TOKEN_FLUSH || tok == token::TOKEN_MAXSIZE || tok == token::TOKEN_MAXVER || tok == token::TOKEN_START_JSON || tok == token::TOKEN_START_SLAAC || tok == token::TOKEN_START_SUB_SLAAC);
+        YYASSERT (tok == token::TOKEN_END || tok == token::TOKEN_COMMA || tok == token::TOKEN_COLON || tok == token::TOKEN_LSQUARE_BRACKET || tok == token::TOKEN_RSQUARE_BRACKET || tok == token::TOKEN_LCURLY_BRACKET || tok == token::TOKEN_RCURLY_BRACKET || tok == token::TOKEN_NULL_TYPE || tok == token::TOKEN_SLAAC || tok == token::TOKEN_USER_CONTEXT || tok == token::TOKEN_COMMENT || tok == token::TOKEN_HOP_LIMIT || tok == token::TOKEN_MANAGED_FLAG || tok == token::TOKEN_OTHER_FLAG || tok == token::TOKEN_ROUTER_LIFETIME || tok == token::TOKEN_REACHABLE_TIME || tok == token::TOKEN_RETRANS_TIMER || tok == token::TOKEN_LOGGING || tok == token::TOKEN_LOGGERS || tok == token::TOKEN_NAME || tok == token::TOKEN_OUTPUT_OPTIONS || tok == token::TOKEN_OUTPUT || tok == token::TOKEN_DEBUGLEVEL || tok == token::TOKEN_SEVERITY || tok == token::TOKEN_FLUSH || tok == token::TOKEN_MAXSIZE || tok == token::TOKEN_MAXVER || tok == token::TOKEN_START_JSON || tok == token::TOKEN_START_SLAAC || tok == token::TOKEN_START_SUB_SLAAC);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -974,6 +980,96 @@ switch (yytype)
       make_COMMENT (const location_type& l)
       {
         return symbol_type (token::TOKEN_COMMENT, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_HOP_LIMIT (location_type l)
+      {
+        return symbol_type (token::TOKEN_HOP_LIMIT, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_HOP_LIMIT (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_HOP_LIMIT, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_MANAGED_FLAG (location_type l)
+      {
+        return symbol_type (token::TOKEN_MANAGED_FLAG, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_MANAGED_FLAG (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_MANAGED_FLAG, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_OTHER_FLAG (location_type l)
+      {
+        return symbol_type (token::TOKEN_OTHER_FLAG, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_OTHER_FLAG (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_OTHER_FLAG, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_ROUTER_LIFETIME (location_type l)
+      {
+        return symbol_type (token::TOKEN_ROUTER_LIFETIME, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_ROUTER_LIFETIME (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_ROUTER_LIFETIME, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_REACHABLE_TIME (location_type l)
+      {
+        return symbol_type (token::TOKEN_REACHABLE_TIME, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_REACHABLE_TIME (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_REACHABLE_TIME, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_RETRANS_TIMER (location_type l)
+      {
+        return symbol_type (token::TOKEN_RETRANS_TIMER, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_RETRANS_TIMER (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_RETRANS_TIMER, l);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -1287,7 +1383,7 @@ switch (yytype)
   // number is the opposite.  If YYTABLE_NINF, syntax error.
   static const unsigned char yytable_[];
 
-  static const short yycheck_[];
+  static const unsigned char yycheck_[];
 
   // YYSTOS[STATE-NUM] -- The (internal number of the) accessing
   // symbol of state STATE-NUM.
@@ -1537,12 +1633,12 @@ switch (yytype)
     enum
     {
       yyeof_ = 0,
-      yylast_ = 103,     ///< Last index in yytable_.
-      yynnts_ = 60,  ///< Number of nonterminal symbols.
+      yylast_ = 118,     ///< Last index in yytable_.
+      yynnts_ = 66,  ///< Number of nonterminal symbols.
       yyfinal_ = 8, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 30  ///< Number of tokens.
+      yyntokens_ = 36  ///< Number of tokens.
     };
 
 
@@ -1588,9 +1684,10 @@ switch (yytype)
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
-      25,    26,    27,    28,    29
+      25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
+      35
     };
-    const unsigned user_token_number_max_ = 284;
+    const unsigned user_token_number_max_ = 290;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int> (t) <= yyeof_)
@@ -1611,24 +1708,24 @@ switch (yytype)
   {
     switch (this->type_get ())
     {
-      case 38: // value
-      case 41: // map_value
+      case 44: // value
+      case 47: // map_value
         value.move< ElementPtr > (std::move (that.value));
         break;
 
-      case 29: // "boolean"
+      case 35: // "boolean"
         value.move< bool > (std::move (that.value));
         break;
 
-      case 28: // "floating point"
+      case 34: // "floating point"
         value.move< double > (std::move (that.value));
         break;
 
-      case 27: // "integer"
+      case 33: // "integer"
         value.move< int64_t > (std::move (that.value));
         break;
 
-      case 26: // "constant string"
+      case 32: // "constant string"
         value.move< std::string > (std::move (that.value));
         break;
 
@@ -1647,24 +1744,24 @@ switch (yytype)
   {
     switch (this->type_get ())
     {
-      case 38: // value
-      case 41: // map_value
+      case 44: // value
+      case 47: // map_value
         value.copy< ElementPtr > (YY_MOVE (that.value));
         break;
 
-      case 29: // "boolean"
+      case 35: // "boolean"
         value.copy< bool > (YY_MOVE (that.value));
         break;
 
-      case 28: // "floating point"
+      case 34: // "floating point"
         value.copy< double > (YY_MOVE (that.value));
         break;
 
-      case 27: // "integer"
+      case 33: // "integer"
         value.copy< int64_t > (YY_MOVE (that.value));
         break;
 
-      case 26: // "constant string"
+      case 32: // "constant string"
         value.copy< std::string > (YY_MOVE (that.value));
         break;
 
@@ -1690,24 +1787,24 @@ switch (yytype)
     super_type::move (s);
     switch (this->type_get ())
     {
-      case 38: // value
-      case 41: // map_value
+      case 44: // value
+      case 47: // map_value
         value.move< ElementPtr > (YY_MOVE (s.value));
         break;
 
-      case 29: // "boolean"
+      case 35: // "boolean"
         value.move< bool > (YY_MOVE (s.value));
         break;
 
-      case 28: // "floating point"
+      case 34: // "floating point"
         value.move< double > (YY_MOVE (s.value));
         break;
 
-      case 27: // "integer"
+      case 33: // "integer"
         value.move< int64_t > (YY_MOVE (s.value));
         break;
 
-      case 26: // "constant string"
+      case 32: // "constant string"
         value.move< std::string > (YY_MOVE (s.value));
         break;
 
@@ -1777,14 +1874,15 @@ switch (yytype)
     {
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
-     275,   276,   277,   278,   279,   280,   281,   282,   283,   284
+     275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
+     285,   286,   287,   288,   289,   290
     };
     return token_type (yytoken_number_[type]);
   }
 
 #line 14 "slaac_parser.yy" // lalr1.cc:401
 } } // isc::slaac
-#line 1788 "slaac_parser.h" // lalr1.cc:401
+#line 1886 "slaac_parser.h" // lalr1.cc:401
 
 
 
