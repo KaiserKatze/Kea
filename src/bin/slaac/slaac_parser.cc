@@ -250,24 +250,24 @@ namespace isc { namespace slaac {
   {
     switch (that.type_get ())
     {
-      case 48: // value
-      case 51: // map_value
+      case 55: // value
+      case 58: // map_value
         value.YY_MOVE_OR_COPY< ElementPtr > (YY_MOVE (that.value));
         break;
 
-      case 39: // "boolean"
+      case 46: // "boolean"
         value.YY_MOVE_OR_COPY< bool > (YY_MOVE (that.value));
         break;
 
-      case 38: // "floating point"
+      case 45: // "floating point"
         value.YY_MOVE_OR_COPY< double > (YY_MOVE (that.value));
         break;
 
-      case 37: // "integer"
+      case 44: // "integer"
         value.YY_MOVE_OR_COPY< int64_t > (YY_MOVE (that.value));
         break;
 
-      case 36: // "constant string"
+      case 43: // "constant string"
         value.YY_MOVE_OR_COPY< std::string > (YY_MOVE (that.value));
         break;
 
@@ -286,24 +286,24 @@ namespace isc { namespace slaac {
   {
     switch (that.type_get ())
     {
-      case 48: // value
-      case 51: // map_value
+      case 55: // value
+      case 58: // map_value
         value.move< ElementPtr > (YY_MOVE (that.value));
         break;
 
-      case 39: // "boolean"
+      case 46: // "boolean"
         value.move< bool > (YY_MOVE (that.value));
         break;
 
-      case 38: // "floating point"
+      case 45: // "floating point"
         value.move< double > (YY_MOVE (that.value));
         break;
 
-      case 37: // "integer"
+      case 44: // "integer"
         value.move< int64_t > (YY_MOVE (that.value));
         break;
 
-      case 36: // "constant string"
+      case 43: // "constant string"
         value.move< std::string > (YY_MOVE (that.value));
         break;
 
@@ -322,24 +322,24 @@ namespace isc { namespace slaac {
     state = that.state;
     switch (that.type_get ())
     {
-      case 48: // value
-      case 51: // map_value
+      case 55: // value
+      case 58: // map_value
         value.move< ElementPtr > (that.value);
         break;
 
-      case 39: // "boolean"
+      case 46: // "boolean"
         value.move< bool > (that.value);
         break;
 
-      case 38: // "floating point"
+      case 45: // "floating point"
         value.move< double > (that.value);
         break;
 
-      case 37: // "integer"
+      case 44: // "integer"
         value.move< int64_t > (that.value);
         break;
 
-      case 36: // "constant string"
+      case 43: // "constant string"
         value.move< std::string > (that.value);
         break;
 
@@ -382,38 +382,38 @@ namespace isc { namespace slaac {
         << yysym.location << ": ";
     switch (yytype)
     {
-      case 36: // "constant string"
-#line 97 "slaac_parser.yy" // lalr1.cc:676
+      case 43: // "constant string"
+#line 105 "slaac_parser.yy" // lalr1.cc:676
         { yyoutput << yysym.value.template as < std::string > (); }
 #line 389 "slaac_parser.cc" // lalr1.cc:676
         break;
 
-      case 37: // "integer"
-#line 97 "slaac_parser.yy" // lalr1.cc:676
+      case 44: // "integer"
+#line 105 "slaac_parser.yy" // lalr1.cc:676
         { yyoutput << yysym.value.template as < int64_t > (); }
 #line 395 "slaac_parser.cc" // lalr1.cc:676
         break;
 
-      case 38: // "floating point"
-#line 97 "slaac_parser.yy" // lalr1.cc:676
+      case 45: // "floating point"
+#line 105 "slaac_parser.yy" // lalr1.cc:676
         { yyoutput << yysym.value.template as < double > (); }
 #line 401 "slaac_parser.cc" // lalr1.cc:676
         break;
 
-      case 39: // "boolean"
-#line 97 "slaac_parser.yy" // lalr1.cc:676
+      case 46: // "boolean"
+#line 105 "slaac_parser.yy" // lalr1.cc:676
         { yyoutput << yysym.value.template as < bool > (); }
 #line 407 "slaac_parser.cc" // lalr1.cc:676
         break;
 
-      case 48: // value
-#line 97 "slaac_parser.yy" // lalr1.cc:676
+      case 55: // value
+#line 105 "slaac_parser.yy" // lalr1.cc:676
         { yyoutput << yysym.value.template as < ElementPtr > (); }
 #line 413 "slaac_parser.cc" // lalr1.cc:676
         break;
 
-      case 51: // map_value
-#line 97 "slaac_parser.yy" // lalr1.cc:676
+      case 58: // map_value
+#line 105 "slaac_parser.yy" // lalr1.cc:676
         { yyoutput << yysym.value.template as < ElementPtr > (); }
 #line 419 "slaac_parser.cc" // lalr1.cc:676
         break;
@@ -632,24 +632,24 @@ namespace isc { namespace slaac {
          when using variants.  */
       switch (yyr1_[yyn])
     {
-      case 48: // value
-      case 51: // map_value
+      case 55: // value
+      case 58: // map_value
         yylhs.value.emplace< ElementPtr > ();
         break;
 
-      case 39: // "boolean"
+      case 46: // "boolean"
         yylhs.value.emplace< bool > ();
         break;
 
-      case 38: // "floating point"
+      case 45: // "floating point"
         yylhs.value.emplace< double > ();
         break;
 
-      case 37: // "integer"
+      case 44: // "integer"
         yylhs.value.emplace< int64_t > ();
         break;
 
-      case 36: // "constant string"
+      case 43: // "constant string"
         yylhs.value.emplace< std::string > ();
         break;
 
@@ -674,25 +674,25 @@ namespace isc { namespace slaac {
           switch (yyn)
             {
   case 2:
-#line 108 "slaac_parser.yy" // lalr1.cc:919
+#line 116 "slaac_parser.yy" // lalr1.cc:919
     { ctx.ctx_ = ctx.NO_KEYWORDS; }
 #line 680 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 4:
-#line 109 "slaac_parser.yy" // lalr1.cc:919
+#line 117 "slaac_parser.yy" // lalr1.cc:919
     { ctx.ctx_ = ctx.CONFIG; }
 #line 686 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 6:
-#line 110 "slaac_parser.yy" // lalr1.cc:919
+#line 118 "slaac_parser.yy" // lalr1.cc:919
     { ctx.ctx_ = ctx.SLAAC; }
 #line 692 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 8:
-#line 118 "slaac_parser.yy" // lalr1.cc:919
+#line 126 "slaac_parser.yy" // lalr1.cc:919
     {
     // Parse the Slaac map
     ElementPtr m(new MapElement(ctx.loc2pos(yystack_[0].location)));
@@ -702,7 +702,7 @@ namespace isc { namespace slaac {
     break;
 
   case 9:
-#line 122 "slaac_parser.yy" // lalr1.cc:919
+#line 130 "slaac_parser.yy" // lalr1.cc:919
     {
     // parsing completed
 }
@@ -710,7 +710,7 @@ namespace isc { namespace slaac {
     break;
 
   case 10:
-#line 129 "slaac_parser.yy" // lalr1.cc:919
+#line 137 "slaac_parser.yy" // lalr1.cc:919
     {
     // Push back the JSON value on the stack
     ctx.stack_.push_back(yystack_[0].value.as < ElementPtr > ());
@@ -719,49 +719,49 @@ namespace isc { namespace slaac {
     break;
 
   case 11:
-#line 135 "slaac_parser.yy" // lalr1.cc:919
+#line 143 "slaac_parser.yy" // lalr1.cc:919
     { yylhs.value.as < ElementPtr > () = ElementPtr(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location))); }
 #line 725 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 12:
-#line 136 "slaac_parser.yy" // lalr1.cc:919
+#line 144 "slaac_parser.yy" // lalr1.cc:919
     { yylhs.value.as < ElementPtr > () = ElementPtr(new DoubleElement(yystack_[0].value.as < double > (), ctx.loc2pos(yystack_[0].location))); }
 #line 731 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 13:
-#line 137 "slaac_parser.yy" // lalr1.cc:919
+#line 145 "slaac_parser.yy" // lalr1.cc:919
     { yylhs.value.as < ElementPtr > () = ElementPtr(new BoolElement(yystack_[0].value.as < bool > (), ctx.loc2pos(yystack_[0].location))); }
 #line 737 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 14:
-#line 138 "slaac_parser.yy" // lalr1.cc:919
+#line 146 "slaac_parser.yy" // lalr1.cc:919
     { yylhs.value.as < ElementPtr > () = ElementPtr(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location))); }
 #line 743 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 15:
-#line 139 "slaac_parser.yy" // lalr1.cc:919
+#line 147 "slaac_parser.yy" // lalr1.cc:919
     { yylhs.value.as < ElementPtr > () = ElementPtr(new NullElement(ctx.loc2pos(yystack_[0].location))); }
 #line 749 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 16:
-#line 140 "slaac_parser.yy" // lalr1.cc:919
+#line 148 "slaac_parser.yy" // lalr1.cc:919
     { yylhs.value.as < ElementPtr > () = ctx.stack_.back(); ctx.stack_.pop_back(); }
 #line 755 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 17:
-#line 141 "slaac_parser.yy" // lalr1.cc:919
+#line 149 "slaac_parser.yy" // lalr1.cc:919
     { yylhs.value.as < ElementPtr > () = ctx.stack_.back(); ctx.stack_.pop_back(); }
 #line 761 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 18:
-#line 145 "slaac_parser.yy" // lalr1.cc:919
+#line 153 "slaac_parser.yy" // lalr1.cc:919
     {
     // This code is executed when we're about to start parsing
     // the content of the map
@@ -772,7 +772,7 @@ namespace isc { namespace slaac {
     break;
 
   case 19:
-#line 150 "slaac_parser.yy" // lalr1.cc:919
+#line 158 "slaac_parser.yy" // lalr1.cc:919
     {
     // map parsing completed. If we ever want to do any wrap up
     // (maybe some sanity checking), this would be the best place
@@ -782,13 +782,13 @@ namespace isc { namespace slaac {
     break;
 
   case 20:
-#line 156 "slaac_parser.yy" // lalr1.cc:919
+#line 164 "slaac_parser.yy" // lalr1.cc:919
     { yylhs.value.as < ElementPtr > () = ctx.stack_.back(); ctx.stack_.pop_back(); }
 #line 788 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 23:
-#line 170 "slaac_parser.yy" // lalr1.cc:919
+#line 178 "slaac_parser.yy" // lalr1.cc:919
     {
                   // map containing a single entry
                   ctx.stack_.back()->set(yystack_[2].value.as < std::string > (), yystack_[0].value.as < ElementPtr > ());
@@ -797,7 +797,7 @@ namespace isc { namespace slaac {
     break;
 
   case 24:
-#line 174 "slaac_parser.yy" // lalr1.cc:919
+#line 182 "slaac_parser.yy" // lalr1.cc:919
     {
                   // map consisting of a shorter map followed by
                   // comma and string:value
@@ -807,7 +807,7 @@ namespace isc { namespace slaac {
     break;
 
   case 25:
-#line 181 "slaac_parser.yy" // lalr1.cc:919
+#line 189 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr l(new ListElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.push_back(l);
@@ -816,14 +816,14 @@ namespace isc { namespace slaac {
     break;
 
   case 26:
-#line 184 "slaac_parser.yy" // lalr1.cc:919
+#line 192 "slaac_parser.yy" // lalr1.cc:919
     {
 }
 #line 823 "slaac_parser.cc" // lalr1.cc:919
     break;
 
   case 29:
-#line 191 "slaac_parser.yy" // lalr1.cc:919
+#line 199 "slaac_parser.yy" // lalr1.cc:919
     {
                   // List consisting of a single element.
                   ctx.stack_.back()->add(yystack_[0].value.as < ElementPtr > ());
@@ -832,7 +832,7 @@ namespace isc { namespace slaac {
     break;
 
   case 30:
-#line 195 "slaac_parser.yy" // lalr1.cc:919
+#line 203 "slaac_parser.yy" // lalr1.cc:919
     {
                   // List ending with , and a value.
                   ctx.stack_.back()->add(yystack_[0].value.as < ElementPtr > ());
@@ -841,39 +841,74 @@ namespace isc { namespace slaac {
     break;
 
   case 31:
-#line 208 "slaac_parser.yy" // lalr1.cc:919
+#line 210 "slaac_parser.yy" // lalr1.cc:919
+    {
+    // List parsing about to start
+}
+#line 849 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 32:
+#line 212 "slaac_parser.yy" // lalr1.cc:919
+    {
+    // list parsing complete. Put any sanity checking here
+    //ctx.stack_.pop_back();
+}
+#line 858 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 35:
+#line 221 "slaac_parser.yy" // lalr1.cc:919
+    {
+                          ElementPtr s(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location)));
+                          ctx.stack_.back()->add(s);
+                          }
+#line 867 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 36:
+#line 225 "slaac_parser.yy" // lalr1.cc:919
+    {
+                          ElementPtr s(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location)));
+                          ctx.stack_.back()->add(s);
+                          }
+#line 876 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 37:
+#line 238 "slaac_parser.yy" // lalr1.cc:919
     {
     const std::string& where = ctx.contextName();
     const std::string& keyword = yystack_[1].value.as < std::string > ();
     error(yystack_[1].location,
           "got unexpected keyword \"" + keyword + "\" in " + where + " map.");
 }
-#line 852 "slaac_parser.cc" // lalr1.cc:919
+#line 887 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 32:
-#line 216 "slaac_parser.yy" // lalr1.cc:919
+  case 38:
+#line 246 "slaac_parser.yy" // lalr1.cc:919
     {
     // This code is executed when we're about to start parsing
     // the content of the map
     ElementPtr m(new MapElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.push_back(m);
 }
-#line 863 "slaac_parser.cc" // lalr1.cc:919
+#line 898 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 33:
-#line 221 "slaac_parser.yy" // lalr1.cc:919
+  case 39:
+#line 251 "slaac_parser.yy" // lalr1.cc:919
     {
     // map parsing completed. If we ever want to do any wrap up
     // (maybe some sanity checking), this would be the best place
     // for it.
 }
-#line 873 "slaac_parser.cc" // lalr1.cc:919
+#line 908 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 37:
-#line 237 "slaac_parser.yy" // lalr1.cc:919
+  case 40:
+#line 258 "slaac_parser.yy" // lalr1.cc:919
     {
 
     // Let's create a MapElement that will represent it, add it to the
@@ -885,30 +920,30 @@ namespace isc { namespace slaac {
     ctx.stack_.push_back(m);
     ctx.enter(ctx.SLAAC);
 }
-#line 889 "slaac_parser.cc" // lalr1.cc:919
+#line 924 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 38:
-#line 247 "slaac_parser.yy" // lalr1.cc:919
+  case 41:
+#line 268 "slaac_parser.yy" // lalr1.cc:919
     {
     // Ok, we're done with parsing Slaac. Let's take the map
     // off the stack.
     ctx.stack_.pop_back();
     ctx.leave();
 }
-#line 900 "slaac_parser.cc" // lalr1.cc:919
+#line 935 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 55:
-#line 282 "slaac_parser.yy" // lalr1.cc:919
+  case 61:
+#line 302 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.enter(ctx.NO_KEYWORDS);
 }
-#line 908 "slaac_parser.cc" // lalr1.cc:919
+#line 943 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 56:
-#line 284 "slaac_parser.yy" // lalr1.cc:919
+  case 62:
+#line 304 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr parent = ctx.stack_.back();
     ElementPtr user_context = yystack_[0].value.as < ElementPtr > ();
@@ -931,95 +966,19 @@ namespace isc { namespace slaac {
     parent->set("user-context", user_context);
     ctx.leave();
 }
-#line 935 "slaac_parser.cc" // lalr1.cc:919
+#line 970 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 57:
-#line 307 "slaac_parser.yy" // lalr1.cc:919
-    {
-    ElementPtr i(new MapElement(ctx.loc2pos(yystack_[0].location)));
-    ctx.stack_.back()->set("interfaces-config", i);
-    ctx.stack_.push_back(i);
-    ctx.enter(ctx.INTERFACES_CONFIG);
-}
-#line 946 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 58:
-#line 312 "slaac_parser.yy" // lalr1.cc:919
-    {
-    // No interfaces config param is required
-    ctx.stack_.pop_back();
-    ctx.leave();
-}
-#line 956 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 65:
-#line 328 "slaac_parser.yy" // lalr1.cc:919
-    {
-    ElementPtr l(new ListElement(ctx.loc2pos(yystack_[0].location)));
-    ctx.stack_.back()->set("interfaces", l);
-    ctx.stack_.push_back(l);
-    ctx.enter(ctx.NO_KEYWORDS);
-}
-#line 967 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 66:
-#line 333 "slaac_parser.yy" // lalr1.cc:919
-    {
-    ctx.stack_.pop_back();
-    ctx.leave();
-}
-#line 976 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 67:
-#line 339 "slaac_parser.yy" // lalr1.cc:919
-    {
-    // List parsing about to start
-}
-#line 984 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 68:
-#line 341 "slaac_parser.yy" // lalr1.cc:919
-    {
-    // list parsing complete. Put any sanity checking here
-    //ctx.stack_.pop_back();
-}
-#line 993 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 71:
-#line 350 "slaac_parser.yy" // lalr1.cc:919
-    {
-                          ElementPtr s(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location)));
-                          ctx.stack_.back()->add(s);
-                          }
-#line 1002 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 72:
-#line 354 "slaac_parser.yy" // lalr1.cc:919
-    {
-                          ElementPtr s(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location)));
-                          ctx.stack_.back()->add(s);
-                          }
-#line 1011 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 73:
-#line 360 "slaac_parser.yy" // lalr1.cc:919
+  case 63:
+#line 327 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.enter(ctx.NO_KEYWORDS);
 }
-#line 1019 "slaac_parser.cc" // lalr1.cc:919
+#line 978 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 74:
-#line 362 "slaac_parser.yy" // lalr1.cc:919
+  case 64:
+#line 329 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr parent = ctx.stack_.back();
     ElementPtr user_context(new MapElement(ctx.loc2pos(yystack_[3].location)));
@@ -1044,280 +1003,420 @@ namespace isc { namespace slaac {
     parent->set("user-context", user_context);
     ctx.leave();
 }
-#line 1048 "slaac_parser.cc" // lalr1.cc:919
+#line 1007 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 75:
-#line 387 "slaac_parser.yy" // lalr1.cc:919
+  case 65:
+#line 354 "slaac_parser.yy" // lalr1.cc:919
     {
-    ElementPtr m(new MapElement(ctx.loc2pos(yystack_[0].location)));
-    ctx.stack_.back()->set("experimental", m);
-    ctx.stack_.push_back(m);
-    ctx.enter(ctx.EXPERIMENTAL);
+    ElementPtr i(new MapElement(ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("interfaces-config", i);
+    ctx.stack_.push_back(i);
+    ctx.enter(ctx.INTERFACES_CONFIG);
 }
-#line 1059 "slaac_parser.cc" // lalr1.cc:919
+#line 1018 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 76:
-#line 392 "slaac_parser.yy" // lalr1.cc:919
+  case 66:
+#line 359 "slaac_parser.yy" // lalr1.cc:919
+    {
+    // No interfaces config param is required
+    ctx.stack_.pop_back();
+    ctx.leave();
+}
+#line 1028 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 73:
+#line 375 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr l(new ListElement(ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("interfaces", l);
+    ctx.stack_.push_back(l);
+    ctx.enter(ctx.NO_KEYWORDS);
+}
+#line 1039 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 74:
+#line 380 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.stack_.pop_back();
     ctx.leave();
 }
-#line 1068 "slaac_parser.cc" // lalr1.cc:919
+#line 1048 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 80:
-#line 402 "slaac_parser.yy" // lalr1.cc:919
-    {
-    ElementPtr n(new BoolElement(yystack_[0].value.as < bool > (), ctx.loc2pos(yystack_[0].location)));
-    ctx.stack_.back()->set("universal-ra", n);
-}
-#line 1077 "slaac_parser.cc" // lalr1.cc:919
-    break;
-
-  case 81:
-#line 408 "slaac_parser.yy" // lalr1.cc:919
+  case 75:
+#line 385 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr hl(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("hop-limit", hl);
 }
-#line 1086 "slaac_parser.cc" // lalr1.cc:919
+#line 1057 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 82:
-#line 413 "slaac_parser.yy" // lalr1.cc:919
+  case 76:
+#line 390 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr f(new BoolElement(yystack_[0].value.as < bool > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("managed-flag", f);
 }
-#line 1095 "slaac_parser.cc" // lalr1.cc:919
+#line 1066 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 83:
-#line 418 "slaac_parser.yy" // lalr1.cc:919
+  case 77:
+#line 395 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr f(new BoolElement(yystack_[0].value.as < bool > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("other-flag", f);
 }
-#line 1104 "slaac_parser.cc" // lalr1.cc:919
+#line 1075 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 84:
-#line 423 "slaac_parser.yy" // lalr1.cc:919
+  case 78:
+#line 400 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr rl(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("router-lifetime", rl);
 }
-#line 1113 "slaac_parser.cc" // lalr1.cc:919
+#line 1084 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 85:
-#line 428 "slaac_parser.yy" // lalr1.cc:919
+  case 79:
+#line 405 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr rt(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("reachable-time", rt);
 }
-#line 1122 "slaac_parser.cc" // lalr1.cc:919
+#line 1093 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 86:
-#line 433 "slaac_parser.yy" // lalr1.cc:919
+  case 80:
+#line 410 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr rt(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("retrans-timer", rt);
 }
-#line 1131 "slaac_parser.cc" // lalr1.cc:919
+#line 1102 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 87:
-#line 443 "slaac_parser.yy" // lalr1.cc:919
+  case 81:
+#line 415 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr lla(new BoolElement(yystack_[0].value.as < bool > (), ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("source-ll-address", lla);
+}
+#line 1111 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 82:
+#line 420 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr mtu(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("mtu", mtu);
+}
+#line 1120 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 83:
+#line 426 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ctx.enter(ctx.NO_KEYWORDS);
+}
+#line 1128 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 84:
+#line 428 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ctx.stack_.back()->set("universal-ra", yystack_[0].value.as < ElementPtr > ());
+    ctx.leave();
+}
+#line 1137 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 85:
+#line 433 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr l(new LisElement(ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("prefix-infos", l);
+    ctx.stack_.push_back(l);
+}
+#line 1147 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 86:
+#line 437 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ctx.stack_.pop_back();
+    ctx.leave();
+}
+#line 1156 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 91:
+#line 450 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr m(new MapElement(ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->add(m);
+    ctx.stack_.push_back(m);
+}
+#line 1166 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 92:
+#line 454 "slaac_parser.yy" // lalr1.cc:919
+    {
+    // The prefix parameter is required
+    ctx.require("prefix", ctx.loc2pos(yystack_[3].location), ctx.loc2pos(yystack_[0].location));
+    ctx.stack_.pop_back();
+}
+#line 1176 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 103:
+#line 474 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ctx.enter(ctx.NO_KEYWORDS);
+}
+#line 1184 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 104:
+#line 476 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr pref(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("prefix", pref);
+    ctx.leave();
+}
+#line 1194 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 105:
+#line 482 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr f(new BoolElement(yystack_[0].value.as < bool > (), ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("on-link-flag", f);
+}
+#line 1203 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 106:
+#line 487 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr f(new BoolElement(yystack_[0].value.as < bool > (), ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("address-config-flag", f);
+}
+#line 1212 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 107:
+#line 492 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr rl(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("valid-lifetime", rl);
+}
+#line 1221 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 108:
+#line 497 "slaac_parser.yy" // lalr1.cc:919
+    {
+    ElementPtr rl(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
+    ctx.stack_.back()->set("preferred-lifetime", rl);
+}
+#line 1230 "slaac_parser.cc" // lalr1.cc:919
+    break;
+
+  case 109:
+#line 507 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr m(new MapElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("Logging", m);
     ctx.stack_.push_back(m);
     ctx.enter(ctx.LOGGING);
 }
-#line 1142 "slaac_parser.cc" // lalr1.cc:919
+#line 1241 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 88:
-#line 448 "slaac_parser.yy" // lalr1.cc:919
+  case 110:
+#line 512 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.stack_.pop_back();
     ctx.leave();
 }
-#line 1151 "slaac_parser.cc" // lalr1.cc:919
+#line 1250 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 92:
-#line 465 "slaac_parser.yy" // lalr1.cc:919
+  case 114:
+#line 529 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr l(new ListElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("loggers", l);
     ctx.stack_.push_back(l);
     ctx.enter(ctx.LOGGERS);
 }
-#line 1162 "slaac_parser.cc" // lalr1.cc:919
+#line 1261 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 93:
-#line 470 "slaac_parser.yy" // lalr1.cc:919
+  case 115:
+#line 534 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.stack_.pop_back();
     ctx.leave();
 }
-#line 1171 "slaac_parser.cc" // lalr1.cc:919
+#line 1270 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 96:
-#line 482 "slaac_parser.yy" // lalr1.cc:919
+  case 118:
+#line 546 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr l(new MapElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->add(l);
     ctx.stack_.push_back(l);
 }
-#line 1181 "slaac_parser.cc" // lalr1.cc:919
+#line 1280 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 97:
-#line 486 "slaac_parser.yy" // lalr1.cc:919
+  case 119:
+#line 550 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.stack_.pop_back();
 }
-#line 1189 "slaac_parser.cc" // lalr1.cc:919
+#line 1288 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 107:
-#line 503 "slaac_parser.yy" // lalr1.cc:919
+  case 129:
+#line 567 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.enter(ctx.NO_KEYWORDS);
 }
-#line 1197 "slaac_parser.cc" // lalr1.cc:919
+#line 1296 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 108:
-#line 505 "slaac_parser.yy" // lalr1.cc:919
+  case 130:
+#line 569 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr name(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("name", name);
     ctx.leave();
 }
-#line 1207 "slaac_parser.cc" // lalr1.cc:919
+#line 1306 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 109:
-#line 511 "slaac_parser.yy" // lalr1.cc:919
+  case 131:
+#line 575 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr dl(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("debuglevel", dl);
 }
-#line 1216 "slaac_parser.cc" // lalr1.cc:919
+#line 1315 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 110:
-#line 516 "slaac_parser.yy" // lalr1.cc:919
+  case 132:
+#line 580 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.enter(ctx.NO_KEYWORDS);
 }
-#line 1224 "slaac_parser.cc" // lalr1.cc:919
+#line 1323 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 111:
-#line 518 "slaac_parser.yy" // lalr1.cc:919
+  case 133:
+#line 582 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr sev(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("severity", sev);
     ctx.leave();
 }
-#line 1234 "slaac_parser.cc" // lalr1.cc:919
+#line 1333 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 112:
-#line 524 "slaac_parser.yy" // lalr1.cc:919
+  case 134:
+#line 588 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr l(new ListElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("output_options", l);
     ctx.stack_.push_back(l);
     ctx.enter(ctx.OUTPUT_OPTIONS);
 }
-#line 1245 "slaac_parser.cc" // lalr1.cc:919
+#line 1344 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 113:
-#line 529 "slaac_parser.yy" // lalr1.cc:919
+  case 135:
+#line 593 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.stack_.pop_back();
     ctx.leave();
 }
-#line 1254 "slaac_parser.cc" // lalr1.cc:919
+#line 1353 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 116:
-#line 538 "slaac_parser.yy" // lalr1.cc:919
+  case 138:
+#line 602 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr m(new MapElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->add(m);
     ctx.stack_.push_back(m);
 }
-#line 1264 "slaac_parser.cc" // lalr1.cc:919
+#line 1363 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 117:
-#line 542 "slaac_parser.yy" // lalr1.cc:919
+  case 139:
+#line 606 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.stack_.pop_back();
 }
-#line 1272 "slaac_parser.cc" // lalr1.cc:919
+#line 1371 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 124:
-#line 556 "slaac_parser.yy" // lalr1.cc:919
+  case 146:
+#line 620 "slaac_parser.yy" // lalr1.cc:919
     {
     ctx.enter(ctx.NO_KEYWORDS);
 }
-#line 1280 "slaac_parser.cc" // lalr1.cc:919
+#line 1379 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 125:
-#line 558 "slaac_parser.yy" // lalr1.cc:919
+  case 147:
+#line 622 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr sev(new StringElement(yystack_[0].value.as < std::string > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("output", sev);
     ctx.leave();
 }
-#line 1290 "slaac_parser.cc" // lalr1.cc:919
+#line 1389 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 126:
-#line 564 "slaac_parser.yy" // lalr1.cc:919
+  case 148:
+#line 628 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr flush(new BoolElement(yystack_[0].value.as < bool > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("flush", flush);
 }
-#line 1299 "slaac_parser.cc" // lalr1.cc:919
+#line 1398 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 127:
-#line 569 "slaac_parser.yy" // lalr1.cc:919
+  case 149:
+#line 633 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr maxsize(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("maxsize", maxsize);
 }
-#line 1308 "slaac_parser.cc" // lalr1.cc:919
+#line 1407 "slaac_parser.cc" // lalr1.cc:919
     break;
 
-  case 128:
-#line 574 "slaac_parser.yy" // lalr1.cc:919
+  case 150:
+#line 638 "slaac_parser.yy" // lalr1.cc:919
     {
     ElementPtr maxver(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("maxver", maxver);
 }
-#line 1317 "slaac_parser.cc" // lalr1.cc:919
+#line 1416 "slaac_parser.cc" // lalr1.cc:919
     break;
 
 
-#line 1321 "slaac_parser.cc" // lalr1.cc:919
+#line 1420 "slaac_parser.cc" // lalr1.cc:919
             default:
               break;
             }
@@ -1587,35 +1686,39 @@ namespace isc { namespace slaac {
   }
 
 
-  const signed char SlaacParser::yypact_ninf_ = -106;
+  const signed char SlaacParser::yypact_ninf_ = -118;
 
   const signed char SlaacParser::yytable_ninf_ = -1;
 
-  const signed char
+  const short
   SlaacParser::yypact_[] =
   {
-       6,  -106,  -106,  -106,     5,    -1,    16,    24,  -106,  -106,
-    -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,
-    -106,  -106,  -106,  -106,    -1,    11,     2,    -4,  -106,    47,
-      61,    73,    57,    68,  -106,    21,  -106,  -106,  -106,  -106,
-    -106,  -106,    74,    75,    77,    78,    79,    80,  -106,    81,
-    -106,    82,    83,  -106,  -106,  -106,  -106,  -106,  -106,  -106,
-    -106,  -106,  -106,  -106,  -106,  -106,    -1,    -1,  -106,    51,
-      84,     2,  -106,    85,    87,    88,    89,    62,    55,    56,
-      63,    64,    65,    92,  -106,  -106,    -4,  -106,  -106,    93,
-      91,  -106,    96,    97,    69,    99,  -106,  -106,  -106,  -106,
-    -106,  -106,   100,  -106,    -1,    -4,     8,  -106,  -106,  -106,
-      94,    90,  -106,   101,  -106,  -106,  -106,    22,  -106,  -106,
-    -106,   104,    52,  -106,  -106,  -106,    58,  -106,  -106,  -106,
-     107,     8,  -106,    76,    94,  -106,   108,    90,  -106,   111,
-    -106,  -106,  -106,   112,  -106,  -106,  -106,   106,    86,  -106,
-      66,  -106,  -106,   113,   115,    20,   106,  -106,  -106,    95,
-    -106,  -106,   116,  -106,  -106,  -106,  -106,    59,  -106,  -106,
-    -106,  -106,  -106,  -106,  -106,   117,   119,    98,   120,    20,
-    -106,   102,   121,  -106,   103,  -106,  -106,   118,  -106,  -106,
-      67,  -106,    27,   118,  -106,  -106,   123,   124,   125,    60,
-    -106,  -106,  -106,  -106,  -106,  -106,   126,   105,   109,   110,
-      27,  -106,   114,  -106,  -106,  -106,  -106,  -106
+      26,  -118,  -118,  -118,     8,    -2,    14,    15,  -118,  -118,
+    -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,
+    -118,  -118,  -118,  -118,    -2,   -13,    27,    93,  -118,    32,
+      51,    53,    47,    66,  -118,    64,  -118,  -118,  -118,    69,
+      70,    73,    74,    76,    77,    78,    79,  -118,  -118,  -118,
+      80,  -118,    81,    82,  -118,  -118,  -118,  -118,  -118,  -118,
+    -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,
+      -2,    -2,  -118,    45,    83,  -118,    87,    88,    89,    52,
+      48,    49,    54,    57,    58,    61,    75,   114,   116,   117,
+    -118,  -118,    93,  -118,  -118,   118,    90,   119,    84,   121,
+    -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,    -2,   120,
+     122,  -118,    -2,    93,  -118,  -118,  -118,     2,  -118,   123,
+     100,  -118,   124,  -118,  -118,  -118,  -118,     9,  -118,  -118,
+    -118,   127,   131,  -118,  -118,    12,  -118,  -118,  -118,   133,
+       2,  -118,     7,  -118,   123,   134,   100,  -118,   130,  -118,
+    -118,   135,   136,   137,   138,  -118,  -118,  -118,    43,  -118,
+    -118,  -118,  -118,  -118,  -118,  -118,   139,  -118,  -118,  -118,
+     141,    97,   101,   102,   104,     7,  -118,   142,   107,   108,
+    -118,  -118,  -118,  -118,  -118,  -118,    25,  -118,  -118,   146,
+     150,  -118,    28,   142,  -118,  -118,   111,  -118,  -118,   151,
+    -118,  -118,  -118,  -118,    44,  -118,  -118,  -118,  -118,  -118,
+    -118,  -118,   152,   153,   115,   154,    28,  -118,   125,   155,
+    -118,   126,  -118,  -118,   156,  -118,  -118,    50,  -118,   -28,
+     156,  -118,  -118,   157,   158,   160,    62,  -118,  -118,  -118,
+    -118,  -118,  -118,   161,   128,   129,   132,   -28,  -118,   140,
+    -118,  -118,  -118,  -118,  -118
   };
 
   const unsigned char
@@ -1623,141 +1726,160 @@ namespace isc { namespace slaac {
   {
        0,     2,     4,     6,     0,     0,     0,     0,     1,    25,
       18,    15,    14,    11,    12,    13,     3,    10,    16,    17,
-      32,     5,     8,     7,    27,    21,     0,    39,    29,     0,
-      28,     0,     0,    22,    37,     0,    34,    36,    57,    55,
-      73,    75,     0,     0,     0,     0,     0,     0,    87,     0,
-      54,     0,    40,    41,    52,    43,    53,    51,    45,    46,
-      47,    48,    49,    50,    44,    26,     0,     0,    19,     0,
-       0,     0,    33,     0,     0,     0,     0,     0,     0,     0,
-       0,     0,     0,     0,    31,     9,     0,    30,    23,     0,
-       0,    35,     0,     0,     0,     0,    81,    82,    83,    84,
-      85,    86,     0,    42,     0,    39,     0,    20,    56,    74,
-       0,     0,    24,     0,    65,    64,    62,     0,    59,    61,
-      63,     0,     0,    77,    79,    92,     0,    89,    91,    38,
-       0,     0,    58,     0,     0,    76,     0,     0,    88,     0,
-      60,    80,    78,     0,    90,    67,    66,     0,    69,    96,
-       0,    94,    71,     0,    70,     0,     0,    93,    68,     0,
-     107,   112,     0,   110,   106,   104,   105,     0,    98,   100,
-     102,   103,   101,    95,    72,     0,     0,     0,     0,     0,
-      97,     0,     0,   109,     0,    99,   108,     0,   111,   116,
-       0,   114,     0,     0,   113,   124,     0,     0,     0,     0,
-     118,   120,   121,   122,   123,   115,     0,     0,     0,     0,
-       0,   117,     0,   126,   127,   128,   119,   125
+      38,     5,     8,     7,    27,    21,     0,    42,    29,     0,
+      28,     0,     0,    22,    40,     0,    61,    63,    65,     0,
+       0,     0,     0,     0,     0,     0,     0,    83,    85,   109,
+       0,    60,     0,    43,    44,    58,    59,    46,    48,    49,
+      50,    51,    52,    53,    54,    55,    56,    57,    47,    26,
+       0,     0,    19,     0,     0,    39,     0,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,     0,
+      37,     9,     0,    30,    23,     0,     0,     0,     0,     0,
+      75,    76,    77,    78,    79,    80,    81,    82,     0,     0,
+       0,    45,     0,    42,    20,    62,    64,     0,    84,    87,
+       0,    24,     0,    73,    72,    70,    71,     0,    67,    69,
+      91,     0,    88,    89,   114,     0,   111,   113,    41,     0,
+       0,    66,     0,    86,     0,     0,     0,   110,     0,    68,
+     103,     0,     0,     0,     0,   102,   100,   101,     0,    93,
+      95,    96,    97,    98,    99,    90,     0,   112,    31,    74,
+       0,     0,     0,     0,     0,     0,    92,     0,    33,     0,
+     105,   106,   107,   108,    94,   118,     0,   116,    35,     0,
+      34,   104,     0,     0,   115,    32,     0,   129,   134,     0,
+     132,   128,   126,   127,     0,   120,   122,   124,   125,   123,
+     117,    36,     0,     0,     0,     0,     0,   119,     0,     0,
+     131,     0,   121,   130,     0,   133,   138,     0,   136,     0,
+       0,   135,   146,     0,     0,     0,     0,   140,   142,   143,
+     144,   145,   137,     0,     0,     0,     0,     0,   139,     0,
+     148,   149,   150,   141,   147
   };
 
   const signed char
   SlaacParser::yypgoto_[] =
   {
-    -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,   -24,    39,
-    -106,  -106,  -106,  -106,  -106,  -106,  -106,  -106,  -105,  -106,
-    -106,  -106,    70,  -106,  -106,    28,  -106,    48,  -104,  -106,
-    -106,  -106,  -106,     9,  -106,  -106,  -106,  -106,  -106,  -106,
-    -103,  -106,  -106,  -106,  -106,     3,  -106,  -106,  -106,  -106,
-    -106,  -106,  -106,  -106,  -106,  -106,    12,  -106,  -106,  -106,
-     -20,  -106,  -106,   -37,  -106,  -106,  -106,  -106,  -106,  -106,
-    -106,  -106,   -50,  -106,  -106,   -65,  -106,  -106,  -106,  -106,
-    -106
+    -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,   -22,    85,
+    -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,
+    -118,  -118,  -117,  -118,  -118,  -118,  -118,    11,  -118,    86,
+    -116,  -118,  -113,  -118,  -118,  -118,  -118,    30,  -118,  -118,
+    -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,  -118,
+    -118,  -118,  -118,  -118,    22,  -118,  -118,    -8,  -118,  -118,
+    -118,  -118,  -118,  -118,  -118,  -118,  -118,    29,  -118,  -118,
+    -118,   -21,  -118,  -118,   -45,  -118,  -118,  -118,  -118,  -118,
+    -118,  -118,  -118,   -53,  -118,  -118,   -68,  -118,  -118,  -118,
+    -118,  -118
   };
 
   const short
   SlaacParser::yydefgoto_[] =
   {
       -1,     4,     5,     6,     7,    23,    27,    16,    17,    18,
-      25,   108,    32,    33,    19,    24,    29,    30,    50,    21,
-      26,    35,    36,    37,    70,    51,    52,    53,    54,    74,
-      55,    73,   117,   118,   119,   130,   146,   148,   153,   154,
-      56,    75,    57,    76,   122,   123,   124,    58,    59,    60,
-      61,    62,    63,    64,    83,   126,   127,   128,   136,   150,
-     151,   155,   167,   168,   169,   175,   170,   171,   178,   172,
-     176,   190,   191,   192,   199,   200,   201,   206,   202,   203,
-     204
+      25,   115,    32,    33,    19,    24,    29,    30,   169,   178,
+     189,   190,    51,    21,    26,    35,    74,    52,    53,    54,
+      55,    76,    56,    77,    57,    78,   127,   128,   129,   139,
+      58,    59,    60,    61,    62,    63,    64,    65,    66,    87,
+      67,    88,   131,   132,   133,   142,   158,   159,   160,   170,
+     161,   162,   163,   164,    68,    89,   135,   136,   137,   145,
+     186,   187,   192,   204,   205,   206,   212,   207,   208,   215,
+     209,   213,   227,   228,   229,   236,   237,   238,   243,   239,
+     240,   241
   };
 
   const unsigned char
   SlaacParser::yytable_[] =
   {
-      28,   115,   116,   120,     9,     8,    10,    38,    11,    39,
-      40,    41,    34,    42,    43,    44,    45,    46,    47,    48,
-     114,    39,    40,    20,    71,   131,   115,   116,   120,    72,
-     132,    22,    49,    39,    40,    12,    13,    14,    15,     1,
-       2,     3,    87,    88,    49,   160,   161,    31,   162,   163,
-     164,   165,   166,    65,   195,   134,    49,   196,   197,   198,
-     135,   137,   179,   210,    66,    68,   138,   180,   211,   156,
-     193,    69,   157,   194,   164,   165,   166,    67,    77,    78,
-     112,    79,    80,    81,    82,    84,    86,    89,    90,    92,
-      85,    93,    94,    95,    97,    98,   102,   104,   105,    96,
-      99,   100,   101,   106,    10,   109,   110,   111,   133,   129,
-     121,   139,   143,   149,   125,   141,   145,   147,   159,   158,
-     177,   181,   152,   182,   184,   189,   187,   207,   208,   209,
-     212,   174,   107,   113,   103,   183,   173,   142,   186,   188,
-     140,    91,   185,   205,   213,   216,   214,   215,     0,   144,
-     217
+     124,   125,    28,     9,   126,    10,   232,    11,     8,   233,
+     234,   235,   140,    36,    37,   146,   123,   141,    36,    37,
+     147,    20,    22,   124,   125,   155,   156,   126,   193,   157,
+      31,   194,   150,   151,   152,   153,   154,    34,    69,    36,
+      37,    12,    13,    14,    15,    50,   175,   216,    93,    94,
+      50,   176,   217,   230,    70,    72,   231,    71,   155,   156,
+     197,   198,   157,   199,   200,   247,     1,     2,     3,    73,
+     248,    50,    75,    79,    80,   201,   202,    81,    82,   203,
+      83,    84,    85,    86,    90,    92,   118,    96,    95,    91,
+     121,    97,    98,    99,   101,   102,   100,   113,   103,   201,
+     202,   104,   105,   203,    36,    37,    38,   106,    39,    40,
+      41,    42,    43,    44,    45,    46,    47,    48,   108,   107,
+     109,   110,   112,    49,   122,   119,    10,   116,   117,   120,
+     130,   134,   138,   143,   144,   168,    50,   148,   166,   171,
+     172,   173,   174,   180,   177,   179,   182,   181,   183,   185,
+     188,   191,   195,   196,   211,   214,   218,   219,   221,   220,
+     224,   244,   245,   226,   246,   249,   165,   184,   223,   225,
+     149,   222,   210,   251,   250,   167,   252,   242,   111,   253,
+       0,     0,   114,   254
   };
 
   const short
   SlaacParser::yycheck_[] =
   {
-      24,   106,   106,   106,     5,     0,     7,    11,     9,    13,
-      14,    15,    10,    17,    18,    19,    20,    21,    22,    23,
-      12,    13,    14,     7,     3,     3,   131,   131,   131,     8,
-       8,     7,    36,    13,    14,    36,    37,    38,    39,    33,
-      34,    35,    66,    67,    36,    25,    26,    36,    28,    29,
-     155,   155,   155,     6,    27,     3,    36,    30,    31,    32,
-       8,     3,     3,     3,     3,     8,     8,     8,     8,     3,
-       3,     3,     6,     6,   179,   179,   179,     4,     4,     4,
-     104,     4,     4,     4,     4,     4,     3,    36,     4,     4,
-       8,     4,     4,     4,    39,    39,     4,     4,     7,    37,
-      37,    37,    37,     7,     7,    36,     7,     7,     4,     8,
-      16,     4,     4,     7,    24,    39,     5,     5,     3,     6,
-       4,     4,    36,     4,     4,     7,     5,     4,     4,     4,
-       4,    36,    93,   105,    86,    37,   156,   134,    36,    36,
-     131,    71,   179,   193,    39,   210,    37,    37,    -1,   137,
-      36
+     117,   117,    24,     5,   117,     7,    34,     9,     0,    37,
+      38,    39,     3,    11,    12,     3,    14,     8,    11,    12,
+       8,     7,     7,   140,   140,   142,   142,   140,     3,   142,
+      43,     6,    25,    26,    27,    28,    29,    10,     6,    11,
+      12,    43,    44,    45,    46,    43,     3,     3,    70,    71,
+      43,     8,     8,     3,     3,     8,     6,     4,   175,   175,
+      32,    33,   175,    35,    36,     3,    40,    41,    42,     3,
+       8,    43,     8,     4,     4,   192,   192,     4,     4,   192,
+       4,     4,     4,     4,     4,     3,   108,     4,    43,     8,
+     112,     4,     4,     4,    46,    46,    44,     7,    44,   216,
+     216,    44,    44,   216,    11,    12,    13,    46,    15,    16,
+      17,    18,    19,    20,    21,    22,    23,    24,     4,    44,
+       4,     4,     4,    30,   113,     5,     7,    43,     7,     7,
+       7,    31,     8,     6,     3,     5,    43,     4,     4,     4,
+       4,     4,     4,    46,     5,     4,    44,    46,    44,     7,
+      43,    43,     6,     3,    43,     4,     4,     4,     4,    44,
+       5,     4,     4,     7,     4,     4,   144,   175,    43,    43,
+     140,   216,   193,    44,    46,   146,    44,   230,    92,   247,
+      -1,    -1,    97,    43
   };
 
   const unsigned char
   SlaacParser::yystos_[] =
   {
-       0,    33,    34,    35,    41,    42,    43,    44,     0,     5,
-       7,     9,    36,    37,    38,    39,    47,    48,    49,    54,
-       7,    59,     7,    45,    55,    50,    60,    46,    48,    56,
-      57,    36,    52,    53,    10,    61,    62,    63,    11,    13,
-      14,    15,    17,    18,    19,    20,    21,    22,    23,    36,
-      58,    65,    66,    67,    68,    70,    80,    82,    87,    88,
-      89,    90,    91,    92,    93,     6,     3,     4,     8,     3,
-      64,     3,     8,    71,    69,    81,    83,     4,     4,     4,
-       4,     4,     4,    94,     4,     8,     3,    48,    48,    36,
-       4,    62,     4,     4,     4,     4,    37,    39,    39,    37,
-      37,    37,     4,    67,     4,     7,     7,    49,    51,    36,
-       7,     7,    48,    65,    12,    58,    68,    72,    73,    74,
-      80,    16,    84,    85,    86,    24,    95,    96,    97,     8,
-      75,     3,     8,     4,     3,     8,    98,     3,     8,     4,
-      73,    39,    85,     4,    96,     5,    76,     5,    77,     7,
-      99,   100,    36,    78,    79,   101,     3,     6,     6,     3,
-      25,    26,    28,    29,    58,    68,    80,   102,   103,   104,
-     106,   107,   109,   100,    36,   105,   110,     4,   108,     3,
-       8,     4,     4,    37,     4,   103,    36,     5,    36,     7,
-     111,   112,   113,     3,     6,    27,    30,    31,    32,   114,
-     115,   116,   118,   119,   120,   112,   117,     4,     4,     4,
-       3,     8,     4,    39,    37,    37,   115,    36
+       0,    40,    41,    42,    48,    49,    50,    51,     0,     5,
+       7,     9,    43,    44,    45,    46,    54,    55,    56,    61,
+       7,    70,     7,    52,    62,    57,    71,    53,    55,    63,
+      64,    43,    59,    60,    10,    72,    11,    12,    13,    15,
+      16,    17,    18,    19,    20,    21,    22,    23,    24,    30,
+      43,    69,    74,    75,    76,    77,    79,    81,    87,    88,
+      89,    90,    91,    92,    93,    94,    95,    97,   111,     6,
+       3,     4,     8,     3,    73,     8,    78,    80,    82,     4,
+       4,     4,     4,     4,     4,     4,     4,    96,    98,   112,
+       4,     8,     3,    55,    55,    43,     4,     4,     4,     4,
+      44,    46,    46,    44,    44,    44,    46,    44,     4,     4,
+       4,    76,     4,     7,    56,    58,    43,     7,    55,     5,
+       7,    55,    74,    14,    69,    77,    79,    83,    84,    85,
+       7,    99,   100,   101,    31,   113,   114,   115,     8,    86,
+       3,     8,   102,     6,     3,   116,     3,     8,     4,    84,
+      25,    26,    27,    28,    29,    69,    77,    79,   103,   104,
+     105,   107,   108,   109,   110,   101,     4,   114,     5,    65,
+     106,     4,     4,     4,     4,     3,     8,     5,    66,     4,
+      46,    46,    44,    44,   104,     7,   117,   118,    43,    67,
+      68,    43,   119,     3,     6,     6,     3,    32,    33,    35,
+      36,    69,    77,    79,   120,   121,   122,   124,   125,   127,
+     118,    43,   123,   128,     4,   126,     3,     8,     4,     4,
+      44,     4,   121,    43,     5,    43,     7,   129,   130,   131,
+       3,     6,    34,    37,    38,    39,   132,   133,   134,   136,
+     137,   138,   130,   135,     4,     4,     4,     3,     8,     4,
+      46,    44,    44,   133,    43
   };
 
   const unsigned char
   SlaacParser::yyr1_[] =
   {
-       0,    40,    42,    41,    43,    41,    44,    41,    46,    45,
-      47,    48,    48,    48,    48,    48,    48,    48,    50,    49,
-      51,    52,    52,    53,    53,    55,    54,    56,    56,    57,
-      57,    58,    60,    59,    61,    61,    62,    64,    63,    65,
-      65,    66,    66,    67,    67,    67,    67,    67,    67,    67,
-      67,    67,    67,    67,    67,    69,    68,    71,    70,    72,
-      72,    73,    73,    73,    73,    75,    74,    77,    76,    78,
-      78,    79,    79,    81,    80,    83,    82,    84,    84,    85,
-      86,    87,    88,    89,    90,    91,    92,    94,    93,    95,
-      95,    96,    98,    97,    99,    99,   101,   100,   102,   102,
-     103,   103,   103,   103,   103,   103,   103,   105,   104,   106,
-     108,   107,   110,   109,   111,   111,   113,   112,   114,   114,
-     115,   115,   115,   115,   117,   116,   118,   119,   120
+       0,    47,    49,    48,    50,    48,    51,    48,    53,    52,
+      54,    55,    55,    55,    55,    55,    55,    55,    57,    56,
+      58,    59,    59,    60,    60,    62,    61,    63,    63,    64,
+      64,    66,    65,    67,    67,    68,    68,    69,    71,    70,
+      73,    72,    74,    74,    75,    75,    76,    76,    76,    76,
+      76,    76,    76,    76,    76,    76,    76,    76,    76,    76,
+      76,    78,    77,    80,    79,    82,    81,    83,    83,    84,
+      84,    84,    84,    86,    85,    87,    88,    89,    90,    91,
+      92,    93,    94,    96,    95,    98,    97,    99,    99,   100,
+     100,   102,   101,   103,   103,   104,   104,   104,   104,   104,
+     104,   104,   104,   106,   105,   107,   108,   109,   110,   112,
+     111,   113,   113,   114,   116,   115,   117,   117,   119,   118,
+     120,   120,   121,   121,   121,   121,   121,   121,   121,   123,
+     122,   124,   126,   125,   128,   127,   129,   129,   131,   130,
+     132,   132,   133,   133,   133,   133,   135,   134,   136,   137,
+     138
   };
 
   const unsigned char
@@ -1766,16 +1888,19 @@ namespace isc { namespace slaac {
        0,     2,     0,     3,     0,     3,     0,     3,     0,     4,
        1,     1,     1,     1,     1,     1,     1,     1,     0,     4,
        1,     0,     1,     3,     5,     0,     4,     0,     1,     1,
-       3,     2,     0,     4,     1,     3,     1,     0,     6,     0,
-       1,     1,     3,     1,     1,     1,     1,     1,     1,     1,
-       1,     1,     1,     1,     1,     0,     4,     0,     6,     1,
-       3,     1,     1,     1,     1,     0,     4,     0,     4,     0,
-       1,     1,     3,     0,     4,     0,     6,     1,     3,     1,
-       3,     3,     3,     3,     3,     3,     3,     0,     6,     1,
-       3,     1,     0,     6,     1,     3,     0,     4,     1,     3,
-       1,     1,     1,     1,     1,     1,     1,     0,     4,     3,
-       0,     4,     0,     6,     1,     3,     0,     4,     1,     3,
-       1,     1,     1,     1,     0,     4,     3,     3,     3
+       3,     0,     4,     0,     1,     1,     3,     2,     0,     4,
+       0,     6,     0,     1,     1,     3,     1,     1,     1,     1,
+       1,     1,     1,     1,     1,     1,     1,     1,     1,     1,
+       1,     0,     4,     0,     4,     0,     6,     1,     3,     1,
+       1,     1,     1,     0,     4,     3,     3,     3,     3,     3,
+       3,     3,     3,     0,     4,     0,     6,     0,     1,     1,
+       3,     0,     4,     1,     3,     1,     1,     1,     1,     1,
+       1,     1,     1,     0,     4,     3,     3,     3,     3,     0,
+       6,     1,     3,     1,     0,     6,     1,     3,     0,     4,
+       1,     3,     1,     1,     1,     1,     1,     1,     1,     0,
+       4,     3,     0,     4,     0,     6,     1,     3,     0,     4,
+       1,     3,     1,     1,     1,     1,     0,     4,     3,     3,
+       3
   };
 
 
@@ -1786,32 +1911,37 @@ namespace isc { namespace slaac {
   const SlaacParser::yytname_[] =
   {
   "\"end of file\"", "error", "$undefined", "\",\"", "\":\"", "\"[\"",
-  "\"]\"", "\"{\"", "\"}\"", "\"null\"", "\"Slaac\"",
-  "\"interfaces-config\"", "\"interfaces\"", "\"user-context\"",
-  "\"comment\"", "\"experimental\"", "\"universal-ra\"", "\"hop-limit\"",
-  "\"managed-flag\"", "\"other-flag\"", "\"router-lifetime\"",
-  "\"reachable-time\"", "\"retrans-timer\"", "\"Logging\"", "\"loggers\"",
-  "\"name\"", "\"output_options\"", "\"output\"", "\"debuglevel\"",
-  "\"severity\"", "\"flush\"", "\"maxsize\"", "\"maxver\"", "START_JSON",
-  "START_SLAAC", "START_SUB_SLAAC", "\"constant string\"", "\"integer\"",
+  "\"]\"", "\"{\"", "\"}\"", "\"null\"", "\"Slaac\"", "\"user-context\"",
+  "\"comment\"", "\"interfaces-config\"", "\"interfaces\"",
+  "\"hop-limit\"", "\"managed-flag\"", "\"other-flag\"",
+  "\"router-lifetime\"", "\"reachable-time\"", "\"retrans-timer\"",
+  "\"source-ll-address\"", "\"mtu\"", "\"universal-ra\"",
+  "\"prefix-infos\"", "\"prefix\"", "\"on-link-flag\"",
+  "\"address-config-flag\"", "\"valid-lifetime\"",
+  "\"preferred-lifetime\"", "\"Logging\"", "\"loggers\"", "\"name\"",
+  "\"output_options\"", "\"output\"", "\"debuglevel\"", "\"severity\"",
+  "\"flush\"", "\"maxsize\"", "\"maxver\"", "START_JSON", "START_SLAAC",
+  "START_SUB_SLAAC", "\"constant string\"", "\"integer\"",
   "\"floating point\"", "\"boolean\"", "$accept", "start", "$@1", "$@2",
   "$@3", "sub_slaac", "$@4", "json", "value", "map", "$@5", "map_value",
   "map_content", "not_empty_map", "list_generic", "$@6", "list_content",
-  "not_empty_list", "unknown_map_entry", "slaac_syntax_map", "$@7",
-  "global_objects", "global_object", "slaac_object", "$@8",
-  "global_params", "not_empty_global_params", "global_param",
-  "user_context", "$@9", "interfaces_config", "$@10",
-  "interfaces_config_params", "interfaces_config_param", "interfaces_list",
-  "$@11", "list_strings", "$@12", "list_strings_content",
-  "not_empty_list_strings", "comment", "$@13", "experimental", "$@14",
-  "experimental_params", "experimental_param", "universal_ra", "hop_limit",
+  "not_empty_list", "list_strings", "$@7", "list_strings_content",
+  "not_empty_list_strings", "unknown_map_entry", "slaac_syntax_map", "$@8",
+  "slaac_object", "$@9", "global_params", "not_empty_global_params",
+  "global_param", "user_context", "$@10", "comment", "$@11",
+  "interfaces_config", "$@12", "interfaces_config_params",
+  "interfaces_config_param", "interfaces_list", "$@13", "hop_limit",
   "managed_flag", "other_flag", "router_lifetime", "reachable_time",
-  "retrans_timer", "logging_object", "$@15", "logging_params",
-  "logging_param", "loggers", "$@16", "loggers_entries", "logger_entry",
-  "$@17", "logger_params", "logger_param", "name", "$@18", "debuglevel",
-  "severity", "$@19", "output_options_list", "$@20",
-  "output_options_list_content", "output_entry", "$@21",
-  "output_params_list", "output_params", "output", "$@22", "flush",
+  "retrans_timer", "source_ll_address", "mtu", "universal_ra", "$@14",
+  "prefix_infos", "$@15", "prefix_info_list", "not_empty_prefix_info_list",
+  "prefix_info", "$@16", "prefix_info_params", "prefix_info_param",
+  "prefix", "$@17", "on_link_flag", "address_config_flag",
+  "valid_lifetime", "preferred_lifetime", "logging_object", "$@18",
+  "logging_params", "logging_param", "loggers", "$@19", "loggers_entries",
+  "logger_entry", "$@20", "logger_params", "logger_param", "name", "$@21",
+  "debuglevel", "severity", "$@22", "output_options_list", "$@23",
+  "output_options_list_content", "output_entry", "$@24",
+  "output_params_list", "output_params", "output", "$@25", "flush",
   "maxsize", "maxver", YY_NULLPTR
   };
 
@@ -1819,19 +1949,22 @@ namespace isc { namespace slaac {
   const unsigned short
   SlaacParser::yyrline_[] =
   {
-       0,   108,   108,   108,   109,   109,   110,   110,   118,   118,
-     129,   135,   136,   137,   138,   139,   140,   141,   145,   145,
-     156,   161,   162,   170,   174,   181,   181,   187,   188,   191,
-     195,   208,   216,   216,   228,   229,   233,   237,   237,   254,
-     255,   258,   259,   264,   265,   266,   267,   268,   269,   270,
-     271,   272,   277,   278,   279,   282,   282,   307,   307,   318,
-     319,   322,   323,   324,   325,   328,   328,   339,   339,   346,
-     347,   350,   354,   360,   360,   387,   387,   397,   398,   400,
-     402,   408,   413,   418,   423,   428,   433,   443,   443,   456,
-     457,   461,   465,   465,   477,   478,   482,   482,   490,   491,
-     494,   495,   496,   497,   498,   499,   500,   503,   503,   511,
-     516,   516,   524,   524,   534,   535,   538,   538,   546,   547,
-     550,   551,   552,   553,   556,   556,   564,   569,   574
+       0,   116,   116,   116,   117,   117,   118,   118,   126,   126,
+     137,   143,   144,   145,   146,   147,   148,   149,   153,   153,
+     164,   169,   170,   178,   182,   189,   189,   195,   196,   199,
+     203,   210,   210,   217,   218,   221,   225,   238,   246,   246,
+     258,   258,   275,   276,   279,   280,   285,   286,   287,   288,
+     289,   290,   291,   292,   293,   294,   295,   296,   297,   298,
+     299,   302,   302,   327,   327,   354,   354,   365,   366,   369,
+     370,   371,   372,   375,   375,   385,   390,   395,   400,   405,
+     410,   415,   420,   426,   426,   433,   433,   442,   443,   446,
+     447,   450,   450,   460,   461,   464,   465,   466,   467,   468,
+     469,   470,   471,   474,   474,   482,   487,   492,   497,   507,
+     507,   520,   521,   525,   529,   529,   541,   542,   546,   546,
+     554,   555,   558,   559,   560,   561,   562,   563,   564,   567,
+     567,   575,   580,   580,   588,   588,   598,   599,   602,   602,
+     610,   611,   614,   615,   616,   617,   620,   620,   628,   633,
+     638
   };
 
   // Print the state stack on the debug stream.
@@ -1866,8 +1999,8 @@ namespace isc { namespace slaac {
 
 #line 14 "slaac_parser.yy" // lalr1.cc:1242
 } } // isc::slaac
-#line 1870 "slaac_parser.cc" // lalr1.cc:1242
-#line 579 "slaac_parser.yy" // lalr1.cc:1243
+#line 2003 "slaac_parser.cc" // lalr1.cc:1242
+#line 643 "slaac_parser.yy" // lalr1.cc:1243
 
 
 void

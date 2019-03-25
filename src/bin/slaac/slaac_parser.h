@@ -453,35 +453,42 @@ namespace isc { namespace slaac {
         TOKEN_RCURLY_BRACKET = 263,
         TOKEN_NULL_TYPE = 264,
         TOKEN_SLAAC = 265,
-        TOKEN_INTERFACES_CONFIG = 266,
-        TOKEN_INTERFACES = 267,
-        TOKEN_USER_CONTEXT = 268,
-        TOKEN_COMMENT = 269,
-        TOKEN_EXPERIMENTAL = 270,
-        TOKEN_UNIVERSAL_RA = 271,
-        TOKEN_HOP_LIMIT = 272,
-        TOKEN_MANAGED_FLAG = 273,
-        TOKEN_OTHER_FLAG = 274,
-        TOKEN_ROUTER_LIFETIME = 275,
-        TOKEN_REACHABLE_TIME = 276,
-        TOKEN_RETRANS_TIMER = 277,
-        TOKEN_LOGGING = 278,
-        TOKEN_LOGGERS = 279,
-        TOKEN_NAME = 280,
-        TOKEN_OUTPUT_OPTIONS = 281,
-        TOKEN_OUTPUT = 282,
-        TOKEN_DEBUGLEVEL = 283,
-        TOKEN_SEVERITY = 284,
-        TOKEN_FLUSH = 285,
-        TOKEN_MAXSIZE = 286,
-        TOKEN_MAXVER = 287,
-        TOKEN_START_JSON = 288,
-        TOKEN_START_SLAAC = 289,
-        TOKEN_START_SUB_SLAAC = 290,
-        TOKEN_STRING = 291,
-        TOKEN_INTEGER = 292,
-        TOKEN_FLOAT = 293,
-        TOKEN_BOOLEAN = 294
+        TOKEN_USER_CONTEXT = 266,
+        TOKEN_COMMENT = 267,
+        TOKEN_INTERFACES_CONFIG = 268,
+        TOKEN_INTERFACES = 269,
+        TOKEN_HOP_LIMIT = 270,
+        TOKEN_MANAGED_FLAG = 271,
+        TOKEN_OTHER_FLAG = 272,
+        TOKEN_ROUTER_LIFETIME = 273,
+        TOKEN_REACHABLE_TIME = 274,
+        TOKEN_RETRANS_TIMER = 275,
+        TOKEN_SOURCE_LL_ADDRESS = 276,
+        TOKEN_MTU = 277,
+        TOKEN_UNIVERSAL_RA = 278,
+        TOKEN_PREFIX_INFOS = 279,
+        TOKEN_PREFIX = 280,
+        TOKEN_ON_LINK_FLAG = 281,
+        TOKEN_ADDRESS_CONFIG_FLAG = 282,
+        TOKEN_VALID_LIFETIME = 283,
+        TOKEN_PREFERRED_LIFETIME = 284,
+        TOKEN_LOGGING = 285,
+        TOKEN_LOGGERS = 286,
+        TOKEN_NAME = 287,
+        TOKEN_OUTPUT_OPTIONS = 288,
+        TOKEN_OUTPUT = 289,
+        TOKEN_DEBUGLEVEL = 290,
+        TOKEN_SEVERITY = 291,
+        TOKEN_FLUSH = 292,
+        TOKEN_MAXSIZE = 293,
+        TOKEN_MAXVER = 294,
+        TOKEN_START_JSON = 295,
+        TOKEN_START_SLAAC = 296,
+        TOKEN_START_SUB_SLAAC = 297,
+        TOKEN_STRING = 298,
+        TOKEN_INTEGER = 299,
+        TOKEN_FLOAT = 300,
+        TOKEN_BOOLEAN = 301
       };
     };
 
@@ -623,24 +630,24 @@ namespace isc { namespace slaac {
         // Type destructor.
 switch (yytype)
     {
-      case 48: // value
-      case 51: // map_value
+      case 55: // value
+      case 58: // map_value
         value.template destroy< ElementPtr > ();
         break;
 
-      case 39: // "boolean"
+      case 46: // "boolean"
         value.template destroy< bool > ();
         break;
 
-      case 38: // "floating point"
+      case 45: // "floating point"
         value.template destroy< double > ();
         break;
 
-      case 37: // "integer"
+      case 44: // "integer"
         value.template destroy< int64_t > ();
         break;
 
-      case 36: // "constant string"
+      case 43: // "constant string"
         value.template destroy< std::string > ();
         break;
 
@@ -723,13 +730,13 @@ switch (yytype)
       symbol_type (int tok, location_type l)
         : super_type(token_type (tok), std::move (l))
       {
-        YYASSERT (tok == token::TOKEN_END || tok == token::TOKEN_COMMA || tok == token::TOKEN_COLON || tok == token::TOKEN_LSQUARE_BRACKET || tok == token::TOKEN_RSQUARE_BRACKET || tok == token::TOKEN_LCURLY_BRACKET || tok == token::TOKEN_RCURLY_BRACKET || tok == token::TOKEN_NULL_TYPE || tok == token::TOKEN_SLAAC || tok == token::TOKEN_INTERFACES_CONFIG || tok == token::TOKEN_INTERFACES || tok == token::TOKEN_USER_CONTEXT || tok == token::TOKEN_COMMENT || tok == token::TOKEN_EXPERIMENTAL || tok == token::TOKEN_UNIVERSAL_RA || tok == token::TOKEN_HOP_LIMIT || tok == token::TOKEN_MANAGED_FLAG || tok == token::TOKEN_OTHER_FLAG || tok == token::TOKEN_ROUTER_LIFETIME || tok == token::TOKEN_REACHABLE_TIME || tok == token::TOKEN_RETRANS_TIMER || tok == token::TOKEN_LOGGING || tok == token::TOKEN_LOGGERS || tok == token::TOKEN_NAME || tok == token::TOKEN_OUTPUT_OPTIONS || tok == token::TOKEN_OUTPUT || tok == token::TOKEN_DEBUGLEVEL || tok == token::TOKEN_SEVERITY || tok == token::TOKEN_FLUSH || tok == token::TOKEN_MAXSIZE || tok == token::TOKEN_MAXVER || tok == token::TOKEN_START_JSON || tok == token::TOKEN_START_SLAAC || tok == token::TOKEN_START_SUB_SLAAC);
+        YYASSERT (tok == token::TOKEN_END || tok == token::TOKEN_COMMA || tok == token::TOKEN_COLON || tok == token::TOKEN_LSQUARE_BRACKET || tok == token::TOKEN_RSQUARE_BRACKET || tok == token::TOKEN_LCURLY_BRACKET || tok == token::TOKEN_RCURLY_BRACKET || tok == token::TOKEN_NULL_TYPE || tok == token::TOKEN_SLAAC || tok == token::TOKEN_USER_CONTEXT || tok == token::TOKEN_COMMENT || tok == token::TOKEN_INTERFACES_CONFIG || tok == token::TOKEN_INTERFACES || tok == token::TOKEN_HOP_LIMIT || tok == token::TOKEN_MANAGED_FLAG || tok == token::TOKEN_OTHER_FLAG || tok == token::TOKEN_ROUTER_LIFETIME || tok == token::TOKEN_REACHABLE_TIME || tok == token::TOKEN_RETRANS_TIMER || tok == token::TOKEN_SOURCE_LL_ADDRESS || tok == token::TOKEN_MTU || tok == token::TOKEN_UNIVERSAL_RA || tok == token::TOKEN_PREFIX_INFOS || tok == token::TOKEN_PREFIX || tok == token::TOKEN_ON_LINK_FLAG || tok == token::TOKEN_ADDRESS_CONFIG_FLAG || tok == token::TOKEN_VALID_LIFETIME || tok == token::TOKEN_PREFERRED_LIFETIME || tok == token::TOKEN_LOGGING || tok == token::TOKEN_LOGGERS || tok == token::TOKEN_NAME || tok == token::TOKEN_OUTPUT_OPTIONS || tok == token::TOKEN_OUTPUT || tok == token::TOKEN_DEBUGLEVEL || tok == token::TOKEN_SEVERITY || tok == token::TOKEN_FLUSH || tok == token::TOKEN_MAXSIZE || tok == token::TOKEN_MAXVER || tok == token::TOKEN_START_JSON || tok == token::TOKEN_START_SLAAC || tok == token::TOKEN_START_SUB_SLAAC);
       }
 #else
       symbol_type (int tok, const location_type& l)
         : super_type(token_type (tok), l)
       {
-        YYASSERT (tok == token::TOKEN_END || tok == token::TOKEN_COMMA || tok == token::TOKEN_COLON || tok == token::TOKEN_LSQUARE_BRACKET || tok == token::TOKEN_RSQUARE_BRACKET || tok == token::TOKEN_LCURLY_BRACKET || tok == token::TOKEN_RCURLY_BRACKET || tok == token::TOKEN_NULL_TYPE || tok == token::TOKEN_SLAAC || tok == token::TOKEN_INTERFACES_CONFIG || tok == token::TOKEN_INTERFACES || tok == token::TOKEN_USER_CONTEXT || tok == token::TOKEN_COMMENT || tok == token::TOKEN_EXPERIMENTAL || tok == token::TOKEN_UNIVERSAL_RA || tok == token::TOKEN_HOP_LIMIT || tok == token::TOKEN_MANAGED_FLAG || tok == token::TOKEN_OTHER_FLAG || tok == token::TOKEN_ROUTER_LIFETIME || tok == token::TOKEN_REACHABLE_TIME || tok == token::TOKEN_RETRANS_TIMER || tok == token::TOKEN_LOGGING || tok == token::TOKEN_LOGGERS || tok == token::TOKEN_NAME || tok == token::TOKEN_OUTPUT_OPTIONS || tok == token::TOKEN_OUTPUT || tok == token::TOKEN_DEBUGLEVEL || tok == token::TOKEN_SEVERITY || tok == token::TOKEN_FLUSH || tok == token::TOKEN_MAXSIZE || tok == token::TOKEN_MAXVER || tok == token::TOKEN_START_JSON || tok == token::TOKEN_START_SLAAC || tok == token::TOKEN_START_SUB_SLAAC);
+        YYASSERT (tok == token::TOKEN_END || tok == token::TOKEN_COMMA || tok == token::TOKEN_COLON || tok == token::TOKEN_LSQUARE_BRACKET || tok == token::TOKEN_RSQUARE_BRACKET || tok == token::TOKEN_LCURLY_BRACKET || tok == token::TOKEN_RCURLY_BRACKET || tok == token::TOKEN_NULL_TYPE || tok == token::TOKEN_SLAAC || tok == token::TOKEN_USER_CONTEXT || tok == token::TOKEN_COMMENT || tok == token::TOKEN_INTERFACES_CONFIG || tok == token::TOKEN_INTERFACES || tok == token::TOKEN_HOP_LIMIT || tok == token::TOKEN_MANAGED_FLAG || tok == token::TOKEN_OTHER_FLAG || tok == token::TOKEN_ROUTER_LIFETIME || tok == token::TOKEN_REACHABLE_TIME || tok == token::TOKEN_RETRANS_TIMER || tok == token::TOKEN_SOURCE_LL_ADDRESS || tok == token::TOKEN_MTU || tok == token::TOKEN_UNIVERSAL_RA || tok == token::TOKEN_PREFIX_INFOS || tok == token::TOKEN_PREFIX || tok == token::TOKEN_ON_LINK_FLAG || tok == token::TOKEN_ADDRESS_CONFIG_FLAG || tok == token::TOKEN_VALID_LIFETIME || tok == token::TOKEN_PREFERRED_LIFETIME || tok == token::TOKEN_LOGGING || tok == token::TOKEN_LOGGERS || tok == token::TOKEN_NAME || tok == token::TOKEN_OUTPUT_OPTIONS || tok == token::TOKEN_OUTPUT || tok == token::TOKEN_DEBUGLEVEL || tok == token::TOKEN_SEVERITY || tok == token::TOKEN_FLUSH || tok == token::TOKEN_MAXSIZE || tok == token::TOKEN_MAXVER || tok == token::TOKEN_START_JSON || tok == token::TOKEN_START_SLAAC || tok == token::TOKEN_START_SUB_SLAAC);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -959,36 +966,6 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_INTERFACES_CONFIG (location_type l)
-      {
-        return symbol_type (token::TOKEN_INTERFACES_CONFIG, std::move (l));
-      }
-#else
-      static
-      symbol_type
-      make_INTERFACES_CONFIG (const location_type& l)
-      {
-        return symbol_type (token::TOKEN_INTERFACES_CONFIG, l);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_INTERFACES (location_type l)
-      {
-        return symbol_type (token::TOKEN_INTERFACES, std::move (l));
-      }
-#else
-      static
-      symbol_type
-      make_INTERFACES (const location_type& l)
-      {
-        return symbol_type (token::TOKEN_INTERFACES, l);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
       make_USER_CONTEXT (location_type l)
       {
         return symbol_type (token::TOKEN_USER_CONTEXT, std::move (l));
@@ -1019,31 +996,31 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_EXPERIMENTAL (location_type l)
+      make_INTERFACES_CONFIG (location_type l)
       {
-        return symbol_type (token::TOKEN_EXPERIMENTAL, std::move (l));
+        return symbol_type (token::TOKEN_INTERFACES_CONFIG, std::move (l));
       }
 #else
       static
       symbol_type
-      make_EXPERIMENTAL (const location_type& l)
+      make_INTERFACES_CONFIG (const location_type& l)
       {
-        return symbol_type (token::TOKEN_EXPERIMENTAL, l);
+        return symbol_type (token::TOKEN_INTERFACES_CONFIG, l);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_UNIVERSAL_RA (location_type l)
+      make_INTERFACES (location_type l)
       {
-        return symbol_type (token::TOKEN_UNIVERSAL_RA, std::move (l));
+        return symbol_type (token::TOKEN_INTERFACES, std::move (l));
       }
 #else
       static
       symbol_type
-      make_UNIVERSAL_RA (const location_type& l)
+      make_INTERFACES (const location_type& l)
       {
-        return symbol_type (token::TOKEN_UNIVERSAL_RA, l);
+        return symbol_type (token::TOKEN_INTERFACES, l);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -1134,6 +1111,141 @@ switch (yytype)
       make_RETRANS_TIMER (const location_type& l)
       {
         return symbol_type (token::TOKEN_RETRANS_TIMER, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_SOURCE_LL_ADDRESS (location_type l)
+      {
+        return symbol_type (token::TOKEN_SOURCE_LL_ADDRESS, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_SOURCE_LL_ADDRESS (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_SOURCE_LL_ADDRESS, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_MTU (location_type l)
+      {
+        return symbol_type (token::TOKEN_MTU, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_MTU (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_MTU, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_UNIVERSAL_RA (location_type l)
+      {
+        return symbol_type (token::TOKEN_UNIVERSAL_RA, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_UNIVERSAL_RA (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_UNIVERSAL_RA, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_PREFIX_INFOS (location_type l)
+      {
+        return symbol_type (token::TOKEN_PREFIX_INFOS, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_PREFIX_INFOS (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_PREFIX_INFOS, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_PREFIX (location_type l)
+      {
+        return symbol_type (token::TOKEN_PREFIX, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_PREFIX (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_PREFIX, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_ON_LINK_FLAG (location_type l)
+      {
+        return symbol_type (token::TOKEN_ON_LINK_FLAG, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_ON_LINK_FLAG (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_ON_LINK_FLAG, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_ADDRESS_CONFIG_FLAG (location_type l)
+      {
+        return symbol_type (token::TOKEN_ADDRESS_CONFIG_FLAG, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_ADDRESS_CONFIG_FLAG (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_ADDRESS_CONFIG_FLAG, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_VALID_LIFETIME (location_type l)
+      {
+        return symbol_type (token::TOKEN_VALID_LIFETIME, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_VALID_LIFETIME (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_VALID_LIFETIME, l);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_PREFERRED_LIFETIME (location_type l)
+      {
+        return symbol_type (token::TOKEN_PREFERRED_LIFETIME, std::move (l));
+      }
+#else
+      static
+      symbol_type
+      make_PREFERRED_LIFETIME (const location_type& l)
+      {
+        return symbol_type (token::TOKEN_PREFERRED_LIFETIME, l);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -1429,7 +1541,7 @@ switch (yytype)
     // Tables.
   // YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
   // STATE-NUM.
-  static const signed char yypact_[];
+  static const short yypact_[];
 
   // YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
   // Performed when YYTABLE does not specify something else to do.  Zero
@@ -1697,12 +1809,12 @@ switch (yytype)
     enum
     {
       yyeof_ = 0,
-      yylast_ = 150,     ///< Last index in yytable_.
-      yynnts_ = 81,  ///< Number of nonterminal symbols.
+      yylast_ = 183,     ///< Last index in yytable_.
+      yynnts_ = 92,  ///< Number of nonterminal symbols.
       yyfinal_ = 8, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 40  ///< Number of tokens.
+      yyntokens_ = 47  ///< Number of tokens.
     };
 
 
@@ -1749,9 +1861,10 @@ switch (yytype)
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
-      35,    36,    37,    38,    39
+      35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
+      45,    46
     };
-    const unsigned user_token_number_max_ = 294;
+    const unsigned user_token_number_max_ = 301;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int> (t) <= yyeof_)
@@ -1772,24 +1885,24 @@ switch (yytype)
   {
     switch (this->type_get ())
     {
-      case 48: // value
-      case 51: // map_value
+      case 55: // value
+      case 58: // map_value
         value.move< ElementPtr > (std::move (that.value));
         break;
 
-      case 39: // "boolean"
+      case 46: // "boolean"
         value.move< bool > (std::move (that.value));
         break;
 
-      case 38: // "floating point"
+      case 45: // "floating point"
         value.move< double > (std::move (that.value));
         break;
 
-      case 37: // "integer"
+      case 44: // "integer"
         value.move< int64_t > (std::move (that.value));
         break;
 
-      case 36: // "constant string"
+      case 43: // "constant string"
         value.move< std::string > (std::move (that.value));
         break;
 
@@ -1808,24 +1921,24 @@ switch (yytype)
   {
     switch (this->type_get ())
     {
-      case 48: // value
-      case 51: // map_value
+      case 55: // value
+      case 58: // map_value
         value.copy< ElementPtr > (YY_MOVE (that.value));
         break;
 
-      case 39: // "boolean"
+      case 46: // "boolean"
         value.copy< bool > (YY_MOVE (that.value));
         break;
 
-      case 38: // "floating point"
+      case 45: // "floating point"
         value.copy< double > (YY_MOVE (that.value));
         break;
 
-      case 37: // "integer"
+      case 44: // "integer"
         value.copy< int64_t > (YY_MOVE (that.value));
         break;
 
-      case 36: // "constant string"
+      case 43: // "constant string"
         value.copy< std::string > (YY_MOVE (that.value));
         break;
 
@@ -1851,24 +1964,24 @@ switch (yytype)
     super_type::move (s);
     switch (this->type_get ())
     {
-      case 48: // value
-      case 51: // map_value
+      case 55: // value
+      case 58: // map_value
         value.move< ElementPtr > (YY_MOVE (s.value));
         break;
 
-      case 39: // "boolean"
+      case 46: // "boolean"
         value.move< bool > (YY_MOVE (s.value));
         break;
 
-      case 38: // "floating point"
+      case 45: // "floating point"
         value.move< double > (YY_MOVE (s.value));
         break;
 
-      case 37: // "integer"
+      case 44: // "integer"
         value.move< int64_t > (YY_MOVE (s.value));
         break;
 
-      case 36: // "constant string"
+      case 43: // "constant string"
         value.move< std::string > (YY_MOVE (s.value));
         break;
 
@@ -1939,14 +2052,15 @@ switch (yytype)
        0,   256,   257,   258,   259,   260,   261,   262,   263,   264,
      265,   266,   267,   268,   269,   270,   271,   272,   273,   274,
      275,   276,   277,   278,   279,   280,   281,   282,   283,   284,
-     285,   286,   287,   288,   289,   290,   291,   292,   293,   294
+     285,   286,   287,   288,   289,   290,   291,   292,   293,   294,
+     295,   296,   297,   298,   299,   300,   301
     };
     return token_type (yytoken_number_[type]);
   }
 
 #line 14 "slaac_parser.yy" // lalr1.cc:401
 } } // isc::slaac
-#line 1950 "slaac_parser.h" // lalr1.cc:401
+#line 2064 "slaac_parser.h" // lalr1.cc:401
 
 
 
