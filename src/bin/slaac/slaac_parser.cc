@@ -1139,7 +1139,7 @@ namespace isc { namespace slaac {
   case 85:
 #line 433 "slaac_parser.yy" // lalr1.cc:919
     {
-    ElementPtr l(new LisElement(ctx.loc2pos(yystack_[0].location)));
+    ElementPtr l(new ListElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("prefix-infos", l);
     ctx.stack_.push_back(l);
 }

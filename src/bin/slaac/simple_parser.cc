@@ -66,13 +66,13 @@ size_t SlaacSimpleParser::deriveParameters(ConstElementPtr /*global*/) {
 }
 
 void
-SlaacSimpleParser::parseExperimental(const SlaacConfigPtr& config,
+SlaacSimpleParser::parsePrefixInfos(const SlaacConfigPtr& config,
                                      const ConstElementPtr& json) {
     if (!json) {
         return;
     }
 
-    /// @todo: parse experimental structure
+    /// @todo: parse prefix info list
 }
 
 void
@@ -82,7 +82,7 @@ SlaacSimpleParser::parseInterfaces(const SlaacConfigPtr& config,
         return;
     }
 
-    /// @todo: parse interfaces
+    /// @todo: parse interfaces config
 }
 
 void
@@ -96,9 +96,9 @@ SlaacSimpleParser::parse(const SlaacConfigPtr& config,
     config->setReachableTime(getUint32(json, "reachable-time"));
     config->setRetransTime(getUint32(json, "retrans-timer"));
 
-    parseExperimental(config, json->get("experimental"));
+    parsePrefixInfos(config, json->get("prefix-infos"));
 
-    parseInterfaces(config, json->get("interfaces-list"));
+    parseInterfaces(config, json->get("interfaces-config"));
 
     // User context can be done at anytime.
     ConstElementPtr user_context = json->get("user-context");

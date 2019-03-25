@@ -431,7 +431,7 @@ universal_ra: UNIVERSAL_RA {
 };
 
 prefix_infos: PREFIX_INFOS {
-    ElementPtr l(new LisElement(ctx.loc2pos(@1)));
+    ElementPtr l(new ListElement(ctx.loc2pos(@1)));
     ctx.stack_.back()->set("prefix-infos", l);
     ctx.stack_.push_back(l);
 } COLON LSQUARE_BRACKET prefix_info_list RSQUARE_BRACKET {

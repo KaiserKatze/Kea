@@ -9,6 +9,8 @@
 #include <slaac/slaac_process.h>
 #include <slaac/slaac_controller.h>
 #include <slaac/slaac_log.h>
+#include <slaac/nd_pkt_rs.h>
+#include <slaac/nd_pkt_ra.h>
 #include <process/d_cfg_mgr.h>
 #include <asiolink/io_address.h>
 #include <asiolink/io_error.h>
@@ -21,9 +23,7 @@
 #include <boost/asio/ip/icmp.hpp>
 #include <boost/asio/ip/address_v6.hpp>
 #include <boost/asio/ip/address.hpp>
-
-#include "nd_pkt_rs.h"
-#include "nd_pkt_ra.h"
+#include <unistd.h>
 
 using namespace isc::asiolink;
 using namespace isc::process;
@@ -109,6 +109,7 @@ SlaacProcess::shutdown(isc::data::ConstElementPtr /*args*/) {
 RequestHandler::RequestHandler(boost::asio::io_service& io_service):
     socket_(io_service)
 {
+    if (geteuid() == 0) {
 //    boost::asio::ip::multicast::join_group mo(boost::asio::ip::address_v6::from_string("ff02::2"));
     socket_.open(boost::asio::ip::icmp::socket::protocol_type::v6());
     //socket_.set_option(odtone::net::ip::icmp::filter(true, ND_ROUTER_SOLICIT));
@@ -117,10 +118,12 @@ RequestHandler::RequestHandler(boost::asio::io_service& io_service):
     // struct ifreq ifr;
     // memset(&ifr, 0, sizeof(ifr));
     // strncpy(ifr.ifr_name, "enp0s10", sizeof(ifr.ifr_name) - 1);
+    // UNIVERSE != LINUX so NOT SO_BINDTODEVICE PLEASE!
     // if (setsockopt(socket_.native(), SOL_SOCKET, SO_BINDTODEVICE, (void *)&ifr, sizeof(ifr)) < 0) {
     //     //log_(0, "Cannot bind to specific interface.");
     //     throw("Cannot bind to specific interface.");
     // }
+    }
 
     buffer_.consume(buffer_.size());
 }

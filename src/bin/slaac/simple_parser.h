@@ -52,8 +52,8 @@ public:
                bool check_only);
 
  private:
-    void parseExperimental(const SlaacConfigPtr& config,
-                           const ConstElementPtr& json);
+    void parsePrefixInfos(const SlaacConfigPtr& config,
+                          const ConstElementPtr& json);
 
 
     void parseInterfaces(const SlaacConfigPtr& config,
