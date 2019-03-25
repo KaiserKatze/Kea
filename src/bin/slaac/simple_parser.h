@@ -51,7 +51,14 @@ public:
                const isc::data::ConstElementPtr& config,
                bool check_only);
 
- private:
+    // see simple_parser.cc for comments for those parameters
+    static const isc::data::SimpleKeywords SLAAC_PARAMETERS;
+    static const isc::data::SimpleDefaults SLAAC_DEFAULTS;
+    static const isc::data::SimpleRequiredKeywords PREFIX_INFO_REQUIRED;
+    static const isc::data::SimpleKeywords PREFIX_INFO_PARAMETERS;
+    static const isc::data::SimpleDefaults PREFIX_INFO_DEFAULTS;
+
+private:
     void parsePrefixInfos(const SlaacConfigPtr& config,
                           const ConstElementPtr& json);
 
@@ -59,8 +66,6 @@ public:
     void parseInterfaces(const SlaacConfigPtr& config,
                          const ConstElementPtr& json);
 
-    // see simple_parser.cc for comments for those parameters
-    static const isc::data::SimpleDefaults SLAAC_DEFAULTS;
 };
 
 };
