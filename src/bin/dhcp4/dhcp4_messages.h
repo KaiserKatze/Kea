@@ -1,4 +1,4 @@
-// File created from ../../../src/bin/dhcp4/dhcp4_messages.mes on Fri Feb 08 2019 20:32
+// File created from ../../../src/bin/dhcp4/dhcp4_messages.mes on Tue Mar 26 2019 18:38
 
 #ifndef DHCP4_MESSAGES_H
 #define DHCP4_MESSAGES_H
@@ -26,14 +26,17 @@ extern const isc::log::MessageID DHCP4_CLIENT_HOSTNAME_PROCESS;
 extern const isc::log::MessageID DHCP4_CLIENT_NAME_PROC_FAIL;
 extern const isc::log::MessageID DHCP4_COMMAND_RECEIVED;
 extern const isc::log::MessageID DHCP4_CONFIG_COMPLETE;
+extern const isc::log::MessageID DHCP4_CONFIG_DEPRECATED_OBJECT;
 extern const isc::log::MessageID DHCP4_CONFIG_FETCH;
 extern const isc::log::MessageID DHCP4_CONFIG_LOAD_FAIL;
 extern const isc::log::MessageID DHCP4_CONFIG_MERGED;
 extern const isc::log::MessageID DHCP4_CONFIG_NEW_SUBNET;
+extern const isc::log::MessageID DHCP4_CONFIG_OBSOLETE_OBJECT;
 extern const isc::log::MessageID DHCP4_CONFIG_OPTION_DUPLICATE;
 extern const isc::log::MessageID DHCP4_CONFIG_PACKET_QUEUE;
 extern const isc::log::MessageID DHCP4_CONFIG_RECEIVED;
 extern const isc::log::MessageID DHCP4_CONFIG_START;
+extern const isc::log::MessageID DHCP4_CONFIG_UNKNOWN_OBJECT;
 extern const isc::log::MessageID DHCP4_CONFIG_UPDATE;
 extern const isc::log::MessageID DHCP4_DB_RECONNECT_ATTEMPT_FAILED;
 extern const isc::log::MessageID DHCP4_DB_RECONNECT_ATTEMPT_SCHEDULE;

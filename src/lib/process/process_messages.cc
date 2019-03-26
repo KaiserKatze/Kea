@@ -1,4 +1,4 @@
-// File created from ../../../src/lib/process/process_messages.mes on Fri Feb 08 2019 20:30
+// File created from ../../../src/lib/process/process_messages.mes on Tue Mar 26 2019 18:35
 
 #include <cstddef>
 #include <log/message_types.h>
@@ -15,10 +15,13 @@ extern const isc::log::MessageID DCTL_CFG_FILE_RELOAD_SIGNAL_RECVD = "DCTL_CFG_F
 extern const isc::log::MessageID DCTL_COMMAND_RECEIVED = "DCTL_COMMAND_RECEIVED";
 extern const isc::log::MessageID DCTL_CONFIG_CHECK_COMPLETE = "DCTL_CONFIG_CHECK_COMPLETE";
 extern const isc::log::MessageID DCTL_CONFIG_COMPLETE = "DCTL_CONFIG_COMPLETE";
+extern const isc::log::MessageID DCTL_CONFIG_DEPRECATED_OBJECT = "DCTL_CONFIG_DEPRECATED_OBJECT";
 extern const isc::log::MessageID DCTL_CONFIG_FILE_LOAD_FAIL = "DCTL_CONFIG_FILE_LOAD_FAIL";
 extern const isc::log::MessageID DCTL_CONFIG_LOAD_FAIL = "DCTL_CONFIG_LOAD_FAIL";
+extern const isc::log::MessageID DCTL_CONFIG_OBSOLETE_OBJECT = "DCTL_CONFIG_OBSOLETE_OBJECT";
 extern const isc::log::MessageID DCTL_CONFIG_START = "DCTL_CONFIG_START";
 extern const isc::log::MessageID DCTL_CONFIG_STUB = "DCTL_CONFIG_STUB";
+extern const isc::log::MessageID DCTL_CONFIG_UNKNOWN_OBJECT = "DCTL_CONFIG_UNKNOWN_OBJECT";
 extern const isc::log::MessageID DCTL_CONFIG_UPDATE = "DCTL_CONFIG_UPDATE";
 extern const isc::log::MessageID DCTL_INIT_PROCESS = "DCTL_INIT_PROCESS";
 extern const isc::log::MessageID DCTL_INIT_PROCESS_FAIL = "DCTL_INIT_PROCESS_FAIL";
@@ -49,10 +52,13 @@ const char* values[] = {
     "DCTL_COMMAND_RECEIVED", "%1 received command: %2, arguments: %3",
     "DCTL_CONFIG_CHECK_COMPLETE", "server has completed configuration check: %1, result: %2",
     "DCTL_CONFIG_COMPLETE", "server has completed configuration: %1",
+    "DCTL_CONFIG_DEPRECATED_OBJECT", "server configuration includes a deprecated object: %1",
     "DCTL_CONFIG_FILE_LOAD_FAIL", "%1 reason: %2",
     "DCTL_CONFIG_LOAD_FAIL", "%1 configuration failed to load: %2",
+    "DCTL_CONFIG_OBSOLETE_OBJECT", "server configuration includes an obsolete object: %1",
     "DCTL_CONFIG_START", "parsing new configuration: %1",
     "DCTL_CONFIG_STUB", "%1 configuration stub handler called",
+    "DCTL_CONFIG_UNKNOWN_OBJECT", "server configuration includes an unknown object: %1",
     "DCTL_CONFIG_UPDATE", "%1 updated configuration received: %2",
     "DCTL_INIT_PROCESS", "%1 initializing the application",
     "DCTL_INIT_PROCESS_FAIL", "%1 application initialization failed: %2",
