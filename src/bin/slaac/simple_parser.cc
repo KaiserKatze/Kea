@@ -10,8 +10,8 @@
 #include <slaac/slaac_cfg_mgr.h>
 #include <cc/data.h>
 #include <cc/dhcp_config_error.h>
-#include <hooks/hooks_parser.h>
-#include <boost/foreach.hpp>
+#include <boost/algorithm/string.hpp>
+#include <boost/lexical_cast.hpp>
 
 using namespace isc::data;
 
@@ -120,13 +120,78 @@ size_t SlaacSimpleParser::deriveParameters(ConstElementPtr /*global*/) {
 }
 
 void
-SlaacSimpleParser::parsePrefixInfos(const SlaacConfigPtr& config,
-                                     const ConstElementPtr& json) {
-    if (!json) {
+SlaacSimpleParser::parsePrefixInfos(PrefixInfosConfig& config,
+                                    const ConstElementPtr& json) {
+    // Reset first the config.
+    config.clear();
+
+    // Skip no or empty config.
+    if (!json || json->empty()) {
         return;
     }
 
-    /// @todo: parse prefix info list
+    // Iterate on the list.
+    for (ElementPtr prefix_info_cfg : json->listValue()) {
+        config.push_back(parsePrefixInfo(prefix_info_cfg));
+    }
+}
+
+PrefixInfoConfigPtr
+SlaacSimpleParser::parsePrefixInfo(ElementPtr json) {
+    checkRequired(PREFIX_INFO_REQUIRED, json);
+
+    setDefaults(json, PREFIX_INFO_DEFAULTS);
+
+    checkKeywords(PREFIX_INFO_PARAMETERS, json);
+
+    // Decode the prefix.
+    std::string txt = json->get("prefix")->stringValue();
+
+    // first let's remove any whitespaces.
+    boost::erase_all(txt, " "); // space
+    boost::erase_all(txt, "\t"); // tabulation
+
+    isc::asiolink::IOAddress addr("::");
+    uint8_t len = 0;
+
+    try {
+        // Is this prefix/len notation?
+        size_t pos = txt.find("/");
+        if (pos == std::string::npos) {
+            isc_throw(ConfigError, "no / in prefix");
+        }
+
+        // Get address part.
+        addr = isc::asiolink::IOAddress(txt.substr(0, pos));
+
+        // Get length: start with the first character after /.
+        std::string prefix_len = txt.substr(pos + 1);
+
+        // It is lexical cast to int and then downcast to uint8_t.
+        // Direct cast to uint8_t (which is really an unsigned char)
+        // will result in interpreting the first digit as output
+        // value and throwing exception if length is written on two
+        // digits (because there are extra characters left over).
+        int val_len = boost::lexical_cast<int>(prefix_len);
+        if ((val_len < 0) || (val_len > 128)) {
+            isc_throw(OutOfRange, "prefix length not in allowed 0..128 range");
+        }
+        len = static_cast<uint8_t>(val_len);
+    } catch(const std::exception& ex) {
+        isc_throw(ConfigError, "Failed to parse prefix: " << txt
+                  << " (" << ex.what() << ")");
+    } catch (...) {
+        isc_throw(ConfigError, "Failed to parse prefix: " << txt);
+    }
+
+    PrefixInfoConfigPtr cfg(new PrefixInfoConfig(addr, len));
+
+    cfg->setOnLinkFlag(getBoolean(json, "on-link-flag"));
+    cfg->setAddrConfigFlag(getBoolean(json, "address-config-flag"));
+    cfg->setValidLifetime(getUint32(json, "valid-lifetime"));
+    cfg->setPreferredLifetime(getUint32(json, "preferred-lifetime"));
+
+    return (cfg);
 }
 
 void
@@ -157,7 +222,8 @@ SlaacSimpleParser::parse(const SlaacConfigPtr& config,
     config->setMtu(getUint32(json, "mtu"));
     config->setUnivRa(json->get("universal-ra"));
 
-    parsePrefixInfos(config, json->get("prefix-infos"));
+    parsePrefixInfos(config->getPrefixInfosConfig(),
+                     json->get("prefix-infos"));
 
     parseInterfaces(config, json->get("interfaces-config"));
 
