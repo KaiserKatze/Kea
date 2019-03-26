@@ -1142,6 +1142,7 @@ namespace isc { namespace slaac {
     ElementPtr l(new ListElement(ctx.loc2pos(yystack_[0].location)));
     ctx.stack_.back()->set("prefix-infos", l);
     ctx.stack_.push_back(l);
+    ctx.enter(ctx.PREFIX_INFOS);
 }
 #line 1147 "slaac_parser.cc" // lalr1.cc:919
     break;
