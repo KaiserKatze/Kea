@@ -2108,6 +2108,7 @@ YY_RULE_SETUP
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
+    case ParserContext::PREFIX_INFOS:
     case ParserContext::LOGGERS:
         return SlaacParser::make_USER_CONTEXT(driver.loc_);
     default:
@@ -2121,6 +2122,7 @@ YY_RULE_SETUP
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
+    case ParserContext::PREFIX_INFOS:
     case ParserContext::LOGGERS:
         return SlaacParser::make_COMMENT(driver.loc_);
     default:
