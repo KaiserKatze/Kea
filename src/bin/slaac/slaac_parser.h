@@ -1532,7 +1532,7 @@ switch (yytype)
     /// \param yyvalue   the value to check
     static bool yy_table_value_is_error_ (int yyvalue);
 
-    static const signed char yypact_ninf_;
+    static const short yypact_ninf_;
     static const signed char yytable_ninf_;
 
     /// Convert a scanner token number \a t to a symbol number.
@@ -1549,7 +1549,7 @@ switch (yytype)
   static const unsigned char yydefact_[];
 
   // YYPGOTO[NTERM-NUM].
-  static const signed char yypgoto_[];
+  static const short yypgoto_[];
 
   // YYDEFGOTO[NTERM-NUM].
   static const short yydefgoto_[];
@@ -1809,7 +1809,7 @@ switch (yytype)
     enum
     {
       yyeof_ = 0,
-      yylast_ = 183,     ///< Last index in yytable_.
+      yylast_ = 177,     ///< Last index in yytable_.
       yynnts_ = 92,  ///< Number of nonterminal symbols.
       yyfinal_ = 8, ///< Termination state number.
       yyterror_ = 1,

@@ -1526,11 +1526,11 @@ int yy_flex_debug = 1;
 static const flex_int16_t yy_rule_linenum[60] =
     {   0,
       133,  135,  137,  142,  143,  148,  149,  150,  162,  165,
-      170,  177,  186,  196,  206,  215,  224,  233,  242,  251,
-      260,  269,  278,  287,  296,  305,  314,  323,  332,  341,
-      350,  359,  368,  377,  386,  395,  404,  413,  422,  431,
-      440,  449,  548,  553,  558,  563,  564,  565,  566,  567,
-      568,  570,  588,  601,  606,  610,  612,  614,  616
+      170,  177,  186,  197,  208,  217,  226,  235,  244,  253,
+      262,  271,  280,  289,  298,  307,  316,  325,  334,  343,
+      352,  361,  370,  379,  388,  397,  406,  415,  424,  433,
+      442,  451,  550,  555,  560,  565,  566,  567,  568,  569,
+      570,  572,  590,  603,  608,  612,  614,  616,  618
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -2118,7 +2118,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 196 "slaac_lexer.ll"
+#line 197 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2132,7 +2132,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 206 "slaac_lexer.ll"
+#line 208 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2144,7 +2144,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 215 "slaac_lexer.ll"
+#line 217 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2156,7 +2156,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 224 "slaac_lexer.ll"
+#line 226 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2168,7 +2168,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 233 "slaac_lexer.ll"
+#line 235 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2180,7 +2180,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 242 "slaac_lexer.ll"
+#line 244 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2192,7 +2192,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 251 "slaac_lexer.ll"
+#line 253 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2204,7 +2204,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 260 "slaac_lexer.ll"
+#line 262 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2216,7 +2216,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 269 "slaac_lexer.ll"
+#line 271 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2228,7 +2228,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 278 "slaac_lexer.ll"
+#line 280 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2240,7 +2240,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 287 "slaac_lexer.ll"
+#line 289 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2252,7 +2252,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 296 "slaac_lexer.ll"
+#line 298 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::INTERFACES_CONFIG:
@@ -2264,7 +2264,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 305 "slaac_lexer.ll"
+#line 307 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2276,7 +2276,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 314 "slaac_lexer.ll"
+#line 316 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::PREFIX_INFOS:
@@ -2288,7 +2288,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 323 "slaac_lexer.ll"
+#line 325 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::PREFIX_INFOS:
@@ -2300,7 +2300,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 332 "slaac_lexer.ll"
+#line 334 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::PREFIX_INFOS:
@@ -2312,7 +2312,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 341 "slaac_lexer.ll"
+#line 343 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::PREFIX_INFOS:
@@ -2324,7 +2324,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 350 "slaac_lexer.ll"
+#line 352 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::PREFIX_INFOS:
@@ -2336,7 +2336,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 359 "slaac_lexer.ll"
+#line 361 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::SLAAC:
@@ -2348,7 +2348,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 368 "slaac_lexer.ll"
+#line 370 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::LOGGING:
@@ -2360,7 +2360,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 377 "slaac_lexer.ll"
+#line 379 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::LOGGERS:
@@ -2372,7 +2372,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 386 "slaac_lexer.ll"
+#line 388 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::LOGGERS:
@@ -2384,7 +2384,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 395 "slaac_lexer.ll"
+#line 397 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::OUTPUT_OPTIONS:
@@ -2396,7 +2396,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 404 "slaac_lexer.ll"
+#line 406 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::OUTPUT_OPTIONS:
@@ -2408,7 +2408,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 413 "slaac_lexer.ll"
+#line 415 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::OUTPUT_OPTIONS:
@@ -2420,7 +2420,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 422 "slaac_lexer.ll"
+#line 424 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::OUTPUT_OPTIONS:
@@ -2432,7 +2432,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 431 "slaac_lexer.ll"
+#line 433 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::LOGGERS:
@@ -2444,7 +2444,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 440 "slaac_lexer.ll"
+#line 442 "slaac_lexer.ll"
 {
     switch(driver.ctx_) {
     case ParserContext::LOGGERS:
@@ -2456,7 +2456,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 449 "slaac_lexer.ll"
+#line 451 "slaac_lexer.ll"
 {
     /* A string has been matched. It contains the actual string and single quotes.
        We need to get those quotes out of the way and just use its content, e.g.
@@ -2559,7 +2559,7 @@ YY_RULE_SETUP
 case 43:
 /* rule 43 can match eol */
 YY_RULE_SETUP
-#line 548 "slaac_lexer.ll"
+#line 550 "slaac_lexer.ll"
 {
     /* Bad string with a forbidden control character inside */
     driver.error(driver.loc_, "Invalid control in " + std::string(yytext));
@@ -2568,7 +2568,7 @@ YY_RULE_SETUP
 case 44:
 /* rule 44 can match eol */
 YY_RULE_SETUP
-#line 553 "slaac_lexer.ll"
+#line 555 "slaac_lexer.ll"
 {
     /* Bad string with a bad escape inside */
     driver.error(driver.loc_, "Bad escape in " + std::string(yytext));
@@ -2576,7 +2576,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 558 "slaac_lexer.ll"
+#line 560 "slaac_lexer.ll"
 {
     /* Bad string with an open escape at the end */
     driver.error(driver.loc_, "Overflow escape in " + std::string(yytext));
@@ -2584,37 +2584,37 @@ YY_RULE_SETUP
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 563 "slaac_lexer.ll"
+#line 565 "slaac_lexer.ll"
 { return SlaacParser::make_LSQUARE_BRACKET(driver.loc_); }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 564 "slaac_lexer.ll"
+#line 566 "slaac_lexer.ll"
 { return SlaacParser::make_RSQUARE_BRACKET(driver.loc_); }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 565 "slaac_lexer.ll"
+#line 567 "slaac_lexer.ll"
 { return SlaacParser::make_LCURLY_BRACKET(driver.loc_); }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 566 "slaac_lexer.ll"
+#line 568 "slaac_lexer.ll"
 { return SlaacParser::make_RCURLY_BRACKET(driver.loc_); }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 567 "slaac_lexer.ll"
+#line 569 "slaac_lexer.ll"
 { return SlaacParser::make_COMMA(driver.loc_); }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 568 "slaac_lexer.ll"
+#line 570 "slaac_lexer.ll"
 { return SlaacParser::make_COLON(driver.loc_); }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 570 "slaac_lexer.ll"
+#line 572 "slaac_lexer.ll"
 {
     /* An integer was found. */
     std::string tmp(yytext);
@@ -2635,7 +2635,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 588 "slaac_lexer.ll"
+#line 590 "slaac_lexer.ll"
 {
     /* A floating point was found. */
     std::string tmp(yytext);
@@ -2651,7 +2651,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 601 "slaac_lexer.ll"
+#line 603 "slaac_lexer.ll"
 {
     string tmp(yytext);
     return SlaacParser::make_BOOLEAN(tmp == "true", driver.loc_);
@@ -2659,33 +2659,33 @@ YY_RULE_SETUP
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 606 "slaac_lexer.ll"
+#line 608 "slaac_lexer.ll"
 {
    return SlaacParser::make_NULL_TYPE(driver.loc_);
 }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 610 "slaac_lexer.ll"
+#line 612 "slaac_lexer.ll"
 driver.error (driver.loc_, "JSON true reserved keyword is lower case only");
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 612 "slaac_lexer.ll"
+#line 614 "slaac_lexer.ll"
 driver.error (driver.loc_, "JSON false reserved keyword is lower case only");
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 614 "slaac_lexer.ll"
+#line 616 "slaac_lexer.ll"
 driver.error (driver.loc_, "JSON null reserved keyword is lower case only");
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 616 "slaac_lexer.ll"
+#line 618 "slaac_lexer.ll"
 driver.error (driver.loc_, "Invalid character: " + std::string(yytext));
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 618 "slaac_lexer.ll"
+#line 620 "slaac_lexer.ll"
 {
     if (driver.states_.empty()) {
         return SlaacParser::make_END(driver.loc_);
@@ -2711,10 +2711,10 @@ case YY_STATE_EOF(INITIAL):
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 641 "slaac_lexer.ll"
+#line 643 "slaac_lexer.ll"
 ECHO;
 	YY_BREAK
-#line 2715 "slaac_lexer.cc"
+#line 2717 "slaac_lexer.cc"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -3819,7 +3819,7 @@ void yyfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 641 "slaac_lexer.ll"
+#line 643 "slaac_lexer.ll"
 
 
 using namespace isc::dhcp;
