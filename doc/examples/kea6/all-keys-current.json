@@ -722,7 +722,11 @@
         "reservation-mode": "all",
 
         // Data directory.
-        "data-directory": "/tmp"
+        "data-directory": "/tmp",
+
+	// Reconfigure feature flag.
+	"enable-reconfiguration": true
+
     },
 
     // Logging configuration begins here.

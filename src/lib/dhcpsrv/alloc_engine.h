@@ -1,4 +1,4 @@
-// Copyright (C) 2012-2018 Internet Systems Consortium, Inc. ("ISC")
+// Copyright (C) 2012-2019 Internet Systems Consortium, Inc. ("ISC")
 //
 // This Source Code Form is subject to the terms of the Mozilla Public
 // License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -381,7 +381,7 @@ public:
         Lease6Collection new_leases_;
 
         /// @brief Holds if client contains reconfigure accept option
-        bool support_reconfig;
+        bool support_reconfig_;
 
         //@}
 

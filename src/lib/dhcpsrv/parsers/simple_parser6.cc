@@ -66,7 +66,8 @@ const SimpleKeywords SimpleParser6::GLOBAL6_PARAMETERS = {
     { "reservations",                 Element::list },
     { "config-control",               Element::map },
     { "server-tag",                   Element::string },
-    { "reservation-mode",             Element::string }
+    { "reservation-mode",             Element::string },
+    { "enable-reconfiguration",       Element::boolean }
 };
 
 /// @brief This table defines default values for option definitions in DHCPv6.
