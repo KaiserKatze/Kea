@@ -961,6 +961,10 @@ CREATE TRIGGER dhcp6_options_ADEL AFTER DELETE ON dhcp6_options
     END $$
 DELIMITER ;
 
+# Put the auth key in hexadecimal (double size but far more user friendly).
+ALTER TABLE hosts
+    MODIFY COLUMN auth_key VARCHAR(32) NULL;
+
 
 # Update the schema version number
 UPDATE schema_version
