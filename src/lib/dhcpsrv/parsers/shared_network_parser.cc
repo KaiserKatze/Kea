@@ -199,11 +199,8 @@ SharedNetwork6Parser::parse(const data::ConstElementPtr& shared_network_data) {
         parseCommonTimers(shared_network_data, network);
 
         // preferred-lifetime
-        Triplet<uint32_t> preferred;
-        if (shared_network_data->contains("preferred-lifetime")) {
-            shared_network->setPreferred(getInteger(shared_network_data,
-                                                    "preferred-lifetime"));
-        }
+        shared_network->setPreferred(parseLifetime(shared_network_data,
+                                                   "preferred-lifetime"));
 
         // Interface is an optional parameter
         if (shared_network_data->contains("interface")) {
