@@ -1088,7 +1088,7 @@ namespace isc { namespace dhcp {
 #line 509 "dhcp6_parser.yy" // lalr1.cc:919
     {
     ElementPtr prf(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
-    ctx.stack_.back()->set("preferred-lifetime", prf);
+    ctx.stack_.back()->set("default-preferred-lifetime", prf);
 }
 #line 1094 "dhcp6_parser.cc" // lalr1.cc:919
     break;
@@ -1124,7 +1124,7 @@ namespace isc { namespace dhcp {
 #line 529 "dhcp6_parser.yy" // lalr1.cc:919
     {
     ElementPtr prf(new IntElement(yystack_[0].value.as < int64_t > (), ctx.loc2pos(yystack_[0].location)));
-    ctx.stack_.back()->set("valid-lifetime", prf);
+    ctx.stack_.back()->set("default-valid-lifetime", prf);
 }
 #line 1130 "dhcp6_parser.cc" // lalr1.cc:919
     break;
